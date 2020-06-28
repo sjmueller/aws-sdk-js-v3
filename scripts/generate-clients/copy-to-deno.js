@@ -194,7 +194,9 @@ async function denoifyTsFile(file, depth) {
             } else if (importfrom === "buffer") {
               //...
             } else if (importfrom === "@aws-crypto/crc32") {
-              //...
+              replaced = `${match[1]}from "https://jspm.dev/@aws-crypto/crc32";`;
+              output.push(replaced);
+              continue;
             } else if (importfrom === "http2") {
               //...
             } else if (importfrom === "https") {

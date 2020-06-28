@@ -1,8 +1,8 @@
 import { HeaderMarshaller } from "./HeaderMarshaller.ts";
 import { splitMessage } from "./splitMessage.ts";
 import { Message, MessageHeaders } from "../types/mod.ts";
-import { Crc32 } from "@aws-crypto/crc32.ts";
-import { Decoder, Encoder } from "../types/mod.ts";
+import { Crc32 } from "https://jspm.dev/@aws-crypto/crc32";
+import { Decoder, Encoder } from "@aws-sdk/types";
 
 /**
  * A marshaller that can convert binary-packed event stream messages into
