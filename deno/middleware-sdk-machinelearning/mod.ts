@@ -1,1 +1,1 @@
-export * from "./predict-endpoint";
+export * from "./predict-endpoint.ts";

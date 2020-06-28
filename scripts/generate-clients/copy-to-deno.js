@@ -99,12 +99,18 @@ async function denoifyTsFile(file, depth) {
         state = "import";
       }
     }
+    if (state === "nothing") {
+      const match = line.match(/^[ ]*export/);
+      if (match) {
+        state = "export";
+      }
+    }
 
-    if (state === "import") {
+    if (state === "import" || state === "export") {
       const match = line.match(/^(.*)from[ ]+("|')([^"']+)("|');/);
       if (match) {
-        state = "import_from";
-        importfrom = match[3];
+        state = "import/export from";
+        const importfrom = match[3];
 
         const importFromAWSSDKmatch = importfrom.match(/@aws-sdk\/(.*)/);
         if (importFromAWSSDKmatch) {

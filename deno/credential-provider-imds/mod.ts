@@ -1,3 +1,3 @@
-export * from "./fromContainerMetadata";
-export * from "./fromInstanceMetadata";
-export * from "./remoteProvider/RemoteProviderInit";
+export * from "./fromContainerMetadata.ts";
+export * from "./fromInstanceMetadata.ts";
+export * from "./remoteProvider/RemoteProviderInit.ts";

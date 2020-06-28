@@ -1,1 +1,1 @@
-export * from "./prepend-account-id";
+export * from "./prepend-account-id.ts";

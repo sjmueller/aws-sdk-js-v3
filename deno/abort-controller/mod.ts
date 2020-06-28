@@ -1,2 +1,2 @@
-export * from "./AbortController";
-export * from "./AbortSignal";
+export * from "./AbortController.ts";
+export * from "./AbortSignal.ts";

@@ -1,3 +1,3 @@
-export * from "./provider";
-export * from "./EventStreamMarshaller";
-export * from "./utils";
+export * from "./provider.ts";
+export * from "./EventStreamMarshaller.ts";
+export * from "./utils.ts";

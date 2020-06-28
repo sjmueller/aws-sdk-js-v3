@@ -1,1 +1,1 @@
-export * from "./MiddlewareStack";
+export * from "./MiddlewareStack.ts";

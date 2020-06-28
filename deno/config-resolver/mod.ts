@@ -1,2 +1,2 @@
-export * from "./EndpointsConfig";
-export * from "./RegionConfig";
+export * from "./EndpointsConfig.ts";
+export * from "./RegionConfig.ts";

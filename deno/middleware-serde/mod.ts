@@ -1,3 +1,3 @@
-export * from "./deserializerMiddleware";
-export * from "./serializerMiddleware";
-export * from "./serdePlugin";
+export * from "./deserializerMiddleware.ts";
+export * from "./serializerMiddleware.ts";
+export * from "./serdePlugin.ts";

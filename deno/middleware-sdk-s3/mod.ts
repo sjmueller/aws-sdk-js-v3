@@ -1,1 +1,1 @@
-export * from "./validate-bucket-name";
+export * from "./validate-bucket-name.ts";

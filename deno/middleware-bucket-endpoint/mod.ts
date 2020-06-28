@@ -1,3 +1,3 @@
-export * from "./bucketEndpointMiddleware";
-export * from "./bucketHostname";
-export * from "./configurations";
+export * from "./bucketEndpointMiddleware.ts";
+export * from "./bucketHostname.ts";
+export * from "./configurations.ts";

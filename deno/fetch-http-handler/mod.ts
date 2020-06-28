@@ -1,2 +1,2 @@
-export * from "./fetch-http-handler";
-export * from "./stream-collector";
+export * from "./fetch-http-handler.ts";
+export * from "./stream-collector.ts";
