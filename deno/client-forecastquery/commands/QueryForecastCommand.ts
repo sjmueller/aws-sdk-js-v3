@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastqueryClientResolvedConfig
 } from "../forecastqueryClient.ts";
-import {
-  QueryForecastRequest,
-  QueryForecastResponse
-} from "../models/index.ts";
+import { QueryForecastRequest, QueryForecastResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1QueryForecastCommand,
   serializeAws_json1_1QueryForecastCommand

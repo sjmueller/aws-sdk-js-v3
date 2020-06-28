@@ -1,7 +1,4 @@
-import {
-  StopDiscovererRequest,
-  StopDiscovererResponse
-} from "../models/index.ts";
+import { StopDiscovererRequest, StopDiscovererResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StopDiscovererCommand,
   serializeAws_restJson1StopDiscovererCommand

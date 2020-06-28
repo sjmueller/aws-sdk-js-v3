@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient.ts";
-import {
-  CreateForecastRequest,
-  CreateForecastResponse
-} from "../models/index.ts";
+import { CreateForecastRequest, CreateForecastResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateForecastCommand,
   serializeAws_json1_1CreateForecastCommand

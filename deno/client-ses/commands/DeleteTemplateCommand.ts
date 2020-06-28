@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SESClient.ts";
-import {
-  DeleteTemplateRequest,
-  DeleteTemplateResponse
-} from "../models/index.ts";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteTemplateCommand,
   serializeAws_queryDeleteTemplateCommand

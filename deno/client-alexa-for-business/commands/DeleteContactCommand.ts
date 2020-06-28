@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  DeleteContactRequest,
-  DeleteContactResponse
-} from "../models/index.ts";
+import { DeleteContactRequest, DeleteContactResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteContactCommand,
   serializeAws_json1_1DeleteContactCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient.ts";
-import {
-  RegisterDeviceRequest,
-  RegisterDeviceResponse
-} from "../models/index.ts";
+import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1RegisterDeviceCommand,
   serializeAws_restJson1RegisterDeviceCommand

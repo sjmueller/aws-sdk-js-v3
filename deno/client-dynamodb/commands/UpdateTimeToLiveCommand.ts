@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient.ts";
-import {
-  UpdateTimeToLiveInput,
-  UpdateTimeToLiveOutput
-} from "../models/index.ts";
+import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0UpdateTimeToLiveCommand,
   serializeAws_json1_0UpdateTimeToLiveCommand

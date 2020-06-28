@@ -1,9 +1,6 @@
 import { name, version } from "./package.json.ts";
-import { Sha256 } from "@aws-crypto/sha256-browser.ts";
-import {
-  FetchHttpHandler,
-  streamCollector
-} from "../fetch-http-handler/mod.ts";
+import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";
+import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
 import { invalidFunction } from "../invalid-dependency/mod.ts";
 import { parseUrl } from "../url-parser-browser/mod.ts";
 import { fromBase64, toBase64 } from "../util-base64-browser/mod.ts";

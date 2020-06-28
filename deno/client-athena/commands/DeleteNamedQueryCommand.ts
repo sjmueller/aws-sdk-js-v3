@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AthenaClient.ts";
-import {
-  DeleteNamedQueryInput,
-  DeleteNamedQueryOutput
-} from "../models/index.ts";
+import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteNamedQueryCommand,
   serializeAws_json1_1DeleteNamedQueryCommand

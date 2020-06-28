@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient.ts";
-import {
-  DeleteChannelRequest,
-  DeleteChannelResponse
-} from "../models/index.ts";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand

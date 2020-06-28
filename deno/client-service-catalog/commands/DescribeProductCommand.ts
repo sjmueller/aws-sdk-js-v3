@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient.ts";
-import {
-  DescribeProductInput,
-  DescribeProductOutput
-} from "../models/index.ts";
+import { DescribeProductInput, DescribeProductOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeProductCommand,
   serializeAws_json1_1DescribeProductCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient.ts";
-import {
-  DescribeGroupRequest,
-  DescribeGroupResponse
-} from "../models/index.ts";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeGroupCommand,
   serializeAws_json1_1DescribeGroupCommand

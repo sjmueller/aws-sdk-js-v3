@@ -154,10 +154,7 @@ import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput
 } from "../commands/ScheduleKeyDeletionCommand.ts";
-import {
-  SignCommandInput,
-  SignCommandOutput
-} from "../commands/SignCommand.ts";
+import { SignCommandInput, SignCommandOutput } from "../commands/SignCommand.ts";
 import {
   TagResourceCommandInput,
   TagResourceCommandOutput

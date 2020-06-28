@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient.ts";
-import {
-  GetJobTemplateRequest,
-  GetJobTemplateResponse
-} from "../models/index.ts";
+import { GetJobTemplateRequest, GetJobTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetJobTemplateCommand,
   serializeAws_restJson1GetJobTemplateCommand

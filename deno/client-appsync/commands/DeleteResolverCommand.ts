@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient.ts";
-import {
-  DeleteResolverRequest,
-  DeleteResolverResponse
-} from "../models/index.ts";
+import { DeleteResolverRequest, DeleteResolverResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteResolverCommand,
   serializeAws_restJson1DeleteResolverCommand

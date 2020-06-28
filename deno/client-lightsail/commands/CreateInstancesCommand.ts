@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient.ts";
-import {
-  CreateInstancesRequest,
-  CreateInstancesResult
-} from "../models/index.ts";
+import { CreateInstancesRequest, CreateInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateInstancesCommand,
   serializeAws_json1_1CreateInstancesCommand

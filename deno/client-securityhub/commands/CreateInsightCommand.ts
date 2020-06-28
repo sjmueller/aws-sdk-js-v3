@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient.ts";
-import {
-  CreateInsightRequest,
-  CreateInsightResponse
-} from "../models/index.ts";
+import { CreateInsightRequest, CreateInsightResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateInsightCommand,
   serializeAws_restJson1CreateInsightCommand

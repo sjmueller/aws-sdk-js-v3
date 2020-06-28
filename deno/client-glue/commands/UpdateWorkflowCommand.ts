@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  UpdateWorkflowRequest,
-  UpdateWorkflowResponse
-} from "../models/index.ts";
+import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateWorkflowCommand,
   serializeAws_json1_1UpdateWorkflowCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient.ts";
-import {
-  StopWorkspacesRequest,
-  StopWorkspacesResult
-} from "../models/index.ts";
+import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StopWorkspacesCommand,
   serializeAws_json1_1StopWorkspacesCommand

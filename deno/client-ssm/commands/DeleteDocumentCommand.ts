@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SSMClient.ts";
-import {
-  DeleteDocumentRequest,
-  DeleteDocumentResult
-} from "../models/index.ts";
+import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteDocumentCommand,
   serializeAws_json1_1DeleteDocumentCommand

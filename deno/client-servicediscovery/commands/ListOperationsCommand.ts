@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient.ts";
-import {
-  ListOperationsRequest,
-  ListOperationsResponse
-} from "../models/index.ts";
+import { ListOperationsRequest, ListOperationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListOperationsCommand,
   serializeAws_json1_1ListOperationsCommand

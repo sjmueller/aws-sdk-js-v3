@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  UpdateEndpointRequest,
-  UpdateEndpointResponse
-} from "../models/index.ts";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateEndpointCommand,
   serializeAws_restJson1UpdateEndpointCommand

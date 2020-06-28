@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient.ts";
-import {
-  DetectStackDriftInput,
-  DetectStackDriftOutput
-} from "../models/index.ts";
+import { DetectStackDriftInput, DetectStackDriftOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDetectStackDriftCommand,
   serializeAws_queryDetectStackDriftCommand

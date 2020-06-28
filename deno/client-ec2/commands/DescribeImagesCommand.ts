@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeImagesRequest,
-  DescribeImagesResult
-} from "../models/index.ts";
+import { DescribeImagesRequest, DescribeImagesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeImagesCommand,
   serializeAws_ec2DescribeImagesCommand

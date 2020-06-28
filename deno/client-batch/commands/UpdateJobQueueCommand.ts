@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BatchClient.ts";
-import {
-  UpdateJobQueueRequest,
-  UpdateJobQueueResponse
-} from "../models/index.ts";
+import { UpdateJobQueueRequest, UpdateJobQueueResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateJobQueueCommand,
   serializeAws_restJson1UpdateJobQueueCommand

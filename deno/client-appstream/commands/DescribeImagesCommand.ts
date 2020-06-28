@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient.ts";
-import {
-  DescribeImagesRequest,
-  DescribeImagesResult
-} from "../models/index.ts";
+import { DescribeImagesRequest, DescribeImagesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeImagesCommand,
   serializeAws_json1_1DescribeImagesCommand

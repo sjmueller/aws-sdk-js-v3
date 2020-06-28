@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient.ts";
-import {
-  ListReportGroupsInput,
-  ListReportGroupsOutput
-} from "../models/index.ts";
+import { ListReportGroupsInput, ListReportGroupsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListReportGroupsCommand,
   serializeAws_json1_1ListReportGroupsCommand

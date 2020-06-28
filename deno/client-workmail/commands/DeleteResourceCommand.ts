@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient.ts";
-import {
-  DeleteResourceRequest,
-  DeleteResourceResponse
-} from "../models/index.ts";
+import { DeleteResourceRequest, DeleteResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteResourceCommand,
   serializeAws_json1_1DeleteResourceCommand

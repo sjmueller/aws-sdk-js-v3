@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient.ts";
-import {
-  DeleteDatasetRequest,
-  DeleteDatasetResponse
-} from "../models/index.ts";
+import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteDatasetCommand,
   serializeAws_restJson1DeleteDatasetCommand

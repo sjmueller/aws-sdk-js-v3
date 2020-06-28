@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient.ts";
-import {
-  ListFacetNamesRequest,
-  ListFacetNamesResponse
-} from "../models/index.ts";
+import { ListFacetNamesRequest, ListFacetNamesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListFacetNamesCommand,
   serializeAws_restJson1ListFacetNamesCommand

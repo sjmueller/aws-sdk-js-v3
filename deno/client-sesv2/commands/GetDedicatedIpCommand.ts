@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SESv2Client.ts";
-import {
-  GetDedicatedIpRequest,
-  GetDedicatedIpResponse
-} from "../models/index.ts";
+import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDedicatedIpCommand,
   serializeAws_restJson1GetDedicatedIpCommand

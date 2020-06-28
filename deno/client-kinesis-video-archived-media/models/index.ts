@@ -4,7 +4,7 @@ import {
   isa as __isa
 } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "stream.ts";
+type Readable = any;
 
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of

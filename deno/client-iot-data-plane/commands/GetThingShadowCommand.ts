@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTDataPlaneClient.ts";
-import {
-  GetThingShadowRequest,
-  GetThingShadowResponse
-} from "../models/index.ts";
+import { GetThingShadowRequest, GetThingShadowResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetThingShadowCommand,
   serializeAws_restJson1GetThingShadowCommand

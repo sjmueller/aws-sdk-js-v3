@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient.ts";
-import {
-  PutScalingPolicyInput,
-  PutScalingPolicyOutput
-} from "../models/index.ts";
+import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutScalingPolicyCommand,
   serializeAws_json1_1PutScalingPolicyCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient.ts";
-import {
-  GetImageRecipeRequest,
-  GetImageRecipeResponse
-} from "../models/index.ts";
+import { GetImageRecipeRequest, GetImageRecipeResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetImageRecipeCommand,
   serializeAws_restJson1GetImageRecipeCommand

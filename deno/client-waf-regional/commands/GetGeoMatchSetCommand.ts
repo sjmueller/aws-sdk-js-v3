@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient.ts";
-import {
-  GetGeoMatchSetRequest,
-  GetGeoMatchSetResponse
-} from "../models/index.ts";
+import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetGeoMatchSetCommand,
   serializeAws_json1_1GetGeoMatchSetCommand

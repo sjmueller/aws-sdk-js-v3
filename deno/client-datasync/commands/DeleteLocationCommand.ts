@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient.ts";
-import {
-  DeleteLocationRequest,
-  DeleteLocationResponse
-} from "../models/index.ts";
+import { DeleteLocationRequest, DeleteLocationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteLocationCommand,
   serializeAws_json1_1DeleteLocationCommand

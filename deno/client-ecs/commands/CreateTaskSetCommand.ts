@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  CreateTaskSetRequest,
-  CreateTaskSetResponse
-} from "../models/index.ts";
+import { CreateTaskSetRequest, CreateTaskSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateTaskSetCommand,
   serializeAws_json1_1CreateTaskSetCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient.ts";
-import {
-  DescribeSchemaRequest,
-  DescribeSchemaResponse
-} from "../models/index.ts";
+import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSchemaCommand,
   serializeAws_json1_1DescribeSchemaCommand

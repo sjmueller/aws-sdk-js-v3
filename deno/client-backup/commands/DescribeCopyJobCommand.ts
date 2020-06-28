@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BackupClient.ts";
-import {
-  DescribeCopyJobInput,
-  DescribeCopyJobOutput
-} from "../models/index.ts";
+import { DescribeCopyJobInput, DescribeCopyJobOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeCopyJobCommand,
   serializeAws_restJson1DescribeCopyJobCommand

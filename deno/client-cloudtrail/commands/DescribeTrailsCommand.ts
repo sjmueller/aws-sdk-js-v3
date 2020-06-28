@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudTrailClient.ts";
-import {
-  DescribeTrailsRequest,
-  DescribeTrailsResponse
-} from "../models/index.ts";
+import { DescribeTrailsRequest, DescribeTrailsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTrailsCommand,
   serializeAws_json1_1DescribeTrailsCommand

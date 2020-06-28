@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient.ts";
-import {
-  UpdateDataSourceInput,
-  UpdateDataSourceOutput
-} from "../models/index.ts";
+import { UpdateDataSourceInput, UpdateDataSourceOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateDataSourceCommand,
   serializeAws_json1_1UpdateDataSourceCommand

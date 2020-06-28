@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTClient.ts";
-import {
-  GetStatisticsRequest,
-  GetStatisticsResponse
-} from "../models/index.ts";
+import { GetStatisticsRequest, GetStatisticsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetStatisticsCommand,
   serializeAws_restJson1GetStatisticsCommand

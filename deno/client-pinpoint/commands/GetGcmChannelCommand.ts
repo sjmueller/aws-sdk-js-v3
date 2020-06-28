@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  GetGcmChannelRequest,
-  GetGcmChannelResponse
-} from "../models/index.ts";
+import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetGcmChannelCommand,
   serializeAws_restJson1GetGcmChannelCommand

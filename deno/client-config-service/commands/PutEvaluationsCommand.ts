@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient.ts";
-import {
-  PutEvaluationsRequest,
-  PutEvaluationsResponse
-} from "../models/index.ts";
+import { PutEvaluationsRequest, PutEvaluationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutEvaluationsCommand,
   serializeAws_json1_1PutEvaluationsCommand

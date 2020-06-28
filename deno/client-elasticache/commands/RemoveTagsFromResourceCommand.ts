@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient.ts";
-import {
-  RemoveTagsFromResourceMessage,
-  TagListMessage
-} from "../models/index.ts";
+import { RemoveTagsFromResourceMessage, TagListMessage } from "../models/index.ts";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand

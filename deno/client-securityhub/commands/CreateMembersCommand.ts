@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient.ts";
-import {
-  CreateMembersRequest,
-  CreateMembersResponse
-} from "../models/index.ts";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateMembersCommand,
   serializeAws_restJson1CreateMembersCommand

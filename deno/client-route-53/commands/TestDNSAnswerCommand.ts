@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client.ts";
-import {
-  TestDNSAnswerRequest,
-  TestDNSAnswerResponse
-} from "../models/index.ts";
+import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlTestDNSAnswerCommand,
   serializeAws_restXmlTestDNSAnswerCommand

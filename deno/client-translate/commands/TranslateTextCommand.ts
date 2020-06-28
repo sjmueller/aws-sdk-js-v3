@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 } from "../TranslateClient.ts";
-import {
-  TranslateTextRequest,
-  TranslateTextResponse
-} from "../models/index.ts";
+import { TranslateTextRequest, TranslateTextResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1TranslateTextCommand,
   serializeAws_json1_1TranslateTextCommand

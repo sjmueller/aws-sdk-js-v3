@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 } from "../TranscribeClient.ts";
-import {
-  GetVocabularyRequest,
-  GetVocabularyResponse
-} from "../models/index.ts";
+import { GetVocabularyRequest, GetVocabularyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetVocabularyCommand,
   serializeAws_json1_1GetVocabularyCommand

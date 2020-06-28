@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EventBridgeClient.ts";
-import {
-  RemoveTargetsRequest,
-  RemoveTargetsResponse
-} from "../models/index.ts";
+import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
   serializeAws_json1_1RemoveTargetsCommand

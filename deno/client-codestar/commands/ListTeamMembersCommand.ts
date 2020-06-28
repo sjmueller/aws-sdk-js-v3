@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient.ts";
-import {
-  ListTeamMembersRequest,
-  ListTeamMembersResult
-} from "../models/index.ts";
+import { ListTeamMembersRequest, ListTeamMembersResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListTeamMembersCommand,
   serializeAws_json1_1ListTeamMembersCommand

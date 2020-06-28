@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMV2Client.ts";
-import {
-  DeleteClusterRequest,
-  DeleteClusterResponse
-} from "../models/index.ts";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand

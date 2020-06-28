@@ -1,7 +1,4 @@
-import {
-  CreateRegistryRequest,
-  CreateRegistryResponse
-} from "../models/index.ts";
+import { CreateRegistryRequest, CreateRegistryResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateRegistryCommand,
   serializeAws_restJson1CreateRegistryCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PollyClient.ts";
-import {
-  SynthesizeSpeechInput,
-  SynthesizeSpeechOutput
-} from "../models/index.ts";
+import { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1SynthesizeSpeechCommand,
   serializeAws_restJson1SynthesizeSpeechCommand

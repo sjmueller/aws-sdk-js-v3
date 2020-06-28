@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient.ts";
-import {
-  StartDBClusterMessage,
-  StartDBClusterResult
-} from "../models/index.ts";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryStartDBClusterCommand,
   serializeAws_queryStartDBClusterCommand

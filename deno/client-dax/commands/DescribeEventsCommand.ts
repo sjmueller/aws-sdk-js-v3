@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DAXClient.ts";
-import {
-  DescribeEventsRequest,
-  DescribeEventsResponse
-} from "../models/index.ts";
+import { DescribeEventsRequest, DescribeEventsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventsCommand,
   serializeAws_json1_1DescribeEventsCommand

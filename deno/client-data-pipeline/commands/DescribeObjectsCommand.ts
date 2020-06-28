@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient.ts";
-import {
-  DescribeObjectsInput,
-  DescribeObjectsOutput
-} from "../models/index.ts";
+import { DescribeObjectsInput, DescribeObjectsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeObjectsCommand,
   serializeAws_json1_1DescribeObjectsCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient.ts";
-import {
-  DeleteCorsPolicyInput,
-  DeleteCorsPolicyOutput
-} from "../models/index.ts";
+import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteCorsPolicyCommand,
   serializeAws_json1_1DeleteCorsPolicyCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  Connections,
-  DescribeHostedConnectionsRequest
-} from "../models/index.ts";
+import { Connections, DescribeHostedConnectionsRequest } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeHostedConnectionsCommand,
   serializeAws_json1_1DescribeHostedConnectionsCommand

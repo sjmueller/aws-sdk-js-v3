@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECRClient.ts";
-import {
-  BatchGetImageRequest,
-  BatchGetImageResponse
-} from "../models/index.ts";
+import { BatchGetImageRequest, BatchGetImageResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetImageCommand,
   serializeAws_json1_1BatchGetImageCommand

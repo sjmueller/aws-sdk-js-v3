@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient.ts";
-import {
-  ListPullRequestsInput,
-  ListPullRequestsOutput
-} from "../models/index.ts";
+import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPullRequestsCommand,
   serializeAws_json1_1ListPullRequestsCommand

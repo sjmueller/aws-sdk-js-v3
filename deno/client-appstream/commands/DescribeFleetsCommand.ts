@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient.ts";
-import {
-  DescribeFleetsRequest,
-  DescribeFleetsResult
-} from "../models/index.ts";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeFleetsCommand,
   serializeAws_json1_1DescribeFleetsCommand

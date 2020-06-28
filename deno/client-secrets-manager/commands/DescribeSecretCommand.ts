@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient.ts";
-import {
-  DescribeSecretRequest,
-  DescribeSecretResponse
-} from "../models/index.ts";
+import { DescribeSecretRequest, DescribeSecretResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSecretCommand,
   serializeAws_json1_1DescribeSecretCommand

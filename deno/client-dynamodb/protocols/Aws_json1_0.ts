@@ -110,10 +110,7 @@ import {
   RestoreTableToPointInTimeCommandInput,
   RestoreTableToPointInTimeCommandOutput
 } from "../commands/RestoreTableToPointInTimeCommand.ts";
-import {
-  ScanCommandInput,
-  ScanCommandOutput
-} from "../commands/ScanCommand.ts";
+import { ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand.ts";
 import {
   TagResourceCommandInput,
   TagResourceCommandOutput

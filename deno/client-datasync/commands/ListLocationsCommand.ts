@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient.ts";
-import {
-  ListLocationsRequest,
-  ListLocationsResponse
-} from "../models/index.ts";
+import { ListLocationsRequest, ListLocationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListLocationsCommand,
   serializeAws_json1_1ListLocationsCommand

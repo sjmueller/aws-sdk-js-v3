@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient.ts";
-import {
-  ActivitiesType,
-  DescribeScalingActivitiesType
-} from "../models/index.ts";
+import { ActivitiesType, DescribeScalingActivitiesType } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeScalingActivitiesCommand,
   serializeAws_queryDescribeScalingActivitiesCommand

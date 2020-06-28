@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BackupClient.ts";
-import {
-  StartRestoreJobInput,
-  StartRestoreJobOutput
-} from "../models/index.ts";
+import { StartRestoreJobInput, StartRestoreJobOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartRestoreJobCommand,
   serializeAws_restJson1StartRestoreJobCommand

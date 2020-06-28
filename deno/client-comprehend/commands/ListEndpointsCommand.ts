@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient.ts";
-import {
-  ListEndpointsRequest,
-  ListEndpointsResponse
-} from "../models/index.ts";
+import { ListEndpointsRequest, ListEndpointsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListEndpointsCommand,
   serializeAws_json1_1ListEndpointsCommand

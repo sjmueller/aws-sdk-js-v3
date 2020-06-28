@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesResult
-} from "../models/index.ts";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeVolumesCommand,
   serializeAws_ec2DescribeVolumesCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient.ts";
-import {
-  GetFolderPathRequest,
-  GetFolderPathResponse
-} from "../models/index.ts";
+import { GetFolderPathRequest, GetFolderPathResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetFolderPathCommand,
   serializeAws_restJson1GetFolderPathCommand

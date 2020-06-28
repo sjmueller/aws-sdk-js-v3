@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerA2IRuntimeClient.ts";
-import {
-  StopHumanLoopRequest,
-  StopHumanLoopResponse
-} from "../models/index.ts";
+import { StopHumanLoopRequest, StopHumanLoopResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StopHumanLoopCommand,
   serializeAws_restJson1StopHumanLoopCommand

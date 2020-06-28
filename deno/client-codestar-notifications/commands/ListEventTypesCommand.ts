@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   codestarnotificationsClientResolvedConfig
 } from "../codestarnotificationsClient.ts";
-import {
-  ListEventTypesRequest,
-  ListEventTypesResult
-} from "../models/index.ts";
+import { ListEventTypesRequest, ListEventTypesResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListEventTypesCommand,
   serializeAws_restJson1ListEventTypesCommand

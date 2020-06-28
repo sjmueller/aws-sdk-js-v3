@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SESv2Client.ts";
-import {
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "../models/index.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand

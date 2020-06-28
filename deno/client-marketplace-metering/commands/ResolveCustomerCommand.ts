@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MarketplaceMeteringClient.ts";
-import {
-  ResolveCustomerRequest,
-  ResolveCustomerResult
-} from "../models/index.ts";
+import { ResolveCustomerRequest, ResolveCustomerResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ResolveCustomerCommand,
   serializeAws_json1_1ResolveCustomerCommand

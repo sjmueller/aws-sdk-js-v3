@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient.ts";
-import {
-  GetMetricDataRequest,
-  GetMetricDataResponse
-} from "../models/index.ts";
+import { GetMetricDataRequest, GetMetricDataResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetMetricDataCommand,
   serializeAws_restJson1GetMetricDataCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient.ts";
-import {
-  ListPublicKeysRequest,
-  ListPublicKeysResult
-} from "../models/index.ts";
+import { ListPublicKeysRequest, ListPublicKeysResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlListPublicKeysCommand,
   serializeAws_restXmlListPublicKeysCommand

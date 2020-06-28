@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient.ts";
-import {
-  StartWorkspacesRequest,
-  StartWorkspacesResult
-} from "../models/index.ts";
+import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartWorkspacesCommand,
   serializeAws_json1_1StartWorkspacesCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient.ts";
-import {
-  AddUploadBufferInput,
-  AddUploadBufferOutput
-} from "../models/index.ts";
+import { AddUploadBufferInput, AddUploadBufferOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1AddUploadBufferCommand,
   serializeAws_json1_1AddUploadBufferCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient.ts";
-import {
-  GetModelVersionRequest,
-  GetModelVersionResult
-} from "../models/index.ts";
+import { GetModelVersionRequest, GetModelVersionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetModelVersionCommand,
   serializeAws_json1_1GetModelVersionCommand

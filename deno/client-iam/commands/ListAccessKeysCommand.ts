@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IAMClient.ts";
-import {
-  ListAccessKeysRequest,
-  ListAccessKeysResponse
-} from "../models/index.ts";
+import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/index.ts";
 import {
   deserializeAws_queryListAccessKeysCommand,
   serializeAws_queryListAccessKeysCommand

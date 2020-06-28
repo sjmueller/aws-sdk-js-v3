@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  DeleteEndpointRequest,
-  DeleteEndpointResponse
-} from "../models/index.ts";
+import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteEndpointCommand,
   serializeAws_restJson1DeleteEndpointCommand

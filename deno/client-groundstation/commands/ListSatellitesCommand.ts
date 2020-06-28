@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient.ts";
-import {
-  ListSatellitesRequest,
-  ListSatellitesResponse
-} from "../models/index.ts";
+import { ListSatellitesRequest, ListSatellitesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListSatellitesCommand,
   serializeAws_restJson1ListSatellitesCommand

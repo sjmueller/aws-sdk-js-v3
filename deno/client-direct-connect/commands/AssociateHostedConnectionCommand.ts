@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  AssociateHostedConnectionRequest,
-  Connection
-} from "../models/index.ts";
+import { AssociateHostedConnectionRequest, Connection } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateHostedConnectionCommand,
   serializeAws_json1_1AssociateHostedConnectionCommand

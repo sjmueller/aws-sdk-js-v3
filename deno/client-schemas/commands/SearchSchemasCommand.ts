@@ -1,7 +1,4 @@
-import {
-  SearchSchemasRequest,
-  SearchSchemasResponse
-} from "../models/index.ts";
+import { SearchSchemasRequest, SearchSchemasResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1SearchSchemasCommand,
   serializeAws_restJson1SearchSchemasCommand

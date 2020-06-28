@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudTrailClient.ts";
-import {
-  ListPublicKeysRequest,
-  ListPublicKeysResponse
-} from "../models/index.ts";
+import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPublicKeysCommand,
   serializeAws_json1_1ListPublicKeysCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient.ts";
-import {
-  CreateAlgorithmInput,
-  CreateAlgorithmOutput
-} from "../models/index.ts";
+import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateAlgorithmCommand,
   serializeAws_json1_1CreateAlgorithmCommand

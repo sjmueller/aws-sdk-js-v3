@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataExchangeClient.ts";
-import {
-  CreateDataSetRequest,
-  CreateDataSetResponse
-} from "../models/index.ts";
+import { CreateDataSetRequest, CreateDataSetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateDataSetCommand,
   serializeAws_restJson1CreateDataSetCommand

@@ -98,10 +98,7 @@ import {
   PutItemCommandInput,
   PutItemCommandOutput
 } from "./commands/PutItemCommand.ts";
-import {
-  QueryCommandInput,
-  QueryCommandOutput
-} from "./commands/QueryCommand.ts";
+import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand.ts";
 import {
   RestoreTableFromBackupCommandInput,
   RestoreTableFromBackupCommandOutput

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KMSClient.ts";
-import {
-  GenerateRandomRequest,
-  GenerateRandomResponse
-} from "../models/index.ts";
+import { GenerateRandomRequest, GenerateRandomResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GenerateRandomCommand,
   serializeAws_json1_1GenerateRandomCommand

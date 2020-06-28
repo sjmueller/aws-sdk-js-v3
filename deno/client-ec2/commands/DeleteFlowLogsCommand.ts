@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DeleteFlowLogsRequest,
-  DeleteFlowLogsResult
-} from "../models/index.ts";
+import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteFlowLogsCommand,
   serializeAws_ec2DeleteFlowLogsCommand

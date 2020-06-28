@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayManagementApiClient.ts";
-import {
-  GetConnectionRequest,
-  GetConnectionResponse
-} from "../models/index.ts";
+import { GetConnectionRequest, GetConnectionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetConnectionCommand,
   serializeAws_restJson1GetConnectionCommand

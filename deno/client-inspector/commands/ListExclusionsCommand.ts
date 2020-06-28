@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient.ts";
-import {
-  ListExclusionsRequest,
-  ListExclusionsResponse
-} from "../models/index.ts";
+import { ListExclusionsRequest, ListExclusionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListExclusionsCommand,
   serializeAws_json1_1ListExclusionsCommand

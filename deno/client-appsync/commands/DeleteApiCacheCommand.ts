@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient.ts";
-import {
-  DeleteApiCacheRequest,
-  DeleteApiCacheResponse
-} from "../models/index.ts";
+import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteApiCacheCommand,
   serializeAws_restJson1DeleteApiCacheCommand

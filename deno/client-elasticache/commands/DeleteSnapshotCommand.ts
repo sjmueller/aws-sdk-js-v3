@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient.ts";
-import {
-  DeleteSnapshotMessage,
-  DeleteSnapshotResult
-} from "../models/index.ts";
+import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteSnapshotCommand,
   serializeAws_queryDeleteSnapshotCommand

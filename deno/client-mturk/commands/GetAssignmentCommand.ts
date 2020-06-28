@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MTurkClient.ts";
-import {
-  GetAssignmentRequest,
-  GetAssignmentResponse
-} from "../models/index.ts";
+import { GetAssignmentRequest, GetAssignmentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAssignmentCommand,
   serializeAws_json1_1GetAssignmentCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TransferClientResolvedConfig
 } from "../TransferClient.ts";
-import {
-  DescribeServerRequest,
-  DescribeServerResponse
-} from "../models/index.ts";
+import { DescribeServerRequest, DescribeServerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeServerCommand,
   serializeAws_json1_1DescribeServerCommand

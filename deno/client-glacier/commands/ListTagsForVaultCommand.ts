@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient.ts";
-import {
-  ListTagsForVaultInput,
-  ListTagsForVaultOutput
-} from "../models/index.ts";
+import { ListTagsForVaultInput, ListTagsForVaultOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListTagsForVaultCommand,
   serializeAws_restJson1ListTagsForVaultCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  AssociateConnectionWithLagRequest,
-  Connection
-} from "../models/index.ts";
+import { AssociateConnectionWithLagRequest, Connection } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateConnectionWithLagCommand,
   serializeAws_json1_1AssociateConnectionWithLagCommand

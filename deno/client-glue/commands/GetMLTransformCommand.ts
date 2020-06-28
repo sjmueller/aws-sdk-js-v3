@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  GetMLTransformRequest,
-  GetMLTransformResponse
-} from "../models/index.ts";
+import { GetMLTransformRequest, GetMLTransformResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetMLTransformCommand,
   serializeAws_json1_1GetMLTransformCommand

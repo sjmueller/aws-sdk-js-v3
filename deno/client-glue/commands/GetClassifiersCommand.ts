@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  GetClassifiersRequest,
-  GetClassifiersResponse
-} from "../models/index.ts";
+import { GetClassifiersRequest, GetClassifiersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetClassifiersCommand,
   serializeAws_json1_1GetClassifiersCommand

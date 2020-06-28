@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisClient.ts";
-import {
-  UpdateShardCountInput,
-  UpdateShardCountOutput
-} from "../models/index.ts";
+import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateShardCountCommand,
   serializeAws_json1_1UpdateShardCountCommand

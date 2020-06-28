@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  GetSmsChannelRequest,
-  GetSmsChannelResponse
-} from "../models/index.ts";
+import { GetSmsChannelRequest, GetSmsChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetSmsChannelCommand,
   serializeAws_restJson1GetSmsChannelCommand

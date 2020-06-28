@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient.ts";
-import {
-  ListIngestionsRequest,
-  ListIngestionsResponse
-} from "../models/index.ts";
+import { ListIngestionsRequest, ListIngestionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListIngestionsCommand,
   serializeAws_restJson1ListIngestionsCommand

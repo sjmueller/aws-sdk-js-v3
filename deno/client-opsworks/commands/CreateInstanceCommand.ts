@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient.ts";
-import {
-  CreateInstanceRequest,
-  CreateInstanceResult
-} from "../models/index.ts";
+import { CreateInstanceRequest, CreateInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateInstanceCommand,
   serializeAws_json1_1CreateInstanceCommand

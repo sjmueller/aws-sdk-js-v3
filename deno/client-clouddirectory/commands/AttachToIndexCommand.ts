@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient.ts";
-import {
-  AttachToIndexRequest,
-  AttachToIndexResponse
-} from "../models/index.ts";
+import { AttachToIndexRequest, AttachToIndexResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AttachToIndexCommand,
   serializeAws_restJson1AttachToIndexCommand

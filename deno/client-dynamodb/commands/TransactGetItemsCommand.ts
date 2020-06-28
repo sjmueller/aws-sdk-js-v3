@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient.ts";
-import {
-  TransactGetItemsInput,
-  TransactGetItemsOutput
-} from "../models/index.ts";
+import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0TransactGetItemsCommand,
   serializeAws_json1_0TransactGetItemsCommand

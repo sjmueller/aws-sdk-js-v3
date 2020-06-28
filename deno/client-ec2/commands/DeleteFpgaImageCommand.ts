@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DeleteFpgaImageRequest,
-  DeleteFpgaImageResult
-} from "../models/index.ts";
+import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteFpgaImageCommand,
   serializeAws_ec2DeleteFpgaImageCommand

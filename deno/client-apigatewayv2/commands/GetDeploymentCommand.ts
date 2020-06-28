@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client.ts";
-import {
-  GetDeploymentRequest,
-  GetDeploymentResponse
-} from "../models/index.ts";
+import { GetDeploymentRequest, GetDeploymentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDeploymentCommand,
   serializeAws_restJson1GetDeploymentCommand

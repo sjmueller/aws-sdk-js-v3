@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  DescribeInterconnectsRequest,
-  Interconnects
-} from "../models/index.ts";
+import { DescribeInterconnectsRequest, Interconnects } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeInterconnectsCommand,
   serializeAws_json1_1DescribeInterconnectsCommand

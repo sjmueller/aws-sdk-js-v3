@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DocDBClient.ts";
-import {
-  ModifyDBClusterMessage,
-  ModifyDBClusterResult
-} from "../models/index.ts";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBClusterCommand,
   serializeAws_queryModifyDBClusterCommand

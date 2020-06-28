@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  DeleteJourneyRequest,
-  DeleteJourneyResponse
-} from "../models/index.ts";
+import { DeleteJourneyRequest, DeleteJourneyResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteJourneyCommand,
   serializeAws_restJson1DeleteJourneyCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BackupClient.ts";
-import {
-  DeleteBackupPlanInput,
-  DeleteBackupPlanOutput
-} from "../models/index.ts";
+import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteBackupPlanCommand,
   serializeAws_restJson1DeleteBackupPlanCommand

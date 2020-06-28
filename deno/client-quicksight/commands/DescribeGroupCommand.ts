@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient.ts";
-import {
-  DescribeGroupRequest,
-  DescribeGroupResponse
-} from "../models/index.ts";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeGroupCommand,
   serializeAws_restJson1DescribeGroupCommand

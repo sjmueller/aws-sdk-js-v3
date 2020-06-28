@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  DeleteEndpointMessage,
-  DeleteEndpointResponse
-} from "../models/index.ts";
+import { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteEndpointCommand,
   serializeAws_json1_1DeleteEndpointCommand

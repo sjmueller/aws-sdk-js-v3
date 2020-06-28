@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient.ts";
-import {
-  DeleteDBClusterMessage,
-  DeleteDBClusterResult
-} from "../models/index.ts";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
   serializeAws_queryDeleteDBClusterCommand

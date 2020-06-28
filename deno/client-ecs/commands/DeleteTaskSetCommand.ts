@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  DeleteTaskSetRequest,
-  DeleteTaskSetResponse
-} from "../models/index.ts";
+import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteTaskSetCommand,
   serializeAws_json1_1DeleteTaskSetCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient.ts";
-import {
-  ListDevicePoolsRequest,
-  ListDevicePoolsResult
-} from "../models/index.ts";
+import { ListDevicePoolsRequest, ListDevicePoolsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListDevicePoolsCommand,
   serializeAws_json1_1ListDevicePoolsCommand

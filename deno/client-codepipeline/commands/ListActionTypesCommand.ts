@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient.ts";
-import {
-  ListActionTypesInput,
-  ListActionTypesOutput
-} from "../models/index.ts";
+import { ListActionTypesInput, ListActionTypesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListActionTypesCommand,
   serializeAws_json1_1ListActionTypesCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  DeleteProfileRequest,
-  DeleteProfileResponse
-} from "../models/index.ts";
+import { DeleteProfileRequest, DeleteProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteProfileCommand,
   serializeAws_json1_1DeleteProfileCommand

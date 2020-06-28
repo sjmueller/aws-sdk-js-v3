@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient.ts";
-import {
-  UpdatePortfolioInput,
-  UpdatePortfolioOutput
-} from "../models/index.ts";
+import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdatePortfolioCommand,
   serializeAws_json1_1UpdatePortfolioCommand

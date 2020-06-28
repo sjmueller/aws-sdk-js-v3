@@ -1,9 +1,5 @@
 import { HeaderBag, HttpHandlerOptions } from "../types/mod.ts";
-import {
-  HttpHandler,
-  HttpRequest,
-  HttpResponse
-} from "../protocol-http/mod.ts";
+import { HttpHandler, HttpRequest, HttpResponse } from "../protocol-http/mod.ts";
 import { requestTimeout } from "./request-timeout.ts";
 import { buildQueryString } from "../querystring-builder/mod.ts";
 

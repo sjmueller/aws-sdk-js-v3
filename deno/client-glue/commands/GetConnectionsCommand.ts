@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  GetConnectionsRequest,
-  GetConnectionsResponse
-} from "../models/index.ts";
+import { GetConnectionsRequest, GetConnectionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetConnectionsCommand,
   serializeAws_json1_1GetConnectionsCommand

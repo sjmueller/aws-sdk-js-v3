@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AccessAnalyzerClient.ts";
-import {
-  GetArchiveRuleRequest,
-  GetArchiveRuleResponse
-} from "../models/index.ts";
+import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetArchiveRuleCommand,
   serializeAws_restJson1GetArchiveRuleCommand

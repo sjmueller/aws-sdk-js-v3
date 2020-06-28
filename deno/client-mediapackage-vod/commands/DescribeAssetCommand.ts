@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageVodClient.ts";
-import {
-  DescribeAssetRequest,
-  DescribeAssetResponse
-} from "../models/index.ts";
+import { DescribeAssetRequest, DescribeAssetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeAssetCommand,
   serializeAws_restJson1DescribeAssetCommand

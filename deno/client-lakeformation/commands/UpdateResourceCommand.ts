@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient.ts";
-import {
-  UpdateResourceRequest,
-  UpdateResourceResponse
-} from "../models/index.ts";
+import { UpdateResourceRequest, UpdateResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateResourceCommand,
   serializeAws_json1_1UpdateResourceCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ResourceGroupsClient.ts";
-import {
-  UpdateGroupQueryInput,
-  UpdateGroupQueryOutput
-} from "../models/index.ts";
+import { UpdateGroupQueryInput, UpdateGroupQueryOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateGroupQueryCommand,
   serializeAws_restJson1UpdateGroupQueryCommand

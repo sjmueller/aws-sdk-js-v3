@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient.ts";
-import {
-  DeleteFunctionRequest,
-  DeleteFunctionResponse
-} from "../models/index.ts";
+import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteFunctionCommand,
   serializeAws_restJson1DeleteFunctionCommand

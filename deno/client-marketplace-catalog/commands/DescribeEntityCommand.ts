@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MarketplaceCatalogClient.ts";
-import {
-  DescribeEntityRequest,
-  DescribeEntityResponse
-} from "../models/index.ts";
+import { DescribeEntityRequest, DescribeEntityResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeEntityCommand,
   serializeAws_restJson1DescribeEntityCommand

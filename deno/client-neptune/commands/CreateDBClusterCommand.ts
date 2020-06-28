@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient.ts";
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterResult
-} from "../models/index.ts";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryCreateDBClusterCommand,
   serializeAws_queryCreateDBClusterCommand

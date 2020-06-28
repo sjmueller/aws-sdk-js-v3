@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient.ts";
-import {
-  DescribeRecipeRequest,
-  DescribeRecipeResponse
-} from "../models/index.ts";
+import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeRecipeCommand,
   serializeAws_json1_1DescribeRecipeCommand

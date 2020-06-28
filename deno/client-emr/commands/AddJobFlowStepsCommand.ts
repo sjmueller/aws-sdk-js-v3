@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EMRClient.ts";
-import {
-  AddJobFlowStepsInput,
-  AddJobFlowStepsOutput
-} from "../models/index.ts";
+import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1AddJobFlowStepsCommand,
   serializeAws_json1_1AddJobFlowStepsCommand

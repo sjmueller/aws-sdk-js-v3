@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IAMClient.ts";
-import {
-  GetUserPolicyRequest,
-  GetUserPolicyResponse
-} from "../models/index.ts";
+import { GetUserPolicyRequest, GetUserPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetUserPolicyCommand,
   serializeAws_queryGetUserPolicyCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTClient.ts";
-import {
-  ListAuditTasksRequest,
-  ListAuditTasksResponse
-} from "../models/index.ts";
+import { ListAuditTasksRequest, ListAuditTasksResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListAuditTasksCommand,
   serializeAws_restJson1ListAuditTasksCommand

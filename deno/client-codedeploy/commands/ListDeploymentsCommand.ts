@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient.ts";
-import {
-  ListDeploymentsInput,
-  ListDeploymentsOutput
-} from "../models/index.ts";
+import { ListDeploymentsInput, ListDeploymentsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListDeploymentsCommand,
   serializeAws_json1_1ListDeploymentsCommand

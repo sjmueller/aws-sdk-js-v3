@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient.ts";
-import {
-  DeleteTemplateRequest,
-  DeleteTemplateResponse
-} from "../models/index.ts";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteTemplateCommand,
   serializeAws_restJson1DeleteTemplateCommand

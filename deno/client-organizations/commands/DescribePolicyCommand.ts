@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient.ts";
-import {
-  DescribePolicyRequest,
-  DescribePolicyResponse
-} from "../models/index.ts";
+import { DescribePolicyRequest, DescribePolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribePolicyCommand,
   serializeAws_json1_1DescribePolicyCommand

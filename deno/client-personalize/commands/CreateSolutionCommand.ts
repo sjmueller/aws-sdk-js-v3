@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient.ts";
-import {
-  CreateSolutionRequest,
-  CreateSolutionResponse
-} from "../models/index.ts";
+import { CreateSolutionRequest, CreateSolutionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateSolutionCommand,
   serializeAws_json1_1CreateSolutionCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient.ts";
-import {
-  BatchGetReportsInput,
-  BatchGetReportsOutput
-} from "../models/index.ts";
+import { BatchGetReportsInput, BatchGetReportsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetReportsCommand,
   serializeAws_json1_1BatchGetReportsCommand

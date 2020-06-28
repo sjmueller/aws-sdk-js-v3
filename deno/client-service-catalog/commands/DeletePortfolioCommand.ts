@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient.ts";
-import {
-  DeletePortfolioInput,
-  DeletePortfolioOutput
-} from "../models/index.ts";
+import { DeletePortfolioInput, DeletePortfolioOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeletePortfolioCommand,
   serializeAws_json1_1DeletePortfolioCommand

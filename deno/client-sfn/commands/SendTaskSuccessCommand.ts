@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SFNClient.ts";
-import {
-  SendTaskSuccessInput,
-  SendTaskSuccessOutput
-} from "../models/index.ts";
+import { SendTaskSuccessInput, SendTaskSuccessOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0SendTaskSuccessCommand,
   serializeAws_json1_0SendTaskSuccessCommand

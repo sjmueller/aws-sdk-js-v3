@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  UpdateTaskSetRequest,
-  UpdateTaskSetResponse
-} from "../models/index.ts";
+import { UpdateTaskSetRequest, UpdateTaskSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateTaskSetCommand,
   serializeAws_json1_1UpdateTaskSetCommand

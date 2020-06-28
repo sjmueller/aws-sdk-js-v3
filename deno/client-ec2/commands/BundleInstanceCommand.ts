@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  BundleInstanceRequest,
-  BundleInstanceResult
-} from "../models/index.ts";
+import { BundleInstanceRequest, BundleInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_ec2BundleInstanceCommand,
   serializeAws_ec2BundleInstanceCommand

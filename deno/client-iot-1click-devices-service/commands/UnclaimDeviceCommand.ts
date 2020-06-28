@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient.ts";
-import {
-  UnclaimDeviceRequest,
-  UnclaimDeviceResponse
-} from "../models/index.ts";
+import { UnclaimDeviceRequest, UnclaimDeviceResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UnclaimDeviceCommand,
   serializeAws_restJson1UnclaimDeviceCommand

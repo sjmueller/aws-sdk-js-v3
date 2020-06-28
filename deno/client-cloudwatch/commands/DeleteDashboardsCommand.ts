@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient.ts";
-import {
-  DeleteDashboardsInput,
-  DeleteDashboardsOutput
-} from "../models/index.ts";
+import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDashboardsCommand,
   serializeAws_queryDeleteDashboardsCommand

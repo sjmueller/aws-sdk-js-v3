@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient.ts";
-import {
-  DeleteDirectoryRequest,
-  DeleteDirectoryResult
-} from "../models/index.ts";
+import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteDirectoryCommand,
   serializeAws_json1_1DeleteDirectoryCommand

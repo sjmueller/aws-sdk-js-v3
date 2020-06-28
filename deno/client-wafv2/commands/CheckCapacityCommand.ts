@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFV2ClientResolvedConfig
 } from "../WAFV2Client.ts";
-import {
-  CheckCapacityRequest,
-  CheckCapacityResponse
-} from "../models/index.ts";
+import { CheckCapacityRequest, CheckCapacityResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CheckCapacityCommand,
   serializeAws_json1_1CheckCapacityCommand

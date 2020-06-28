@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient.ts";
-import {
-  GetFaceSearchRequest,
-  GetFaceSearchResponse
-} from "../models/index.ts";
+import { GetFaceSearchRequest, GetFaceSearchResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetFaceSearchCommand,
   serializeAws_json1_1GetFaceSearchCommand

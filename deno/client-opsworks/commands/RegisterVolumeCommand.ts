@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient.ts";
-import {
-  RegisterVolumeRequest,
-  RegisterVolumeResult
-} from "../models/index.ts";
+import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1RegisterVolumeCommand,
   serializeAws_json1_1RegisterVolumeCommand

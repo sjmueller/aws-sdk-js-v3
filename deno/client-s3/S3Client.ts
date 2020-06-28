@@ -399,7 +399,7 @@ import {
   StreamHasher as __StreamHasher,
   UrlParser as __UrlParser
 } from "../types/mod.ts";
-import { Readable } from "stream.ts";
+type Readable = any;
 
 export type ServiceInputTypes =
   | AbortMultipartUploadCommandInput

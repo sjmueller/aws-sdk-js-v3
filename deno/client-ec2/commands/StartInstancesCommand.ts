@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  StartInstancesRequest,
-  StartInstancesResult
-} from "../models/index.ts";
+import { StartInstancesRequest, StartInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2StartInstancesCommand,
   serializeAws_ec2StartInstancesCommand

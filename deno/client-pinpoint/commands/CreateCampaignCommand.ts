@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  CreateCampaignRequest,
-  CreateCampaignResponse
-} from "../models/index.ts";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateCampaignCommand,
   serializeAws_restJson1CreateCampaignCommand

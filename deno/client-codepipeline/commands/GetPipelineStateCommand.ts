@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient.ts";
-import {
-  GetPipelineStateInput,
-  GetPipelineStateOutput
-} from "../models/index.ts";
+import { GetPipelineStateInput, GetPipelineStateOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetPipelineStateCommand,
   serializeAws_json1_1GetPipelineStateCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient.ts";
-import {
-  GetChangeTokenRequest,
-  GetChangeTokenResponse
-} from "../models/index.ts";
+import { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetChangeTokenCommand,
   serializeAws_json1_1GetChangeTokenCommand

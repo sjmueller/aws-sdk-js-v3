@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client.ts";
-import {
-  GetApiMappingRequest,
-  GetApiMappingResponse
-} from "../models/index.ts";
+import { GetApiMappingRequest, GetApiMappingResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetApiMappingCommand,
   serializeAws_restJson1GetApiMappingCommand

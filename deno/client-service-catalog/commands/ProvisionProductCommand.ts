@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient.ts";
-import {
-  ProvisionProductInput,
-  ProvisionProductOutput
-} from "../models/index.ts";
+import { ProvisionProductInput, ProvisionProductOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ProvisionProductCommand,
   serializeAws_json1_1ProvisionProductCommand

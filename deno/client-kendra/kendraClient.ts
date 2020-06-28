@@ -54,10 +54,7 @@ import {
   ListIndicesCommandInput,
   ListIndicesCommandOutput
 } from "./commands/ListIndicesCommand.ts";
-import {
-  QueryCommandInput,
-  QueryCommandOutput
-} from "./commands/QueryCommand.ts";
+import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand.ts";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput

@@ -5,7 +5,7 @@ import {
   isa as __isa
 } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "stream.ts";
+type Readable = any;
 
 /**
  * <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly,

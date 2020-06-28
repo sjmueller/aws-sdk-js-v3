@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  UpdateJourneyRequest,
-  UpdateJourneyResponse
-} from "../models/index.ts";
+import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateJourneyCommand,
   serializeAws_restJson1UpdateJourneyCommand

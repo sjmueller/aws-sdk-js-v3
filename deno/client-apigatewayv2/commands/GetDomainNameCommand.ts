@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client.ts";
-import {
-  GetDomainNameRequest,
-  GetDomainNameResponse
-} from "../models/index.ts";
+import { GetDomainNameRequest, GetDomainNameResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDomainNameCommand,
   serializeAws_restJson1GetDomainNameCommand

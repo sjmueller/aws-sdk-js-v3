@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ChimeClient.ts";
-import {
-  CreateAttendeeRequest,
-  CreateAttendeeResponse
-} from "../models/index.ts";
+import { CreateAttendeeRequest, CreateAttendeeResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateAttendeeCommand,
   serializeAws_restJson1CreateAttendeeCommand

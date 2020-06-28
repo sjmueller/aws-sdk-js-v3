@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AthenaClient.ts";
-import {
-  ListNamedQueriesInput,
-  ListNamedQueriesOutput
-} from "../models/index.ts";
+import { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListNamedQueriesCommand,
   serializeAws_json1_1ListNamedQueriesCommand

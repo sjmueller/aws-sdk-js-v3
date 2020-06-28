@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient.ts";
-import {
-  ListRuleGroupsRequest,
-  ListRuleGroupsResponse
-} from "../models/index.ts";
+import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListRuleGroupsCommand,
   serializeAws_json1_1ListRuleGroupsCommand

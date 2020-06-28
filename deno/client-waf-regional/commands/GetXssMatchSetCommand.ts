@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient.ts";
-import {
-  GetXssMatchSetRequest,
-  GetXssMatchSetResponse
-} from "../models/index.ts";
+import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetXssMatchSetCommand,
   serializeAws_json1_1GetXssMatchSetCommand

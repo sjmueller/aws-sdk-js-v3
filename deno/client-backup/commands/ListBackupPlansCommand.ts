@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BackupClient.ts";
-import {
-  ListBackupPlansInput,
-  ListBackupPlansOutput
-} from "../models/index.ts";
+import { ListBackupPlansInput, ListBackupPlansOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListBackupPlansCommand,
   serializeAws_restJson1ListBackupPlansCommand

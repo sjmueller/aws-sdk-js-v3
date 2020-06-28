@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  DescribeTasksRequest,
-  DescribeTasksResponse
-} from "../models/index.ts";
+import { DescribeTasksRequest, DescribeTasksResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTasksCommand,
   serializeAws_json1_1DescribeTasksCommand

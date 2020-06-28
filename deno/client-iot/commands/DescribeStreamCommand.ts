@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTClient.ts";
-import {
-  DescribeStreamRequest,
-  DescribeStreamResponse
-} from "../models/index.ts";
+import { DescribeStreamRequest, DescribeStreamResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeStreamCommand,
   serializeAws_restJson1DescribeStreamCommand

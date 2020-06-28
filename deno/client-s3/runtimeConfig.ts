@@ -1,10 +1,7 @@
 import { name, version } from "./package.json.ts";
-import { Sha256 } from "@aws-crypto/sha256-browser.ts";
+import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
-import {
-  FetchHttpHandler,
-  streamCollector
-} from "../fetch-http-handler/mod.ts";
+import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
 import { blobHasher as streamHasher } from "../hash-blob-browser/mod.ts";
 import { invalidFunction } from "../invalid-dependency/mod.ts";
 import { Md5 } from "../md5-js/mod.ts";

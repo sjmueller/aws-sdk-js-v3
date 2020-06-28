@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  CreateProfileRequest,
-  CreateProfileResponse
-} from "../models/index.ts";
+import { CreateProfileRequest, CreateProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateProfileCommand,
   serializeAws_json1_1CreateProfileCommand

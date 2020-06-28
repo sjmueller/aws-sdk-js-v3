@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SSMClient.ts";
-import {
-  UpdateDocumentRequest,
-  UpdateDocumentResult
-} from "../models/index.ts";
+import { UpdateDocumentRequest, UpdateDocumentResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateDocumentCommand,
   serializeAws_json1_1UpdateDocumentCommand

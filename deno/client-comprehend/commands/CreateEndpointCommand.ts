@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient.ts";
-import {
-  CreateEndpointRequest,
-  CreateEndpointResponse
-} from "../models/index.ts";
+import { CreateEndpointRequest, CreateEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
   serializeAws_json1_1CreateEndpointCommand

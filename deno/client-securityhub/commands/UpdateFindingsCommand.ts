@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient.ts";
-import {
-  UpdateFindingsRequest,
-  UpdateFindingsResponse
-} from "../models/index.ts";
+import { UpdateFindingsRequest, UpdateFindingsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateFindingsCommand,
   serializeAws_restJson1UpdateFindingsCommand

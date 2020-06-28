@@ -1,7 +1,4 @@
-import {
-  DescribeSchemaRequest,
-  DescribeSchemaResponse
-} from "../models/index.ts";
+import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeSchemaCommand,
   serializeAws_restJson1DescribeSchemaCommand

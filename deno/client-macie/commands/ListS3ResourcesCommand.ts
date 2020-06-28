@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MacieClient.ts";
-import {
-  ListS3ResourcesRequest,
-  ListS3ResourcesResult
-} from "../models/index.ts";
+import { ListS3ResourcesRequest, ListS3ResourcesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListS3ResourcesCommand,
   serializeAws_json1_1ListS3ResourcesCommand

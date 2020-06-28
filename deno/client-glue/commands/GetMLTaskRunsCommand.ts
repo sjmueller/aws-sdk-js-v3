@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  GetMLTaskRunsRequest,
-  GetMLTaskRunsResponse
-} from "../models/index.ts";
+import { GetMLTaskRunsRequest, GetMLTaskRunsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetMLTaskRunsCommand,
   serializeAws_json1_1GetMLTaskRunsCommand

@@ -1,7 +1,4 @@
-import {
-  UpdateRegistryRequest,
-  UpdateRegistryResponse
-} from "../models/index.ts";
+import { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateRegistryCommand,
   serializeAws_restJson1UpdateRegistryCommand

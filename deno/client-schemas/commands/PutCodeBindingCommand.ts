@@ -1,7 +1,4 @@
-import {
-  PutCodeBindingRequest,
-  PutCodeBindingResponse
-} from "../models/index.ts";
+import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutCodeBindingCommand,
   serializeAws_restJson1PutCodeBindingCommand

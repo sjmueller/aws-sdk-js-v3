@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTClient.ts";
-import {
-  GetCardinalityRequest,
-  GetCardinalityResponse
-} from "../models/index.ts";
+import { GetCardinalityRequest, GetCardinalityResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetCardinalityCommand,
   serializeAws_restJson1GetCardinalityCommand

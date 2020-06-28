@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EKSClient.ts";
-import {
-  DeleteClusterRequest,
-  DeleteClusterResponse
-} from "../models/index.ts";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteClusterCommand,
   serializeAws_restJson1DeleteClusterCommand

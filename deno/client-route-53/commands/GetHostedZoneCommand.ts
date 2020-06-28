@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client.ts";
-import {
-  GetHostedZoneRequest,
-  GetHostedZoneResponse
-} from "../models/index.ts";
+import { GetHostedZoneRequest, GetHostedZoneResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetHostedZoneCommand,
   serializeAws_restXmlGetHostedZoneCommand

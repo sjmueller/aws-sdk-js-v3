@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient.ts";
-import {
-  ConfigureAgentRequest,
-  ConfigureAgentResponse
-} from "../models/index.ts";
+import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ConfigureAgentCommand,
   serializeAws_restJson1ConfigureAgentCommand

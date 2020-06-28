@@ -93,6 +93,14 @@ async function denoifyTsFile(file, depth) {
   // very fragile line & regex based fixer-upper:   assuming fairly pretty source lines
   for (const line of lines) {
     let replaced = line;
+
+    if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
+      replaced =
+        'import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";';
+      output.push(replaced);
+      continue;
+    }
+
     if (state === "nothing") {
       const match = line.match(/^[ ]*import/);
       if (match) {
@@ -137,6 +145,49 @@ async function denoifyTsFile(file, depth) {
           }
           replaced = `${match[1]}from "${relpath}${importFromAWSSDKmatch[1]}/mod.ts";`;
         } else {
+          //import { Readable } from "stream.ts";
+          const absImportFromMatch = importfrom.match(/^([^.].*)/);
+
+          if (absImportFromMatch) {
+            if (importfrom === "uuid") {
+              //import { v4 } from "https://deno.land/std/uuid/mod.ts";
+            } else if (importfrom === "fast-xml-parser") {
+              //...
+            } else if (importfrom === "stream") {
+              // import { Readable } from "stream.ts"; -> type only
+              if (line === 'import { Readable } from "stream";') {
+                replaced = "type Readable = any;";
+                output.push(replaced);
+                continue;
+              }
+
+              //...
+            } else if (importfrom === "fs") {
+              //...
+            } else if (importfrom === "path") {
+              //...
+            } else if (importfrom === "url") {
+              //...
+            } else if (importfrom === "http") {
+              //...
+            } else if (importfrom === "buffer") {
+              //...
+            } else if (importfrom === "@aws-crypto/crc32") {
+              //...
+            } else if (importfrom === "http2") {
+              //...
+            } else if (importfrom === "https") {
+              //...
+            } else if (importfrom === "net") {
+              //...
+            } else if (importfrom === "os") {
+              //...
+            } else {
+              //throw new Error(`Absolute import of: |${importfrom}|`);
+              //console.log(`Absolute import of: |${importfrom}|`);
+            }
+          }
+
           replaced = `${match[1]}from "${match[3]}.ts";`;
         }
 
@@ -162,6 +213,15 @@ async function copyToDeno(sourceDirs, destinationDir) {
         continue;
       }
       if (package.endsWith("node")) {
+        continue;
+      }
+      if (package.startsWith("node")) {
+        continue;
+      }
+      if (package.endsWith("client-documentation-generator")) {
+        continue;
+      }
+      if (package.endsWith("credential-provider-process")) {
         continue;
       }
 

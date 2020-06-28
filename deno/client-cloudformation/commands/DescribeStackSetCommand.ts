@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient.ts";
-import {
-  DescribeStackSetInput,
-  DescribeStackSetOutput
-} from "../models/index.ts";
+import { DescribeStackSetInput, DescribeStackSetOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeStackSetCommand,
   serializeAws_queryDescribeStackSetCommand

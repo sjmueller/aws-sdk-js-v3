@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient.ts";
-import {
-  GetBotVersionsRequest,
-  GetBotVersionsResponse
-} from "../models/index.ts";
+import { GetBotVersionsRequest, GetBotVersionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBotVersionsCommand,
   serializeAws_restJson1GetBotVersionsCommand

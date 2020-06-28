@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  CreateEndpointMessage,
-  CreateEndpointResponse
-} from "../models/index.ts";
+import { CreateEndpointMessage, CreateEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
   serializeAws_json1_1CreateEndpointCommand

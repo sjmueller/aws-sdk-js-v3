@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTClient.ts";
-import {
-  ListThingTypesRequest,
-  ListThingTypesResponse
-} from "../models/index.ts";
+import { ListThingTypesRequest, ListThingTypesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListThingTypesCommand,
   serializeAws_restJson1ListThingTypesCommand

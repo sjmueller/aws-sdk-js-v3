@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeSubnetsRequest,
-  DescribeSubnetsResult
-} from "../models/index.ts";
+import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeSubnetsCommand,
   serializeAws_ec2DescribeSubnetsCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient.ts";
-import {
-  BatchGetCommitsInput,
-  BatchGetCommitsOutput
-} from "../models/index.ts";
+import { BatchGetCommitsInput, BatchGetCommitsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetCommitsCommand,
   serializeAws_json1_1BatchGetCommitsCommand

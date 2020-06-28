@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  DeleteBGPPeerRequest,
-  DeleteBGPPeerResponse
-} from "../models/index.ts";
+import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteBGPPeerCommand,
   serializeAws_json1_1DeleteBGPPeerCommand

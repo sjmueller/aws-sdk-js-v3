@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3Client.ts";
-import {
-  UploadPartCopyOutput,
-  UploadPartCopyRequest
-} from "../models/index.ts";
+import { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlUploadPartCopyCommand,
   serializeAws_restXmlUploadPartCopyCommand

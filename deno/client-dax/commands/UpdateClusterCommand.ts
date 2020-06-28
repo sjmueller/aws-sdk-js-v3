@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DAXClient.ts";
-import {
-  UpdateClusterRequest,
-  UpdateClusterResponse
-} from "../models/index.ts";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateClusterCommand,
   serializeAws_json1_1UpdateClusterCommand

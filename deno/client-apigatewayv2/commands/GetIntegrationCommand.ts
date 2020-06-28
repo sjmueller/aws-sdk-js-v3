@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client.ts";
-import {
-  GetIntegrationRequest,
-  GetIntegrationResult
-} from "../models/index.ts";
+import { GetIntegrationRequest, GetIntegrationResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetIntegrationCommand,
   serializeAws_restJson1GetIntegrationCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient.ts";
-import {
-  DeleteDetectorRequest,
-  DeleteDetectorResponse
-} from "../models/index.ts";
+import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteDetectorCommand,
   serializeAws_restJson1DeleteDetectorCommand

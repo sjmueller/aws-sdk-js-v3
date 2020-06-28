@@ -22,10 +22,7 @@ import {
   GetCredentialsForIdentityCommandInput,
   GetCredentialsForIdentityCommandOutput
 } from "./commands/GetCredentialsForIdentityCommand.ts";
-import {
-  GetIdCommandInput,
-  GetIdCommandOutput
-} from "./commands/GetIdCommand.ts";
+import { GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand.ts";
 import {
   GetIdentityPoolRolesCommandInput,
   GetIdentityPoolRolesCommandOutput

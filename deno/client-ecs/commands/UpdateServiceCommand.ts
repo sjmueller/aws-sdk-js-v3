@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  UpdateServiceRequest,
-  UpdateServiceResponse
-} from "../models/index.ts";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateServiceCommand,
   serializeAws_json1_1UpdateServiceCommand

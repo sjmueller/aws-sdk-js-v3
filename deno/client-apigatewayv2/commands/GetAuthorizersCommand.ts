@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client.ts";
-import {
-  GetAuthorizersRequest,
-  GetAuthorizersResponse
-} from "../models/index.ts";
+import { GetAuthorizersRequest, GetAuthorizersResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetAuthorizersCommand,
   serializeAws_restJson1GetAuthorizersCommand

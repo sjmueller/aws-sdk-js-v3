@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient.ts";
-import {
-  PublishSchemaRequest,
-  PublishSchemaResponse
-} from "../models/index.ts";
+import { PublishSchemaRequest, PublishSchemaResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PublishSchemaCommand,
   serializeAws_restJson1PublishSchemaCommand

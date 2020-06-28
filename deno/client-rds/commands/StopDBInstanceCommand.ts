@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient.ts";
-import {
-  StopDBInstanceMessage,
-  StopDBInstanceResult
-} from "../models/index.ts";
+import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_queryStopDBInstanceCommand,
   serializeAws_queryStopDBInstanceCommand

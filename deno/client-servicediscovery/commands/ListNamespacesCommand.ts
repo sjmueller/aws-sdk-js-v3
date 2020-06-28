@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient.ts";
-import {
-  ListNamespacesRequest,
-  ListNamespacesResponse
-} from "../models/index.ts";
+import { ListNamespacesRequest, ListNamespacesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListNamespacesCommand,
   serializeAws_json1_1ListNamespacesCommand

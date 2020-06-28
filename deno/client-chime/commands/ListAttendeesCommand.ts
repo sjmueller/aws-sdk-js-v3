@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ChimeClient.ts";
-import {
-  ListAttendeesRequest,
-  ListAttendeesResponse
-} from "../models/index.ts";
+import { ListAttendeesRequest, ListAttendeesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListAttendeesCommand,
   serializeAws_restJson1ListAttendeesCommand

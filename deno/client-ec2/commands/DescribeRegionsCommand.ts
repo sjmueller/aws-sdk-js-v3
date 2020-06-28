@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeRegionsRequest,
-  DescribeRegionsResult
-} from "../models/index.ts";
+import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeRegionsCommand,
   serializeAws_ec2DescribeRegionsCommand

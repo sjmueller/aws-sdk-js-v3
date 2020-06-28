@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksCMClient.ts";
-import {
-  AssociateNodeRequest,
-  AssociateNodeResponse
-} from "../models/index.ts";
+import { AssociateNodeRequest, AssociateNodeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateNodeCommand,
   serializeAws_json1_1AssociateNodeCommand

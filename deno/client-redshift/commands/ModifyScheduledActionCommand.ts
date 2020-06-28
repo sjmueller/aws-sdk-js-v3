@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient.ts";
-import {
-  ModifyScheduledActionMessage,
-  ScheduledAction
-} from "../models/index.ts";
+import { ModifyScheduledActionMessage, ScheduledAction } from "../models/index.ts";
 import {
   deserializeAws_queryModifyScheduledActionCommand,
   serializeAws_queryModifyScheduledActionCommand

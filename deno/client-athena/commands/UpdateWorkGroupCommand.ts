@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AthenaClient.ts";
-import {
-  UpdateWorkGroupInput,
-  UpdateWorkGroupOutput
-} from "../models/index.ts";
+import { UpdateWorkGroupInput, UpdateWorkGroupOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateWorkGroupCommand,
   serializeAws_json1_1UpdateWorkGroupCommand

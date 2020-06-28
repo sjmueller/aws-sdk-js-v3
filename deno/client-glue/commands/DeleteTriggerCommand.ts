@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  DeleteTriggerRequest,
-  DeleteTriggerResponse
-} from "../models/index.ts";
+import { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteTriggerCommand,
   serializeAws_json1_1DeleteTriggerCommand

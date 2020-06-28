@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient.ts";
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesResult
-} from "../models/index.ts";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeVolumesCommand,
   serializeAws_json1_1DescribeVolumesCommand

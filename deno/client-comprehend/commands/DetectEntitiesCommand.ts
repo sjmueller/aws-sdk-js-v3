@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient.ts";
-import {
-  DetectEntitiesRequest,
-  DetectEntitiesResponse
-} from "../models/index.ts";
+import { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DetectEntitiesCommand,
   serializeAws_json1_1DetectEntitiesCommand

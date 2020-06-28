@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  SearchDevicesRequest,
-  SearchDevicesResponse
-} from "../models/index.ts";
+import { SearchDevicesRequest, SearchDevicesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1SearchDevicesCommand,
   serializeAws_json1_1SearchDevicesCommand

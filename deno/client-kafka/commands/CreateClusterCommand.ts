@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KafkaClient.ts";
-import {
-  CreateClusterRequest,
-  CreateClusterResponse
-} from "../models/index.ts";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateClusterCommand,
   serializeAws_restJson1CreateClusterCommand

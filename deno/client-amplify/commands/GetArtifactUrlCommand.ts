@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient.ts";
-import {
-  GetArtifactUrlRequest,
-  GetArtifactUrlResult
-} from "../models/index.ts";
+import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetArtifactUrlCommand,
   serializeAws_restJson1GetArtifactUrlCommand

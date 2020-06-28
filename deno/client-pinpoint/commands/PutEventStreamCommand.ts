@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  PutEventStreamRequest,
-  PutEventStreamResponse
-} from "../models/index.ts";
+import { PutEventStreamRequest, PutEventStreamResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutEventStreamCommand,
   serializeAws_restJson1PutEventStreamCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RAMClient.ts";
-import {
-  ListPrincipalsRequest,
-  ListPrincipalsResponse
-} from "../models/index.ts";
+import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListPrincipalsCommand,
   serializeAws_restJson1ListPrincipalsCommand

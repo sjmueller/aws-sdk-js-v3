@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient.ts";
-import {
-  GetDataSourceRequest,
-  GetDataSourceResponse
-} from "../models/index.ts";
+import { GetDataSourceRequest, GetDataSourceResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDataSourceCommand,
   serializeAws_restJson1GetDataSourceCommand

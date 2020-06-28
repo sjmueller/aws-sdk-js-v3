@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QLDBClient.ts";
-import {
-  DescribeLedgerRequest,
-  DescribeLedgerResponse
-} from "../models/index.ts";
+import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeLedgerCommand,
   serializeAws_restJson1DescribeLedgerCommand

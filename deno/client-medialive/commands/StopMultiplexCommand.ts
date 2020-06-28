@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient.ts";
-import {
-  StopMultiplexRequest,
-  StopMultiplexResponse
-} from "../models/index.ts";
+import { StopMultiplexRequest, StopMultiplexResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StopMultiplexCommand,
   serializeAws_restJson1StopMultiplexCommand

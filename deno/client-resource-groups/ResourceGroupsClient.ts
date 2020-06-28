@@ -31,10 +31,7 @@ import {
   SearchResourcesCommandOutput
 } from "./commands/SearchResourcesCommand.ts";
 import { TagCommandInput, TagCommandOutput } from "./commands/TagCommand.ts";
-import {
-  UntagCommandInput,
-  UntagCommandOutput
-} from "./commands/UntagCommand.ts";
+import { UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand.ts";
 import {
   UpdateGroupCommandInput,
   UpdateGroupCommandOutput

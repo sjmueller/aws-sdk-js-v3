@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient.ts";
-import {
-  DBInstanceMessage,
-  DescribeDBInstancesMessage
-} from "../models/index.ts";
+import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDBInstancesCommand,
   serializeAws_queryDescribeDBInstancesCommand

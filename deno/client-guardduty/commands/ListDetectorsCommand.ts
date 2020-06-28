@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient.ts";
-import {
-  ListDetectorsRequest,
-  ListDetectorsResponse
-} from "../models/index.ts";
+import { ListDetectorsRequest, ListDetectorsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListDetectorsCommand,
   serializeAws_restJson1ListDetectorsCommand

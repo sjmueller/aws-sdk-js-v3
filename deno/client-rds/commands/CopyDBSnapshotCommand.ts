@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient.ts";
-import {
-  CopyDBSnapshotMessage,
-  CopyDBSnapshotResult
-} from "../models/index.ts";
+import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryCopyDBSnapshotCommand,
   serializeAws_queryCopyDBSnapshotCommand

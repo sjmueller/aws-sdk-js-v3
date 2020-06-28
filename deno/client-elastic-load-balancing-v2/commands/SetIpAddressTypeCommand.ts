@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client.ts";
-import {
-  SetIpAddressTypeInput,
-  SetIpAddressTypeOutput
-} from "../models/index.ts";
+import { SetIpAddressTypeInput, SetIpAddressTypeOutput } from "../models/index.ts";
 import {
   deserializeAws_querySetIpAddressTypeCommand,
   serializeAws_querySetIpAddressTypeCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient.ts";
-import {
-  UpdateChannelRequest,
-  UpdateChannelResponse
-} from "../models/index.ts";
+import { UpdateChannelRequest, UpdateChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateChannelCommand,
   serializeAws_restJson1UpdateChannelCommand

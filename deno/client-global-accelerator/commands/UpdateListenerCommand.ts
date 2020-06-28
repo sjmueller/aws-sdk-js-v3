@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient.ts";
-import {
-  UpdateListenerRequest,
-  UpdateListenerResponse
-} from "../models/index.ts";
+import { UpdateListenerRequest, UpdateListenerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateListenerCommand,
   serializeAws_json1_1UpdateListenerCommand

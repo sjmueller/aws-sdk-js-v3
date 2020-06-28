@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient.ts";
-import {
-  DescribeResizeMessage,
-  ResizeProgressMessage
-} from "../models/index.ts";
+import { DescribeResizeMessage, ResizeProgressMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeResizeCommand,
   serializeAws_queryDescribeResizeCommand

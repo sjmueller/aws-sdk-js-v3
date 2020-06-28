@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeFleetsRequest,
-  DescribeFleetsResult
-} from "../models/index.ts";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeFleetsCommand,
   serializeAws_ec2DescribeFleetsCommand

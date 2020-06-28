@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client.ts";
-import {
-  GetHealthCheckRequest,
-  GetHealthCheckResponse
-} from "../models/index.ts";
+import { GetHealthCheckRequest, GetHealthCheckResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetHealthCheckCommand,
   serializeAws_restXmlGetHealthCheckCommand

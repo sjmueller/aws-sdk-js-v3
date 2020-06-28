@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  ForgotPasswordRequest,
-  ForgotPasswordResponse
-} from "../models/index.ts";
+import { ForgotPasswordRequest, ForgotPasswordResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ForgotPasswordCommand,
   serializeAws_json1_1ForgotPasswordCommand

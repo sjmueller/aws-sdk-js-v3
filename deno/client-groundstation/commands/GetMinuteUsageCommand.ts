@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient.ts";
-import {
-  GetMinuteUsageRequest,
-  GetMinuteUsageResponse
-} from "../models/index.ts";
+import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetMinuteUsageCommand,
   serializeAws_restJson1GetMinuteUsageCommand

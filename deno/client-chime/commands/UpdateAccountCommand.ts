@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ChimeClient.ts";
-import {
-  UpdateAccountRequest,
-  UpdateAccountResponse
-} from "../models/index.ts";
+import { UpdateAccountRequest, UpdateAccountResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateAccountCommand,
   serializeAws_restJson1UpdateAccountCommand

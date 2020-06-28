@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreDataClient.ts";
-import {
-  DescribeObjectRequest,
-  DescribeObjectResponse
-} from "../models/index.ts";
+import { DescribeObjectRequest, DescribeObjectResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeObjectCommand,
   serializeAws_restJson1DescribeObjectCommand

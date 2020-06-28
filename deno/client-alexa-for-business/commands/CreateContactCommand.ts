@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  CreateContactRequest,
-  CreateContactResponse
-} from "../models/index.ts";
+import { CreateContactRequest, CreateContactResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateContactCommand,
   serializeAws_json1_1CreateContactCommand

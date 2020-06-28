@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient.ts";
-import {
-  DeleteChangeSetInput,
-  DeleteChangeSetOutput
-} from "../models/index.ts";
+import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteChangeSetCommand,
   serializeAws_queryDeleteChangeSetCommand

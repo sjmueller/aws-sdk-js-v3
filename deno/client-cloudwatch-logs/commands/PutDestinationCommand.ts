@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient.ts";
-import {
-  PutDestinationRequest,
-  PutDestinationResponse
-} from "../models/index.ts";
+import { PutDestinationRequest, PutDestinationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutDestinationCommand,
   serializeAws_json1_1PutDestinationCommand

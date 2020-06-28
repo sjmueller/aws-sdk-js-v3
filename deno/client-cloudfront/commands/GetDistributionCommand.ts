@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient.ts";
-import {
-  GetDistributionRequest,
-  GetDistributionResult
-} from "../models/index.ts";
+import { GetDistributionRequest, GetDistributionResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetDistributionCommand,
   serializeAws_restXmlGetDistributionCommand

@@ -1,9 +1,4 @@
-import {
-  HandlerOptions,
-  Step,
-  MiddlewareType,
-  Priority
-} from "../types/mod.ts";
+import { HandlerOptions, Step, MiddlewareType, Priority } from "../types/mod.ts";
 export interface MiddlewareEntry<Input extends object, Output extends object>
   extends HandlerOptions {
   step: Step;

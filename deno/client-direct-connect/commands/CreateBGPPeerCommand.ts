@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient.ts";
-import {
-  CreateBGPPeerRequest,
-  CreateBGPPeerResponse
-} from "../models/index.ts";
+import { CreateBGPPeerRequest, CreateBGPPeerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateBGPPeerCommand,
   serializeAws_json1_1CreateBGPPeerCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3ControlClient.ts";
-import {
-  UpdateJobStatusRequest,
-  UpdateJobStatusResult
-} from "../models/index.ts";
+import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlUpdateJobStatusCommand,
   serializeAws_restXmlUpdateJobStatusCommand

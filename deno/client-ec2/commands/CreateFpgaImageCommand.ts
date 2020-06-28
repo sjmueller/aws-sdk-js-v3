@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  CreateFpgaImageRequest,
-  CreateFpgaImageResult
-} from "../models/index.ts";
+import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateFpgaImageCommand,
   serializeAws_ec2CreateFpgaImageCommand

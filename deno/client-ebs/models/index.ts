@@ -4,7 +4,7 @@ import {
   isa as __isa
 } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "stream.ts";
+type Readable = any;
 
 /**
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>

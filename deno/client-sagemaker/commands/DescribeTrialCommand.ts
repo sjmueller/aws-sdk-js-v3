@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient.ts";
-import {
-  DescribeTrialRequest,
-  DescribeTrialResponse
-} from "../models/index.ts";
+import { DescribeTrialRequest, DescribeTrialResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTrialCommand,
   serializeAws_json1_1DescribeTrialCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient.ts";
-import {
-  DeleteMembersRequest,
-  DeleteMembersResponse
-} from "../models/index.ts";
+import { DeleteMembersRequest, DeleteMembersResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteMembersCommand,
   serializeAws_restJson1DeleteMembersCommand

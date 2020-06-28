@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ECSClient.ts";
-import {
-  PutAttributesRequest,
-  PutAttributesResponse
-} from "../models/index.ts";
+import { PutAttributesRequest, PutAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutAttributesCommand,
   serializeAws_json1_1PutAttributesCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  RefreshSchemasMessage,
-  RefreshSchemasResponse
-} from "../models/index.ts";
+import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RefreshSchemasCommand,
   serializeAws_json1_1RefreshSchemasCommand

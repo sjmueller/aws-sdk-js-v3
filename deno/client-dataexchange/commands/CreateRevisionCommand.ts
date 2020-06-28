@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataExchangeClient.ts";
-import {
-  CreateRevisionRequest,
-  CreateRevisionResponse
-} from "../models/index.ts";
+import { CreateRevisionRequest, CreateRevisionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateRevisionCommand,
   serializeAws_restJson1CreateRevisionCommand

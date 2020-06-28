@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient.ts";
-import {
-  ActivateGatewayInput,
-  ActivateGatewayOutput
-} from "../models/index.ts";
+import { ActivateGatewayInput, ActivateGatewayOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ActivateGatewayCommand,
   serializeAws_json1_1ActivateGatewayCommand

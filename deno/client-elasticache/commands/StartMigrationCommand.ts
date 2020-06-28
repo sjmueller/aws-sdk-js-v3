@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient.ts";
-import {
-  StartMigrationMessage,
-  StartMigrationResponse
-} from "../models/index.ts";
+import { StartMigrationMessage, StartMigrationResponse } from "../models/index.ts";
 import {
   deserializeAws_queryStartMigrationCommand,
   serializeAws_queryStartMigrationCommand

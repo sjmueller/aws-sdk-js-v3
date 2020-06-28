@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  CreateFlowLogsRequest,
-  CreateFlowLogsResult
-} from "../models/index.ts";
+import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateFlowLogsCommand,
   serializeAws_ec2CreateFlowLogsCommand

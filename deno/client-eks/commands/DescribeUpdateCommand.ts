@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EKSClient.ts";
-import {
-  DescribeUpdateRequest,
-  DescribeUpdateResponse
-} from "../models/index.ts";
+import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeUpdateCommand,
   serializeAws_restJson1DescribeUpdateCommand

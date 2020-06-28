@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IAMClient.ts";
-import {
-  GetRolePolicyRequest,
-  GetRolePolicyResponse
-} from "../models/index.ts";
+import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetRolePolicyCommand,
   serializeAws_queryGetRolePolicyCommand

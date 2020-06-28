@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  CreateSnapshotsRequest,
-  CreateSnapshotsResult
-} from "../models/index.ts";
+import { CreateSnapshotsRequest, CreateSnapshotsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateSnapshotsCommand,
   serializeAws_ec2CreateSnapshotsCommand

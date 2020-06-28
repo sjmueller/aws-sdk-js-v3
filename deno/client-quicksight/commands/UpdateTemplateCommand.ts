@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient.ts";
-import {
-  UpdateTemplateRequest,
-  UpdateTemplateResponse
-} from "../models/index.ts";
+import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateTemplateCommand,
   serializeAws_restJson1UpdateTemplateCommand

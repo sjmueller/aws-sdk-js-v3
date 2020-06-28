@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient.ts";
-import {
-  PutPermissionRequest,
-  PutPermissionResponse
-} from "../models/index.ts";
+import { PutPermissionRequest, PutPermissionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutPermissionCommand,
   serializeAws_restJson1PutPermissionCommand

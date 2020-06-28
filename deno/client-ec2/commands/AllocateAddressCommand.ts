@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  AllocateAddressRequest,
-  AllocateAddressResult
-} from "../models/index.ts";
+import { AllocateAddressRequest, AllocateAddressResult } from "../models/index.ts";
 import {
   deserializeAws_ec2AllocateAddressCommand,
   serializeAws_ec2AllocateAddressCommand

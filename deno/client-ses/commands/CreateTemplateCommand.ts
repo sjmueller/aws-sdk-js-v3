@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SESClient.ts";
-import {
-  CreateTemplateRequest,
-  CreateTemplateResponse
-} from "../models/index.ts";
+import { CreateTemplateRequest, CreateTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_queryCreateTemplateCommand,
   serializeAws_queryCreateTemplateCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient.ts";
-import {
-  AssociateFleetRequest,
-  AssociateFleetResult
-} from "../models/index.ts";
+import { AssociateFleetRequest, AssociateFleetResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateFleetCommand,
   serializeAws_json1_1AssociateFleetCommand

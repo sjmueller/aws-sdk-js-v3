@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient.ts";
-import {
-  UpdateConstraintInput,
-  UpdateConstraintOutput
-} from "../models/index.ts";
+import { UpdateConstraintInput, UpdateConstraintOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateConstraintCommand,
   serializeAws_json1_1UpdateConstraintCommand

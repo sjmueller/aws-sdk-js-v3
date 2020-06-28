@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient.ts";
-import {
-  DeleteMeshPolicyInput,
-  DeleteMeshPolicyOutput
-} from "../models/index.ts";
+import { DeleteMeshPolicyInput, DeleteMeshPolicyOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteMeshPolicyCommand,
   serializeAws_restJson1DeleteMeshPolicyCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient.ts";
-import {
-  UpdateRecordsRequest,
-  UpdateRecordsResponse
-} from "../models/index.ts";
+import { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateRecordsCommand,
   serializeAws_restJson1UpdateRecordsCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EMRClient.ts";
-import {
-  DescribeJobFlowsInput,
-  DescribeJobFlowsOutput
-} from "../models/index.ts";
+import { DescribeJobFlowsInput, DescribeJobFlowsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeJobFlowsCommand,
   serializeAws_json1_1DescribeJobFlowsCommand

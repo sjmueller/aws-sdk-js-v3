@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient.ts";
-import {
-  ListCampaignsRequest,
-  ListCampaignsResponse
-} from "../models/index.ts";
+import { ListCampaignsRequest, ListCampaignsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListCampaignsCommand,
   serializeAws_json1_1ListCampaignsCommand

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient.ts";
-import {
-  CreateDirectoryRequest,
-  CreateDirectoryResult
-} from "../models/index.ts";
+import { CreateDirectoryRequest, CreateDirectoryResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDirectoryCommand,
   serializeAws_json1_1CreateDirectoryCommand

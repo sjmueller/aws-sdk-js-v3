@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient.ts";
-import {
-  CreateDatasetRequest,
-  CreateDatasetResponse
-} from "../models/index.ts";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDatasetCommand,
   serializeAws_json1_1CreateDatasetCommand

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient.ts";
-import {
-  CreateCommentRequest,
-  CreateCommentResponse
-} from "../models/index.ts";
+import { CreateCommentRequest, CreateCommentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateCommentCommand,
   serializeAws_restJson1CreateCommentCommand

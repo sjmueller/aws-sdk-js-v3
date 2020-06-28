@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient.ts";
-import {
-  DescribeRobotRequest,
-  DescribeRobotResponse
-} from "../models/index.ts";
+import { DescribeRobotRequest, DescribeRobotResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeRobotCommand,
   serializeAws_restJson1DescribeRobotCommand

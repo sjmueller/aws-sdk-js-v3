@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient.ts";
-import {
-  GetImportJobsRequest,
-  GetImportJobsResponse
-} from "../models/index.ts";
+import { GetImportJobsRequest, GetImportJobsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetImportJobsCommand,
   serializeAws_restJson1GetImportJobsCommand

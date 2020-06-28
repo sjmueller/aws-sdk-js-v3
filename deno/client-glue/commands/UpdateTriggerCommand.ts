@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  UpdateTriggerRequest,
-  UpdateTriggerResponse
-} from "../models/index.ts";
+import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateTriggerCommand,
   serializeAws_json1_1UpdateTriggerCommand

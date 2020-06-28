@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RAMClient.ts";
-import {
-  GetPermissionRequest,
-  GetPermissionResponse
-} from "../models/index.ts";
+import { GetPermissionRequest, GetPermissionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetPermissionCommand,
   serializeAws_restJson1GetPermissionCommand

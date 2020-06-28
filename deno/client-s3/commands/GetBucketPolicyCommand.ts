@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3Client.ts";
-import {
-  GetBucketPolicyOutput,
-  GetBucketPolicyRequest
-} from "../models/index.ts";
+import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetBucketPolicyCommand,
   serializeAws_restXmlGetBucketPolicyCommand

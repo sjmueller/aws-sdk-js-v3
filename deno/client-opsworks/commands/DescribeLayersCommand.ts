@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient.ts";
-import {
-  DescribeLayersRequest,
-  DescribeLayersResult
-} from "../models/index.ts";
+import { DescribeLayersRequest, DescribeLayersResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeLayersCommand,
   serializeAws_json1_1DescribeLayersCommand

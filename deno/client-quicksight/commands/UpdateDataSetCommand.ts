@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient.ts";
-import {
-  UpdateDataSetRequest,
-  UpdateDataSetResponse
-} from "../models/index.ts";
+import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDataSetCommand,
   serializeAws_restJson1UpdateDataSetCommand

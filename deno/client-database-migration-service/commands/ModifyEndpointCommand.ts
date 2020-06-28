@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  ModifyEndpointMessage,
-  ModifyEndpointResponse
-} from "../models/index.ts";
+import { ModifyEndpointMessage, ModifyEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ModifyEndpointCommand,
   serializeAws_json1_1ModifyEndpointCommand

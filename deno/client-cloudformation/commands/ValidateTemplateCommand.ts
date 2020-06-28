@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient.ts";
-import {
-  ValidateTemplateInput,
-  ValidateTemplateOutput
-} from "../models/index.ts";
+import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/index.ts";
 import {
   deserializeAws_queryValidateTemplateCommand,
   serializeAws_queryValidateTemplateCommand

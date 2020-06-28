@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  GetPasswordDataRequest,
-  GetPasswordDataResult
-} from "../models/index.ts";
+import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/index.ts";
 import {
   deserializeAws_ec2GetPasswordDataCommand,
   serializeAws_ec2GetPasswordDataCommand

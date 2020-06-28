@@ -1,5 +1,5 @@
 import { AbortSignal } from "./abort.ts";
-import { Readable } from "stream.ts";
+type Readable = any;
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */

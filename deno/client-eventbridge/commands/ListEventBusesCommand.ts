@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EventBridgeClient.ts";
-import {
-  ListEventBusesRequest,
-  ListEventBusesResponse
-} from "../models/index.ts";
+import { ListEventBusesRequest, ListEventBusesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListEventBusesCommand,
   serializeAws_json1_1ListEventBusesCommand

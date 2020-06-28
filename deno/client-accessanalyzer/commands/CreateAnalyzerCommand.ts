@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AccessAnalyzerClient.ts";
-import {
-  CreateAnalyzerRequest,
-  CreateAnalyzerResponse
-} from "../models/index.ts";
+import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateAnalyzerCommand,
   serializeAws_restJson1CreateAnalyzerCommand

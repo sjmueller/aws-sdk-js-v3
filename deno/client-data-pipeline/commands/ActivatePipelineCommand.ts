@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient.ts";
-import {
-  ActivatePipelineInput,
-  ActivatePipelineOutput
-} from "../models/index.ts";
+import { ActivatePipelineInput, ActivatePipelineOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ActivatePipelineCommand,
   serializeAws_json1_1ActivatePipelineCommand

@@ -1,7 +1,4 @@
-import {
-  DescribeBrokerRequest,
-  DescribeBrokerResponse
-} from "../models/index.ts";
+import { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/index.ts";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,

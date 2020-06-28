@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  CreateCrawlerRequest,
-  CreateCrawlerResponse
-} from "../models/index.ts";
+import { CreateCrawlerRequest, CreateCrawlerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateCrawlerCommand,
   serializeAws_json1_1CreateCrawlerCommand

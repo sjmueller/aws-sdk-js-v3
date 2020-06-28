@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient.ts";
-import {
-  UpdateFunctionRequest,
-  UpdateFunctionResponse
-} from "../models/index.ts";
+import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateFunctionCommand,
   serializeAws_restJson1UpdateFunctionCommand

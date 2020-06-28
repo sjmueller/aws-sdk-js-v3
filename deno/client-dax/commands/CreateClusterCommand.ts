@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DAXClient.ts";
-import {
-  CreateClusterRequest,
-  CreateClusterResponse
-} from "../models/index.ts";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand

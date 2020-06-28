@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient.ts";
-import {
-  IndexDocumentsRequest,
-  IndexDocumentsResponse
-} from "../models/index.ts";
+import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryIndexDocumentsCommand,
   serializeAws_queryIndexDocumentsCommand

@@ -1,9 +1,5 @@
 import { HttpHandlerOptions, RequestHandlerMetadata } from "../types/mod.ts";
-import {
-  HttpHandler,
-  HttpRequest,
-  HttpResponse
-} from "../protocol-http/mod.ts";
+import { HttpHandler, HttpRequest, HttpResponse } from "../protocol-http/mod.ts";
 import { formatUrl } from "../util-format-url/mod.ts";
 import {
   iterableToReadableStream,

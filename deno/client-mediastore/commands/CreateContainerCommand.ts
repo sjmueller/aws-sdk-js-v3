@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient.ts";
-import {
-  CreateContainerInput,
-  CreateContainerOutput
-} from "../models/index.ts";
+import { CreateContainerInput, CreateContainerOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateContainerCommand,
   serializeAws_json1_1CreateContainerCommand

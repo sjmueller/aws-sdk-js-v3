@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlueClient.ts";
-import {
-  CreateDatabaseRequest,
-  CreateDatabaseResponse
-} from "../models/index.ts";
+import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDatabaseCommand,
   serializeAws_json1_1CreateDatabaseCommand

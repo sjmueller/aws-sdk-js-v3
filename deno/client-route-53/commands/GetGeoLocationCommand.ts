@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client.ts";
-import {
-  GetGeoLocationRequest,
-  GetGeoLocationResponse
-} from "../models/index.ts";
+import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetGeoLocationCommand,
   serializeAws_restXmlGetGeoLocationCommand

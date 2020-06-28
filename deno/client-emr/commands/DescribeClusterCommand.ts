@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EMRClient.ts";
-import {
-  DescribeClusterInput,
-  DescribeClusterOutput
-} from "../models/index.ts";
+import { DescribeClusterInput, DescribeClusterOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeClusterCommand,
   serializeAws_json1_1DescribeClusterCommand

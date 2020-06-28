@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient.ts";
-import {
-  ListListenersRequest,
-  ListListenersResponse
-} from "../models/index.ts";
+import { ListListenersRequest, ListListenersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListListenersCommand,
   serializeAws_json1_1ListListenersCommand

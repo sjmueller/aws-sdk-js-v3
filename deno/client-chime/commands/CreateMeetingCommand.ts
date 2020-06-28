@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ChimeClient.ts";
-import {
-  CreateMeetingRequest,
-  CreateMeetingResponse
-} from "../models/index.ts";
+import { CreateMeetingRequest, CreateMeetingResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateMeetingCommand,
   serializeAws_restJson1CreateMeetingCommand

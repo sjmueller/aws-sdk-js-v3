@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RAMClient.ts";
-import {
-  ListResourcesRequest,
-  ListResourcesResponse
-} from "../models/index.ts";
+import { ListResourcesRequest, ListResourcesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListResourcesCommand,
   serializeAws_restJson1ListResourcesCommand

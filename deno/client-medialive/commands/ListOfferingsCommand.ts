@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient.ts";
-import {
-  ListOfferingsRequest,
-  ListOfferingsResponse
-} from "../models/index.ts";
+import { ListOfferingsRequest, ListOfferingsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListOfferingsCommand,
   serializeAws_restJson1ListOfferingsCommand

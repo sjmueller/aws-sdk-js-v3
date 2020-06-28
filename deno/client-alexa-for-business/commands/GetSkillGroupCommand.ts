@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient.ts";
-import {
-  GetSkillGroupRequest,
-  GetSkillGroupResponse
-} from "../models/index.ts";
+import { GetSkillGroupRequest, GetSkillGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetSkillGroupCommand,
   serializeAws_json1_1GetSkillGroupCommand

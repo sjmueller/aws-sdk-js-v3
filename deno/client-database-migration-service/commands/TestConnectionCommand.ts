@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  TestConnectionMessage,
-  TestConnectionResponse
-} from "../models/index.ts";
+import { TestConnectionMessage, TestConnectionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1TestConnectionCommand,
   serializeAws_json1_1TestConnectionCommand

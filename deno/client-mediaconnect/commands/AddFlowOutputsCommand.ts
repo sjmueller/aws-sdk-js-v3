@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient.ts";
-import {
-  AddFlowOutputsRequest,
-  AddFlowOutputsResponse
-} from "../models/index.ts";
+import { AddFlowOutputsRequest, AddFlowOutputsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AddFlowOutputsCommand,
   serializeAws_restJson1AddFlowOutputsCommand

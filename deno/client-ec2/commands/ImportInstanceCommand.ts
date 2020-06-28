@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  ImportInstanceRequest,
-  ImportInstanceResult
-} from "../models/index.ts";
+import { ImportInstanceRequest, ImportInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_ec2ImportInstanceCommand,
   serializeAws_ec2ImportInstanceCommand

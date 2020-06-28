@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2Client.ts";
-import {
-  DescribeImageAttributeRequest,
-  ImageAttribute
-} from "../models/index.ts";
+import { DescribeImageAttributeRequest, ImageAttribute } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeImageAttributeCommand,
   serializeAws_ec2DescribeImageAttributeCommand

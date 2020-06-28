@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SWFClient.ts";
-import {
-  ActivityTypeDetail,
-  DescribeActivityTypeInput
-} from "../models/index.ts";
+import { ActivityTypeDetail, DescribeActivityTypeInput } from "../models/index.ts";
 import {
   deserializeAws_json1_0DescribeActivityTypeCommand,
   serializeAws_json1_0DescribeActivityTypeCommand
