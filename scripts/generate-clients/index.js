@@ -3,6 +3,7 @@ const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateProtocolTests } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
+const { copyToDeno } = require("./copy-to-deno");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
@@ -13,8 +14,14 @@ const { prettifyCode } = require("./code-prettify");
 const SDK_CLIENTS_DIR = path.normalize(
   path.join(__dirname, "..", "..", "clients")
 );
+const SDK_DENO_CLIENTS_DIR = path.normalize(
+  path.join(__dirname, "..", "..", "deno")
+);
 const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(
   path.join(__dirname, "..", "..", "protocol_tests")
+);
+const PACKAGES_DIR = path.normalize(
+  path.join(__dirname, "..", "..", "packages")
 );
 
 const { models, globs, output: clientsDir } = yargs
@@ -44,6 +51,7 @@ const { models, globs, output: clientsDir } = yargs
       CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
       PROTOCOL_TESTS_CLIENTS_DIR
     );
+    await copyToDeno([clientsDir, PACKAGES_DIR], SDK_DENO_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);

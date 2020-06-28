@@ -1,0 +1,54 @@
+import { CredentialProvider } from "../types/mod.ts";
+import {
+  RemoteProviderInit,
+  providerConfigFromInit
+} from "./remoteProvider/RemoteProviderInit.ts";
+import { httpGet } from "./remoteProvider/httpGet.ts";
+import {
+  fromImdsCredentials,
+  isImdsCredentials
+} from "./remoteProvider/ImdsCredentials.ts";
+import { retry } from "./remoteProvider/retry.ts";
+import { ProviderError } from "../property-provider/mod.ts";
+
+/**
+ * Creates a credential provider that will source credentials from the EC2
+ * Instance Metadata Service
+ */
+export function fromInstanceMetadata(
+  init: RemoteProviderInit = {}
+): CredentialProvider {
+  const { timeout, maxRetries } = providerConfigFromInit(init);
+  return async () => {
+    const profile = (
+      await retry<string>(
+        async () => await requestFromEc2Imds(timeout),
+        maxRetries
+      )
+    ).trim();
+
+    return retry(async () => {
+      const credsResponse = JSON.parse(
+        await requestFromEc2Imds(timeout, profile)
+      );
+      if (!isImdsCredentials(credsResponse)) {
+        throw new ProviderError(
+          "Invalid response received from instance metadata service."
+        );
+      }
+
+      return fromImdsCredentials(credsResponse);
+    }, maxRetries);
+  };
+}
+
+const IMDS_IP = "169.254.169.254";
+const IMDS_PATH = "latest/meta-data/iam/security-credentials";
+
+function requestFromEc2Imds(timeout: number, path?: string): Promise<string> {
+  return httpGet({
+    host: IMDS_IP,
+    path: `/${IMDS_PATH}/${path ? path : ""}`,
+    timeout
+  }).then(buffer => buffer.toString());
+}

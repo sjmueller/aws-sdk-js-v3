@@ -1,0 +1,68 @@
+import { CognitoProviderParameters } from "./CognitoProviderParameters.ts";
+import { resolveLogins } from "./resolveLogins.ts";
+import { ProviderError } from "../property-provider/mod.ts";
+import { GetCredentialsForIdentityCommand } from "../client-cognito-identity/mod.ts";
+import { Credentials, CredentialProvider } from "../types/mod.ts";
+
+/**
+ * Retrieves temporary AWS credentials using Amazon Cognito's
+ * `GetCredentialsForIdentity` operation.
+ *
+ * Results from this function call are not cached internally.
+ */
+export function fromCognitoIdentity(
+  parameters: FromCognitoIdentityParameters
+): CredentialProvider {
+  return async (): Promise<Credentials> => {
+    const {
+      Credentials: {
+        AccessKeyId = throwOnMissingAccessKeyId(),
+        Expiration,
+        SecretKey = throwOnMissingSecretKey(),
+        SessionToken
+      } = throwOnMissingCredentials()
+    } = await parameters.client.send(
+      new GetCredentialsForIdentityCommand({
+        CustomRoleArn: parameters.customRoleArn,
+        IdentityId: parameters.identityId,
+        Logins: parameters.logins
+          ? await resolveLogins(parameters.logins)
+          : undefined
+      })
+    );
+
+    return {
+      accessKeyId: AccessKeyId,
+      secretAccessKey: SecretKey,
+      sessionToken: SessionToken,
+      expiration: Expiration
+    };
+  };
+}
+
+export interface FromCognitoIdentityParameters
+  extends CognitoProviderParameters {
+  /**
+   * The unique identifier for the identity against which credentials will be
+   * issued.
+   */
+  identityId: string;
+}
+
+function throwOnMissingAccessKeyId(): never {
+  throw new ProviderError(
+    "Response from Amazon Cognito contained no access key ID"
+  );
+}
+
+function throwOnMissingCredentials(): never {
+  throw new ProviderError(
+    "Response from Amazon Cognito contained no credentials"
+  );
+}
+
+function throwOnMissingSecretKey(): never {
+  throw new ProviderError(
+    "Response from Amazon Cognito contained no secret key"
+  );
+}
