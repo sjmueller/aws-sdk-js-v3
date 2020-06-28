@@ -152,7 +152,9 @@ async function denoifyTsFile(file, depth) {
             if (importfrom === "uuid") {
               //import { v4 } from "https://deno.land/std/uuid/mod.ts";
             } else if (importfrom === "fast-xml-parser") {
-              //...
+              replaced = `${match[1]}from "https://jspm.dev/fast-xml-parser";`;
+              output.push(replaced);
+              continue;
             } else if (importfrom === "stream") {
               // import { Readable } from "stream.ts"; -> type only
               if (line === 'import { Readable } from "stream";') {

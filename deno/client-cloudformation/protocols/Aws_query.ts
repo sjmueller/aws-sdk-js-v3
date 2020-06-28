@@ -411,8 +411,8 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "../../types/mod.ts";
-import { parse as xmlParse } from "fast-xml-parser.ts";
-import { v4 as generateIdempotencyToken } from "uuid.ts";
+import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_queryCancelUpdateStackCommand = async (
   input: CancelUpdateStackCommandInput,

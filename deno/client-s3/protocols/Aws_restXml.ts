@@ -485,7 +485,7 @@ import {
   XmlNode as __XmlNode,
   XmlText as __XmlText
 } from "../../xml-builder/mod.ts";
-import { parse as xmlParse } from "fast-xml-parser.ts";
+import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,

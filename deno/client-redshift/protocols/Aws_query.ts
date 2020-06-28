@@ -675,7 +675,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "../../types/mod.ts";
-import { parse as xmlParse } from "fast-xml-parser.ts";
+import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_queryAcceptReservedNodeExchangeCommand = async (
   input: AcceptReservedNodeExchangeCommandInput,
