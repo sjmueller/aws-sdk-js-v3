@@ -30,6 +30,13 @@ async function copyPackage(packageName, packageDir, destinationDir) {
     if (dpath.endsWith(".spec.ts")) {
       continue;
     }
+    if (dpath === "package.json") {
+      let topath = dpath;
+      await fsx.copyFile(
+        path.join(packageDir, dpath),
+        path.join(destinationDir, packageName, topath)
+      );
+    }
     if (dpath.endsWith(".ts")) {
       let topath = dpath;
 
@@ -98,6 +105,16 @@ async function denoifyTsFile(file, depth) {
       replaced =
         'import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";';
       output.push(replaced);
+      continue;
+    }
+
+    if (line === 'import { name, version } from "./package.json";') {
+      const pkgjson = await fsx.readJson(
+        path.join(path.dirname(file), "package.json")
+      );
+      output.push(`const name = "${pkgjson.name}";`);
+      output.push(`const version = "${pkgjson.version}";`);
+
       continue;
     }
 

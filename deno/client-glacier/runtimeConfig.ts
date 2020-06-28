@@ -1,4 +1,5 @@
-import { name, version } from "./package.json.ts";
+const name = "@aws-sdk/client-glacier";
+const version = "1.0.0-gamma.2";
 import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";
 import { bodyChecksumGenerator } from "../body-checksum-browser/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
