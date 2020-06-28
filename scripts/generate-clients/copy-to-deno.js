@@ -134,7 +134,7 @@ async function denoifyTsFile(file, depth) {
     if (state === "import" || state === "export") {
       const match = line.match(/^(.*)from[ ]+("|')([^"']+)("|');/);
       if (match) {
-        state = "import/export from";
+        state = "nothing";
         const importfrom = match[3];
 
         const importFromAWSSDKmatch = importfrom.match(/@aws-sdk\/(.*)/);
@@ -213,8 +213,6 @@ async function denoifyTsFile(file, depth) {
 
           replaced = `${match[1]}from "${match[3]}.ts";`;
         }
-
-        state = "nothing";
       }
     }
 
