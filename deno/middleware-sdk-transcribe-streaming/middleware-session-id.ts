@@ -5,7 +5,7 @@ import {
   InitializeHandlerOptions,
   RequestHandler
 } from "../types/mod.ts";
-import { v4 } from "uuid.ts";
+import { v4 } from "https://deno.land/std@0.59.0/uuid/mod.ts";
 
 type WithSession = {
   SessionId?: string;

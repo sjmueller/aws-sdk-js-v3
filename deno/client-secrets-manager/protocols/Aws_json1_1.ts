@@ -133,7 +133,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "../../types/mod.ts";
-import { v4 as generateIdempotencyToken } from "uuid.ts";
+import { v4 as generateIdempotencyToken } from "https://deno.land/std@0.59.0/uuid/mod.ts";
 
 export const serializeAws_json1_1CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,

@@ -167,7 +167,9 @@ async function denoifyTsFile(file, depth) {
 
           if (absImportFromMatch) {
             if (importfrom === "uuid") {
-              //import { v4 } from "https://deno.land/std/uuid/mod.ts";
+              replaced = `${match[1]}from "https://deno.land/std@0.59.0/uuid/mod.ts";`;
+              output.push(replaced);
+              continue;
             } else if (importfrom === "fast-xml-parser") {
               replaced = `${match[1]}from "https://jspm.dev/fast-xml-parser";`;
               output.push(replaced);
