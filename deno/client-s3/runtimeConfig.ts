@@ -1,6 +1,6 @@
 const name = "@aws-sdk/client-s3";
 const version = "1.0.0-gamma.2";
-import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";
+import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
 import { blobHasher as streamHasher } from "../hash-blob-browser/mod.ts";
@@ -27,7 +27,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   md5: Md5,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
-  sha256: Sha256,
+  sha256: Hash.bind(null, "sha256"),
   streamCollector,
   streamHasher,
   urlParser: parseUrl,

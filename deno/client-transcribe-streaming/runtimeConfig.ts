@@ -1,6 +1,6 @@
 const name = "@aws-sdk/client-transcribe-streaming";
 const version = "1.0.0-gamma.2";
-import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";
+import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
 import { streamCollector } from "../fetch-http-handler/mod.ts";
 import { invalidFunction } from "../invalid-dependency/mod.ts";
@@ -29,7 +29,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   maxAttemptsDefaultProvider: (() => "3") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
-  sha256: Sha256,
+  sha256: Hash.bind(null, "sha256"),
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
