@@ -102,8 +102,8 @@ async function denoifyTsFile(file, depth) {
     let replaced = line;
 
     if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
-      replaced =
-        'import { Sha256 } from "https://deno.land/std@0.59.0/hash/sha256.ts";';
+      replaced = 'import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";';
+      // const Sha256 = Hash.bind(null, 'sha256');
       output.push(replaced);
       continue;
     }
