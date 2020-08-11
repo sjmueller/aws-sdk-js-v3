@@ -16,7 +16,7 @@ import {
 } from "../types/mod.ts";
 import { getDefaultRetryQuota } from "./defaultRetryQuota.ts";
 import { HttpRequest } from "../protocol-http/mod.ts";
-import { v4 } from "https://deno.land/std@0.59.0/uuid/mod.ts";
+import { v4 } from "../uuid/mod.ts";
 
 /**
  * Determines whether an error is retryable based on the number of retries

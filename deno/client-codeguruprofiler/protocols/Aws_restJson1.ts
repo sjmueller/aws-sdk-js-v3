@@ -81,7 +81,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "../../types/mod.ts";
-import { v4 as generateIdempotencyToken } from "https://deno.land/std@0.59.0/uuid/mod.ts";
+import { v4 as generateIdempotencyToken } from "../../uuid/mod.ts";
 
 export const serializeAws_restJson1ConfigureAgentCommand = async (
   input: ConfigureAgentCommandInput,
