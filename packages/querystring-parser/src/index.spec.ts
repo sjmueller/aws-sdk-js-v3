@@ -1,5 +1,6 @@
-import { parseQueryString } from "./";
 import { QueryParameterBag } from "@aws-sdk/types";
+
+import { parseQueryString } from "./";
 
 describe("parseQueryString", () => {
   const testCases = new Map<string, QueryParameterBag>([
@@ -8,12 +9,12 @@ describe("parseQueryString", () => {
       {
         snap: ["cräckle", "pôp"],
         fizz: "buzz",
-        quux: null
-      }
+        quux: null,
+      },
     ],
     ["?", {}],
     ["?foo=", { foo: "" }],
-    ["foo=bar&foo=baz&foo=quux", { foo: ["bar", "baz", "quux"] }]
+    ["foo=bar&foo=baz&foo=quux", { foo: ["bar", "baz", "quux"] }],
   ]);
 
   for (const [querystring, parsed] of testCases) {

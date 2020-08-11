@@ -1,4 +1,4 @@
-import { AbortSignal as IAbortSignal, AbortHandler } from "@aws-sdk/types";
+import { AbortHandler, AbortSignal as IAbortSignal } from "@aws-sdk/types";
 
 export class AbortSignal implements IAbortSignal {
   public onabort?: AbortHandler;
@@ -7,7 +7,7 @@ export class AbortSignal implements IAbortSignal {
   constructor() {
     Object.defineProperty(this, "_aborted", {
       value: false,
-      writable: true
+      writable: true,
     });
   }
 

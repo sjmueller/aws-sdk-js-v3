@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListPredictorsRequest, ListPredictorsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListPredictorsCommand,
-  serializeAws_json1_1ListPredictorsCommand
+  serializeAws_json1_1ListPredictorsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListPredictorsCommandInput = ListPredictorsRequest;
-export type ListPredictorsCommandOutput = ListPredictorsResponse &
-  __MetadataBearer;
+export type ListPredictorsCommandOutput = ListPredictorsResponse & __MetadataBearer;
 
 export class ListPredictorsCommand extends $Command<
   ListPredictorsCommandInput,
   ListPredictorsCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +36,15 @@ export class ListPredictorsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPredictorsCommandInput, ListPredictorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListPredictorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPredictorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPredictorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPredictorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPredictorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPredictorsCommandOutput> {
     return deserializeAws_json1_1ListPredictorsCommand(output, context);
   }
 

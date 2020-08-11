@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteForecastRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteForecastCommand,
-  serializeAws_json1_1DeleteForecastCommand
+  serializeAws_json1_1DeleteForecastCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteForecastCommandInput = DeleteForecastRequest;
@@ -30,7 +23,7 @@ export type DeleteForecastCommandOutput = __MetadataBearer;
 export class DeleteForecastCommand extends $Command<
   DeleteForecastCommandInput,
   DeleteForecastCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +36,15 @@ export class DeleteForecastCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteForecastCommandInput, DeleteForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DeleteForecastCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteForecastCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteForecastCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteForecastCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteForecastCommandOutput> {
     return deserializeAws_json1_1DeleteForecastCommand(output, context);
   }
 

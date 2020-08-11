@@ -1,5 +1,6 @@
-import { ssecMiddleware } from "./";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { ssecMiddleware } from "./";
 
 describe("ssecMiddleware", () => {
   const next = jest.fn();
@@ -23,14 +24,14 @@ describe("ssecMiddleware", () => {
     const args = {
       input: {
         SSECustomerKey: "foo",
-        CopySourceSSECustomerKey: "bar"
-      }
+        CopySourceSSECustomerKey: "bar",
+      },
     };
 
     const handler = ssecMiddleware({
       base64Encoder: encoder,
       utf8Decoder: decoder,
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await handler(args);
@@ -41,8 +42,8 @@ describe("ssecMiddleware", () => {
         SSECustomerKey: "base64",
         SSECustomerKeyMD5: "base64",
         CopySourceSSECustomerKey: "base64",
-        CopySourceSSECustomerKeyMD5: "base64"
-      }
+        CopySourceSSECustomerKeyMD5: "base64",
+      },
     });
     expect(decoder.mock.calls.length).toBe(2);
     expect(encoder.mock.calls.length).toBe(4);

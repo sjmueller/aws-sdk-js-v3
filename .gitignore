@@ -25,13 +25,13 @@ lerna-debug.log
 package-lock.json
 
 !serviceModels/logs
-build
+dist
 
 .idea/
 *.iml
 *.iws
 
-codegen/build
+codegen/**/build
 codegen/sdk-codegen/smithy-build.json
 .gradle
 */out/
@@ -40,3 +40,6 @@ codegen/sdk-codegen/smithy-build.json
 protocol_tests/*/coverage
 protocol_tests/*/dist
 protocol_tests/*/types
+
+/verdaccio/*
+!/verdaccio/config.yaml

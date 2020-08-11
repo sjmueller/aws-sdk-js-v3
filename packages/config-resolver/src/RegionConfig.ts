@@ -6,26 +6,27 @@ export interface RegionInputConfig {
    */
   region?: string | Provider<string>;
 }
+
 interface PreviouslyResolved {
   regionDefaultProvider: (input: any) => Provider<string>;
 }
+
 export interface RegionResolvedConfig {
   region: Provider<string>;
 }
-export function resolveRegionConfig<T>(
-  input: T & RegionInputConfig & PreviouslyResolved
-): T & RegionResolvedConfig {
-  let region = input.region || input.regionDefaultProvider(input as any);
+
+export const resolveRegionConfig = <T>(input: T & RegionInputConfig & PreviouslyResolved): T & RegionResolvedConfig => {
+  const region = input.region || input.regionDefaultProvider(input as any);
   return {
     ...input,
-    region: normalizeRegion(region)
+    region: normalizeRegion(region),
   };
-}
+};
 
-function normalizeRegion(region: string | Provider<string>): Provider<string> {
+const normalizeRegion = (region: string | Provider<string>): Provider<string> => {
   if (typeof region === "string") {
     const promisified = Promise.resolve(region);
     return () => promisified;
   }
   return region as Provider<string>;
-}
+};

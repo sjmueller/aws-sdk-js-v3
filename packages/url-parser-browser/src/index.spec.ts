@@ -1,5 +1,6 @@
-import { parseUrl } from "./";
 import { Endpoint } from "@aws-sdk/types";
+
+import { parseUrl } from "./";
 
 describe("parseUrl", () => {
   const testCases = new Map<string, Endpoint>([
@@ -12,9 +13,9 @@ describe("parseUrl", () => {
         query: {
           snap: ["cräckle", "pôp"],
           fizz: "buzz",
-          quux: null
-        }
-      }
+          quux: null,
+        },
+      },
     ],
     [
       "http://example.com:54321",
@@ -22,8 +23,8 @@ describe("parseUrl", () => {
         protocol: "http:",
         hostname: "example.com",
         port: 54321,
-        path: "/"
-      }
+        path: "/",
+      },
     ],
     [
       "https://example.com?foo=bar",
@@ -31,9 +32,9 @@ describe("parseUrl", () => {
         protocol: "https:",
         hostname: "example.com",
         path: "/",
-        query: { foo: "bar" }
-      }
-    ]
+        query: { foo: "bar" },
+      },
+    ],
   ]);
 
   const testFunc = typeof URL !== "undefined" ? it : xit;

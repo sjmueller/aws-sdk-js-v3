@@ -1,18 +1,11 @@
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DeleteUserRequest, DeleteUserResponse } from "../models/index";
 import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
-import {
   deserializeAws_restJson1DeleteUserCommand,
-  serializeAws_restJson1DeleteUserCommand
+  serializeAws_restJson1DeleteUserCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteUserCommandInput = DeleteUserRequest;
@@ -30,7 +23,7 @@ export type DeleteUserCommandOutput = DeleteUserResponse & __MetadataBearer;
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,
   DeleteUserCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +36,15 @@ export class DeleteUserCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserCommandInput, DeleteUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUserCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteUserCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
     return deserializeAws_restJson1DeleteUserCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { SubmitFeedbackRequest } from "../models/index";
 import {
   deserializeAws_json1_1SubmitFeedbackCommand,
-  serializeAws_json1_1SubmitFeedbackCommand
+  serializeAws_json1_1SubmitFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SubmitFeedbackCommandInput = SubmitFeedbackRequest;
@@ -30,7 +23,7 @@ export type SubmitFeedbackCommandOutput = __MetadataBearer;
 export class SubmitFeedbackCommand extends $Command<
   SubmitFeedbackCommandInput,
   SubmitFeedbackCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +36,15 @@ export class SubmitFeedbackCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class SubmitFeedbackCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubmitFeedbackCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubmitFeedbackCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SubmitFeedbackCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
     return deserializeAws_json1_1SubmitFeedbackCommand(output, context);
   }
 

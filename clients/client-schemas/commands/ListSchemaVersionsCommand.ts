@@ -1,21 +1,11 @@
-import {
-  ListSchemaVersionsRequest,
-  ListSchemaVersionsResponse
-} from "../models/index";
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
+import { ListSchemaVersionsRequest, ListSchemaVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListSchemaVersionsCommand,
-  serializeAws_restJson1ListSchemaVersionsCommand
+  serializeAws_restJson1ListSchemaVersionsCommand,
 } from "../protocols/Aws_restJson1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListSchemaVersionsCommandInput = ListSchemaVersionsRequest;
-export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse &
-  __MetadataBearer;
+export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse & __MetadataBearer;
 
 export class ListSchemaVersionsCommand extends $Command<
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,15 @@ export class ListSchemaVersionsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListSchemaVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSchemaVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSchemaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSchemaVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSchemaVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaVersionsCommandOutput> {
     return deserializeAws_restJson1ListSchemaVersionsCommand(output, context);
   }
 

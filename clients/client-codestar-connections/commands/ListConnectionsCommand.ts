@@ -1,18 +1,15 @@
 import {
-  CodeStarconnectionsClientResolvedConfig,
+  CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarconnectionsClient";
+  ServiceOutputTypes,
+} from "../CodeStarConnectionsClient";
 import { ListConnectionsInput, ListConnectionsOutput } from "../models/index";
 import {
   deserializeAws_json1_0ListConnectionsCommand,
-  serializeAws_json1_0ListConnectionsCommand
+  serializeAws_json1_0ListConnectionsCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListConnectionsCommandInput = ListConnectionsInput;
-export type ListConnectionsCommandOutput = ListConnectionsOutput &
-  __MetadataBearer;
+export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBearer;
 
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +40,15 @@ export class ListConnectionsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeStarconnectionsClientResolvedConfig,
+    configuration: CodeStarConnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConnectionsCommandInput, ListConnectionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListConnectionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListConnectionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListConnectionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
     return deserializeAws_json1_0ListConnectionsCommand(output, context);
   }
 

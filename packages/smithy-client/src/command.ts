@@ -1,10 +1,5 @@
-import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import {
-  Command as ICommand,
-  MetadataBearer,
-  Handler,
-  MiddlewareStack as IMiddlewareStack
-} from "@aws-sdk/types";
+import { constructStack } from "@aws-sdk/middleware-stack";
+import { Command as ICommand, Handler, MetadataBearer, MiddlewareStack as IMiddlewareStack } from "@aws-sdk/types";
 
 export abstract class Command<
   Input extends ClientInput,
@@ -12,22 +7,11 @@ export abstract class Command<
   ResolvedClientConfiguration,
   ClientInput extends object = any,
   ClientOutput extends MetadataBearer = any
->
-  implements
-    ICommand<
-      ClientInput,
-      Input,
-      ClientOutput,
-      Output,
-      ResolvedClientConfiguration
-    > {
+> implements ICommand<ClientInput, Input, ClientOutput, Output, ResolvedClientConfiguration> {
   abstract input: Input;
-  readonly middlewareStack: IMiddlewareStack<
-    Input,
-    Output
-  > = new MiddlewareStack<Input, Output>();
+  readonly middlewareStack: IMiddlewareStack<Input, Output> = constructStack<Input, Output>();
   abstract resolveMiddleware(
-    stack: MiddlewareStack<ClientInput, ClientOutput>,
+    stack: IMiddlewareStack<ClientInput, ClientOutput>,
     configuration: ResolvedClientConfiguration,
     options: any
   ): Handler<Input, Output>;

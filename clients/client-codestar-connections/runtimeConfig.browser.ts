@@ -7,7 +7,7 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-import { ClientDefaults } from "./CodeStarconnectionsClient";
+import { ClientDefaults } from "./CodeStarConnectionsClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {
@@ -25,5 +25,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
 };

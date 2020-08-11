@@ -1,18 +1,15 @@
 import {
-  CodeStarconnectionsClientResolvedConfig,
+  CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarconnectionsClient";
+  ServiceOutputTypes,
+} from "../CodeStarConnectionsClient";
 import { DeleteConnectionInput, DeleteConnectionOutput } from "../models/index";
 import {
   deserializeAws_json1_0DeleteConnectionCommand,
-  serializeAws_json1_0DeleteConnectionCommand
+  serializeAws_json1_0DeleteConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteConnectionCommandInput = DeleteConnectionInput;
-export type DeleteConnectionCommandOutput = DeleteConnectionOutput &
-  __MetadataBearer;
+export type DeleteConnectionCommandOutput = DeleteConnectionOutput & __MetadataBearer;
 
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +40,15 @@ export class DeleteConnectionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeStarconnectionsClientResolvedConfig,
+    configuration: CodeStarConnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
     return deserializeAws_json1_0DeleteConnectionCommand(output, context);
   }
 

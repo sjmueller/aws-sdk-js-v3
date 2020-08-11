@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { DeleteImageRequest, DeleteImageResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteImageCommand,
-  serializeAws_restJson1DeleteImageCommand
+  serializeAws_restJson1DeleteImageCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteImageCommandInput = DeleteImageRequest;
@@ -30,7 +23,7 @@ export type DeleteImageCommandOutput = DeleteImageResponse & __MetadataBearer;
 export class DeleteImageCommand extends $Command<
   DeleteImageCommandInput,
   DeleteImageCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +36,15 @@ export class DeleteImageCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteImageCommandInput, DeleteImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DeleteImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
     return deserializeAws_restJson1DeleteImageCommand(output, context);
   }
 

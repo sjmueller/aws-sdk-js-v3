@@ -1,9 +1,12 @@
 {
   "name": "@aws-sdk/util-locate-window",
-  "version": "1.0.0-gamma.1",
+  "version": "1.0.0-gamma.5",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
+    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "pretest": "yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build": "yarn build:es && yarn build:cjs",
     "test": "jest"
   },
   "author": {
@@ -15,11 +18,12 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
-    "jest": "^25.1.0",
-    "typescript": "~3.8.3"
+    "jest": "^26.1.0",
+    "typescript": "~3.9.3"
   },
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts"
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/cjs/index.d.ts"
 }

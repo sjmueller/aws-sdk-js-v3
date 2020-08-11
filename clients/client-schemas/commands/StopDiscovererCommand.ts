@@ -1,18 +1,11 @@
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 import { StopDiscovererRequest, StopDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1StopDiscovererCommand,
-  serializeAws_restJson1StopDiscovererCommand
+  serializeAws_restJson1StopDiscovererCommand,
 } from "../protocols/Aws_restJson1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StopDiscovererCommandInput = StopDiscovererRequest;
-export type StopDiscovererCommandOutput = StopDiscovererResponse &
-  __MetadataBearer;
+export type StopDiscovererCommandOutput = StopDiscovererResponse & __MetadataBearer;
 
 export class StopDiscovererCommand extends $Command<
   StopDiscovererCommandInput,
   StopDiscovererCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +36,15 @@ export class StopDiscovererCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDiscovererCommandInput, StopDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class StopDiscovererCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopDiscovererCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopDiscovererCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopDiscovererCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDiscovererCommandOutput> {
     return deserializeAws_restJson1StopDiscovererCommand(output, context);
   }
 

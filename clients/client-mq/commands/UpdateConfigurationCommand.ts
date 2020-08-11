@@ -1,21 +1,11 @@
-import {
-  UpdateConfigurationRequest,
-  UpdateConfigurationResponse
-} from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
+import { UpdateConfigurationRequest, UpdateConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateConfigurationCommand,
-  serializeAws_restJson1UpdateConfigurationCommand
+  serializeAws_restJson1UpdateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationCommandInput = UpdateConfigurationRequest;
-export type UpdateConfigurationCommandOutput = UpdateConfigurationResponse &
-  __MetadataBearer;
+export type UpdateConfigurationCommandOutput = UpdateConfigurationResponse & __MetadataBearer;
 
 export class UpdateConfigurationCommand extends $Command<
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +36,15 @@ export class UpdateConfigurationCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConfigurationCommandInput,
-    UpdateConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConfigurationCommandInput, UpdateConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateConfigurationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfigurationCommandOutput> {
     return deserializeAws_restJson1UpdateConfigurationCommand(output, context);
   }
 

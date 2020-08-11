@@ -1,5 +1,6 @@
-import { cloneRequest } from "./cloneRequest";
 import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
+
+import { cloneRequest } from "./cloneRequest";
 
 describe("cloneRequest", () => {
   const request: HttpRequest = Object.freeze({
@@ -9,12 +10,12 @@ describe("cloneRequest", () => {
     path: "/",
     headers: Object.freeze({
       foo: "bar",
-      compound: "value 1, value 2"
+      compound: "value 1, value 2",
     }),
     query: Object.freeze({
       fizz: "buzz",
-      snap: ["crackle", "pop"]
-    })
+      snap: ["crackle", "pop"],
+    }),
   });
 
   it("should return an object matching the provided request", () => {
@@ -39,10 +40,7 @@ describe("cloneRequest", () => {
     const { snap } = clone.query as QueryParameterBag;
     (snap as Array<string>).shift();
 
-    expect((request.query as QueryParameterBag).snap).toEqual([
-      "crackle",
-      "pop"
-    ]);
+    expect((request.query as QueryParameterBag).snap).toEqual(["crackle", "pop"]);
     expect((clone.query as QueryParameterBag).snap).toEqual(["pop"]);
   });
 

@@ -1,6 +1,7 @@
-import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
-import { HashConstructor } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HashConstructor } from "@aws-sdk/types";
+
+import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
 
 describe("applyMd5BodyChecksumMiddleware", () => {
   const mockEncoder = jest.fn().mockReturnValue("encoded");
@@ -21,24 +22,20 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     next.mockClear();
   });
 
-  for (const body of [
-    "body",
-    new ArrayBuffer(10),
-    new Uint8Array(10),
-    void 0
-  ]) {
+  for (const body of ["body", new ArrayBuffer(10), new Uint8Array(10), void 0]) {
     it("should calculate the body hash, encode the result, and set the encoded hash to Content-MD5 header", async () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
       await handler({
         input: {},
         request: new HttpRequest({
-          body: body
-        })
+          body: body,
+        }),
       });
 
       expect(next.mock.calls.length).toBe(1);
@@ -51,7 +48,8 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
-        streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
       })(next, {} as any);
 
       await handler({
@@ -59,9 +57,9 @@ describe("applyMd5BodyChecksumMiddleware", () => {
         request: new HttpRequest({
           body: body,
           headers: {
-            "CoNtEnT-Md5": "foo"
-          }
-        })
+            "CoNtEnT-Md5": "foo",
+          },
+        }),
       });
 
       expect(next.mock.calls.length).toBe(1);
@@ -78,14 +76,15 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     const handler = applyMd5BodyChecksumMiddleware({
       md5: MockHash,
       base64Encoder: mockEncoder,
-      streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      streamHasher: async (stream: ExoticStream) => new Uint8Array(5),
     })(next, {} as any);
 
     await handler({
       input: {},
       request: new HttpRequest({
-        body: new ExoticStream()
-      })
+        body: new ExoticStream(),
+      }),
     });
 
     expect(next.mock.calls.length).toBe(1);

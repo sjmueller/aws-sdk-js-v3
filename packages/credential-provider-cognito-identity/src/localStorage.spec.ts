@@ -1,5 +1,5 @@
-import { localStorage } from "./localStorage";
 import { IndexedDbStorage } from "./IndexedDbStorage";
+import { localStorage } from "./localStorage";
 
 describe("localStorage", () => {
   const storageAtInit: Storage | undefined = window?.localStorage;
@@ -32,7 +32,7 @@ describe("localStorage", () => {
     (self.indexedDB as any) = {
       open() {
         return {};
-      }
+      },
     };
 
     expect(localStorage()).toBeInstanceOf(IndexedDbStorage);

@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastqueryClientResolvedConfig
-} from "../forecastqueryClient";
+import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import { QueryForecastRequest, QueryForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1QueryForecastCommand,
-  serializeAws_json1_1QueryForecastCommand
+  serializeAws_json1_1QueryForecastCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type QueryForecastCommandInput = QueryForecastRequest;
-export type QueryForecastCommandOutput = QueryForecastResponse &
-  __MetadataBearer;
+export type QueryForecastCommandOutput = QueryForecastResponse & __MetadataBearer;
 
 export class QueryForecastCommand extends $Command<
   QueryForecastCommandInput,
   QueryForecastCommandOutput,
-  forecastqueryClientResolvedConfig
+  ForecastqueryClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +36,15 @@ export class QueryForecastCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastqueryClientResolvedConfig,
+    configuration: ForecastqueryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryForecastCommandInput, QueryForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class QueryForecastCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: QueryForecastCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: QueryForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryForecastCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<QueryForecastCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryForecastCommandOutput> {
     return deserializeAws_json1_1QueryForecastCommand(output, context);
   }
 

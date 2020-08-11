@@ -1,18 +1,15 @@
 import {
+  CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
-} from "../codestarnotificationsClient";
+} from "../CodestarNotificationsClient";
 import { UnsubscribeRequest, UnsubscribeResult } from "../models/index";
 import {
   deserializeAws_restJson1UnsubscribeCommand,
-  serializeAws_restJson1UnsubscribeCommand
+  serializeAws_restJson1UnsubscribeCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UnsubscribeCommandInput = UnsubscribeRequest;
@@ -30,7 +27,7 @@ export type UnsubscribeCommandOutput = UnsubscribeResult & __MetadataBearer;
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,
   UnsubscribeCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +40,15 @@ export class UnsubscribeCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnsubscribeCommandInput, UnsubscribeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +58,11 @@ export class UnsubscribeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnsubscribeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnsubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnsubscribeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnsubscribeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
     return deserializeAws_restJson1UnsubscribeCommand(output, context);
   }
 

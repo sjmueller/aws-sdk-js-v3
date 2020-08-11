@@ -1,11 +1,10 @@
-import { connect, constants, ClientHttp2Session } from "http2";
-
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { ClientHttp2Session, connect, constants } from "http2";
 
-import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
+import { writeRequestBody } from "./write-request-body";
 
 /**
  * Represents the http2 options that can be passed to a node http2 client.
@@ -34,16 +33,14 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   destroy(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     for (const [_, http2Session] of this.connectionPool) {
       http2Session.destroy();
     }
     this.connectionPool.clear();
   }
 
-  handle(
-    request: HttpRequest,
-    { abortSignal }: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
@@ -57,21 +54,17 @@ export class NodeHttp2Handler implements HttpHandler {
       const queryString = buildQueryString(query || {});
 
       // create the http2 request
-      const req = this.getSession(
-        `${protocol}//${hostname}${port ? `:${port}` : ""}`
-      ).request({
+      const req = this.getSession(`${protocol}//${hostname}${port ? `:${port}` : ""}`).request({
         ...request.headers,
-        [constants.HTTP2_HEADER_PATH]: queryString
-          ? `${path}?${queryString}`
-          : path,
-        [constants.HTTP2_HEADER_METHOD]: method
+        [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
+        [constants.HTTP2_HEADER_METHOD]: method,
       });
 
-      req.on("response", headers => {
+      req.on("response", (headers) => {
         const httpResponse = new HttpResponse({
           statusCode: headers[":status"] || -1,
           headers: getTransformedHeaders(headers),
-          body: req
+          body: req,
         });
         resolve({ response: httpResponse });
       });
@@ -84,9 +77,7 @@ export class NodeHttp2Handler implements HttpHandler {
       if (requestTimeout) {
         req.setTimeout(requestTimeout, () => {
           req.close();
-          const timeoutError = new Error(
-            `Stream timed out because of no activity for ${requestTimeout} ms`
-          );
+          const timeoutError = new Error(`Stream timed out because of no activity for ${requestTimeout} ms`);
           timeoutError.name = "TimeoutError";
           reject(timeoutError);
         });

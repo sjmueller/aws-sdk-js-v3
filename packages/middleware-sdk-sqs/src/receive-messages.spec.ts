@@ -1,5 +1,6 @@
-import { receiveMessageMiddleware } from "./receive-message";
 import { HashConstructor } from "@aws-sdk/types";
+
+import { receiveMessageMiddleware } from "./receive-message";
 
 describe("receiveMessageMiddleware", () => {
   const mockHashUpdate = jest.fn();
@@ -18,12 +19,12 @@ describe("receiveMessageMiddleware", () => {
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
-          { Body: "bar", MD5OfBody: "00", MessageId: "barMessage" }
-        ]
-      }
+          { Body: "bar", MD5OfBody: "00", MessageId: "barMessage" },
+        ],
+      },
     });
     const handler = receiveMessageMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
     await handler({ input: {} });
@@ -37,17 +38,15 @@ describe("receiveMessageMiddleware", () => {
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
-          { Body: "bar", MD5OfBody: "1", MessageId: "barMessage" }
-        ]
-      }
+          { Body: "bar", MD5OfBody: "1", MessageId: "barMessage" },
+        ],
+      },
     });
     const handler = receiveMessageMiddleware({
-      md5: MockHash
+      md5: MockHash,
     })(next, {} as any);
 
-    await expect(handler({ input: {} })).rejects.toThrow(
-      new Error("Invalid MD5 checksum on messages: barMessage")
-    );
+    await expect(handler({ input: {} })).rejects.toThrow(new Error("Invalid MD5 checksum on messages: barMessage"));
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });

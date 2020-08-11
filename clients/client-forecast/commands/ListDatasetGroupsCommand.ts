@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
-import {
-  ListDatasetGroupsRequest,
-  ListDatasetGroupsResponse
-} from "../models/index";
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { ListDatasetGroupsRequest, ListDatasetGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDatasetGroupsCommand,
-  serializeAws_json1_1ListDatasetGroupsCommand
+  serializeAws_json1_1ListDatasetGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDatasetGroupsCommandInput = ListDatasetGroupsRequest;
-export type ListDatasetGroupsCommandOutput = ListDatasetGroupsResponse &
-  __MetadataBearer;
+export type ListDatasetGroupsCommandOutput = ListDatasetGroupsResponse & __MetadataBearer;
 
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,
   ListDatasetGroupsCommandOutput,
-  forecastClientResolvedConfig
+  ForecastClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,15 @@ export class ListDatasetGroupsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: forecastClientResolvedConfig,
+    configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListDatasetGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDatasetGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDatasetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDatasetGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetGroupsCommandOutput> {
     return deserializeAws_json1_1ListDatasetGroupsCommand(output, context);
   }
 

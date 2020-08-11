@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+
+import { PreviouslyResolved } from "./configurations";
 
 interface ReceiveMessageResult {
   Messages: Array<Message>;
@@ -20,9 +21,7 @@ interface Message {
   MessageId: string | undefined;
 }
 
-export function receiveMessageMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function receiveMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -30,7 +29,7 @@ export function receiveMessageMiddleware(
   ): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
     const output = (resp.output as unknown) as ReceiveMessageResult;
-    let messageIds = [];
+    const messageIds = [];
     if (output.Messages !== undefined) {
       for (const message of output.Messages) {
         const md5 = message.MD5OfBody;
@@ -42,13 +41,11 @@ export function receiveMessageMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -56,16 +53,11 @@ export function receiveMessageMiddleware(
 export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "receiveMessageMiddleware"
+  name: "receiveMessageMiddleware",
 };
 
-export const getReceiveMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      receiveMessageMiddleware(config),
-      receiveMessageMiddlewareOptions
-    );
-  }
+export const getReceiveMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(receiveMessageMiddleware(config), receiveMessageMiddlewareOptions);
+  },
 });

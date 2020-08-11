@@ -9,7 +9,7 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
-import { ClientDefaults } from "./savingsplansClient";
+import { ClientDefaults } from "./SavingsplansClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {
@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
 };

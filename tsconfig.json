@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /**
+     * Must allow:
+     */
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "noUnusedParameters": false,
+    "removeComments": false,
+    "incremental": true,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": ["es2015", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@aws-sdk/*": ["packages/*/src"],
+      "@aws-sdk/client-*": ["clients/client-*/"],
+      "@aws-sdk/aws-*": ["protocol_tests/aws-*/"]
+    }
+  },
+  "include": ["packages/"],
+  "exclude": ["node_modules/"]
+}

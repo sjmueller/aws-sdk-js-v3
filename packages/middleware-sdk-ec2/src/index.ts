@@ -1,20 +1,19 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
   Credentials,
-  DateInput,
   Endpoint,
   HashConstructor,
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  Provider
+  Provider,
 } from "@aws-sdk/types";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 interface PreviouslyResolved {
@@ -28,9 +27,7 @@ interface PreviouslyResolved {
 const version = "2016-11-15";
 
 //an initialize middleware to add PresignUrl to input
-export function copySnapshotPresignedUrlMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -45,25 +42,25 @@ export function copySnapshotPresignedUrlMiddleware(
         ...resolvedEndpoint,
         protocol: "https",
         headers: {
-          host: resolvedEndpoint.hostname
+          host: resolvedEndpoint.hostname,
         },
         query: {
           Action: "CopySnapshot",
           Version: version,
           SourceRegion: input.SourceRegion,
           SourceSnapshotId: input.SourceSnapshotId,
-          DestinationRegion: region
-        }
+          DestinationRegion: region,
+        },
       });
       const signer = new SignatureV4({
         credentials: options.credentials,
         region: input.SourceRegion,
         service: "ec2",
         sha256: options.sha256,
-        uriEscapePath: options.signingEscapePath
+        uriEscapePath: options.signingEscapePath,
       });
       const presignedRequest = await signer.presign(request, {
-        expiresIn: 3600
+        expiresIn: 3600,
       });
 
       args = {
@@ -71,8 +68,8 @@ export function copySnapshotPresignedUrlMiddleware(
         input: {
           ...args.input,
           DestinationRegion: region,
-          PresignedUrl: escapeUri(formatUrl(presignedRequest))
-        }
+          PresignedUrl: escapeUri(formatUrl(presignedRequest)),
+        },
       };
     }
 
@@ -83,16 +80,11 @@ export function copySnapshotPresignedUrlMiddleware(
 export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
-  name: "crossRegionPresignedUrlMiddleware"
+  name: "crossRegionPresignedUrlMiddleware",
 };
 
-export const getCopySnapshotPresignedUrlPlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      copySnapshotPresignedUrlMiddleware(config),
-      copySnapshotPresignedUrlMiddlewareOptions
-    );
-  }
+export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(copySnapshotPresignedUrlMiddleware(config), copySnapshotPresignedUrlMiddlewareOptions);
+  },
 });

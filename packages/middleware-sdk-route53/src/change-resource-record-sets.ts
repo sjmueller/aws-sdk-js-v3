@@ -1,12 +1,13 @@
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
+
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
 
 export interface Change {
@@ -23,10 +24,7 @@ export interface ChangeBatchBearer {
   };
 }
 
-export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
-  any,
-  any
-> {
+export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -43,12 +41,9 @@ export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
             ...change.ResourceRecordSet,
             AliasTarget: {
               ...AliasTarget,
-              HostedZoneId: AliasTarget.HostedZoneId.replace(
-                IDENTIFIER_PREFIX_PATTERN,
-                ""
-              )
-            }
-          }
+              HostedZoneId: AliasTarget.HostedZoneId.replace(IDENTIFIER_PREFIX_PATTERN, ""),
+            },
+          },
         });
       } else {
         Changes.push(change);
@@ -61,9 +56,9 @@ export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
         ...(args.input as any),
         ChangeBatch: {
           ...ChangeBatch,
-          Changes
-        }
-      }
+          Changes,
+        },
+      },
     });
   };
 }
@@ -71,16 +66,12 @@ export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
 export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS", "CHANGE_RESOURCE_RECORD_SETS"],
-  name: "changeResourceRecordSetsMiddleware"
+  name: "changeResourceRecordSetsMiddleware",
 };
 
-export const getChangeResourceRecordSetsPlugin = (
-  unused: any
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      changeResourceRecordSetsMiddleware(),
-      changeResourceRecordSetsMiddlewareOptions
-    );
-  }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getChangeResourceRecordSetsPlugin = (unused: any): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(changeResourceRecordSetsMiddleware(), changeResourceRecordSetsMiddlewareOptions);
+  },
 });

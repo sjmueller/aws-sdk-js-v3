@@ -7,17 +7,16 @@ export interface ReadFromBuffersOptions extends ReadableOptions {
 
 export class ReadFromBuffers extends Readable {
   private buffersToRead: Buffer[];
-  private numBuffersRead: number = 0;
+  private numBuffersRead = 0;
 
   private errorAfter: number;
   constructor(options: ReadFromBuffersOptions) {
     super(options);
     this.buffersToRead = options.buffers;
-    this.errorAfter =
-      typeof options.errorAfter === "number" ? options.errorAfter : -1;
+    this.errorAfter = typeof options.errorAfter === "number" ? options.errorAfter : -1;
   }
 
-  _read(size: number) {
+  _read() {
     if (this.errorAfter !== -1 && this.errorAfter === this.numBuffersRead) {
       this.emit("error", new Error("Mock Error"));
       return;

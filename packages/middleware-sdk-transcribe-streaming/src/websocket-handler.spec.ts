@@ -1,8 +1,9 @@
-import { WebSocketHandler } from "./websocket-handler";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { PassThrough } from "stream";
 import WS from "jest-websocket-mock";
 import { WebSocket } from "mock-socket";
+import { PassThrough } from "stream";
+
+import { WebSocketHandler } from "./websocket-handler";
 
 describe("WebSocketHandler", () => {
   beforeEach(() => {
@@ -24,17 +25,18 @@ describe("WebSocketHandler", () => {
     const payload = new PassThrough();
     const server = new WS("ws://localhost:6789");
     const {
-      response: { body: responsePayload }
+      response: { body: responsePayload },
     } = await handler.handle(
       new HttpRequest({
         body: payload,
         hostname: "localhost:6789",
-        protocol: "ws:"
+        protocol: "ws:",
       })
     );
     await server.connected;
     payload.emit("error", new Error("FakeError"));
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const chunk of responsePayload) {
         /** pass */
       }
@@ -57,7 +59,7 @@ describe("WebSocketHandler", () => {
         new HttpRequest({
           body: payload,
           hostname: "localhost:9876", //invalid websocket endpoint
-          protocol: "ws:"
+          protocol: "ws:",
         })
       );
     } catch (err) {
@@ -65,7 +67,7 @@ describe("WebSocketHandler", () => {
       expect(err.$metadata).toBeDefined();
       expect(err.$metadata.httpStatusCode >= 500).toBe(true);
       expect(
-        ((global as any).setTimeout as jest.Mock).mock.calls.filter(args => {
+        ((global as any).setTimeout as jest.Mock).mock.calls.filter((args) => {
           //find the 'setTimeout' call from the websocket handler
           return args[0].toString().indexOf("$metadata") >= 0;
         })[0][1]

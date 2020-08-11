@@ -1,3 +1,4 @@
+// @ts-check
 const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
@@ -7,7 +8,7 @@ const { copyToDeno } = require("./copy-to-deno");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
-  TEMP_CODE_GEN_INPUT_DIR
+  TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 
@@ -47,11 +48,15 @@ const { models, globs, output: clientsDir } = yargs
     await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
+<<<<<<< HEAD
     await copyToClients(
       CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
       PROTOCOL_TESTS_CLIENTS_DIR
     );
     await copyToDeno([clientsDir, PACKAGES_DIR], SDK_DENO_CLIENTS_DIR);
+=======
+    await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+>>>>>>> master
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
