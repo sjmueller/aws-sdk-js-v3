@@ -8,6 +8,10 @@ import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "./com
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "./commands/CreateImportJobCommand";
 import { CreateJourneyCommandInput, CreateJourneyCommandOutput } from "./commands/CreateJourneyCommand";
 import { CreatePushTemplateCommandInput, CreatePushTemplateCommandOutput } from "./commands/CreatePushTemplateCommand";
+import {
+  CreateRecommenderConfigurationCommandInput,
+  CreateRecommenderConfigurationCommandOutput,
+} from "./commands/CreateRecommenderConfigurationCommand";
 import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "./commands/CreateSegmentCommand";
 import { CreateSmsTemplateCommandInput, CreateSmsTemplateCommandOutput } from "./commands/CreateSmsTemplateCommand";
 import {
@@ -41,6 +45,10 @@ import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from ".
 import { DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput } from "./commands/DeleteGcmChannelCommand";
 import { DeleteJourneyCommandInput, DeleteJourneyCommandOutput } from "./commands/DeleteJourneyCommand";
 import { DeletePushTemplateCommandInput, DeletePushTemplateCommandOutput } from "./commands/DeletePushTemplateCommand";
+import {
+  DeleteRecommenderConfigurationCommandInput,
+  DeleteRecommenderConfigurationCommandOutput,
+} from "./commands/DeleteRecommenderConfigurationCommand";
 import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "./commands/DeleteSegmentCommand";
 import { DeleteSmsChannelCommandInput, DeleteSmsChannelCommandOutput } from "./commands/DeleteSmsChannelCommand";
 import { DeleteSmsTemplateCommandInput, DeleteSmsTemplateCommandOutput } from "./commands/DeleteSmsTemplateCommand";
@@ -114,6 +122,14 @@ import {
   GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
 import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "./commands/GetPushTemplateCommand";
+import {
+  GetRecommenderConfigurationCommandInput,
+  GetRecommenderConfigurationCommandOutput,
+} from "./commands/GetRecommenderConfigurationCommand";
+import {
+  GetRecommenderConfigurationsCommandInput,
+  GetRecommenderConfigurationsCommandOutput,
+} from "./commands/GetRecommenderConfigurationsCommand";
 import { GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import {
   GetSegmentExportJobsCommandInput,
@@ -186,6 +202,10 @@ import { UpdateGcmChannelCommandInput, UpdateGcmChannelCommandOutput } from "./c
 import { UpdateJourneyCommandInput, UpdateJourneyCommandOutput } from "./commands/UpdateJourneyCommand";
 import { UpdateJourneyStateCommandInput, UpdateJourneyStateCommandOutput } from "./commands/UpdateJourneyStateCommand";
 import { UpdatePushTemplateCommandInput, UpdatePushTemplateCommandOutput } from "./commands/UpdatePushTemplateCommand";
+import {
+  UpdateRecommenderConfigurationCommandInput,
+  UpdateRecommenderConfigurationCommandOutput,
+} from "./commands/UpdateRecommenderConfigurationCommand";
 import { UpdateSegmentCommandInput, UpdateSegmentCommandOutput } from "./commands/UpdateSegmentCommand";
 import { UpdateSmsChannelCommandInput, UpdateSmsChannelCommandOutput } from "./commands/UpdateSmsChannelCommand";
 import { UpdateSmsTemplateCommandInput, UpdateSmsTemplateCommandOutput } from "./commands/UpdateSmsTemplateCommand";
@@ -214,6 +234,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -240,6 +261,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -253,6 +275,7 @@ export type ServiceInputTypes =
   | CreateImportJobCommandInput
   | CreateJourneyCommandInput
   | CreatePushTemplateCommandInput
+  | CreateRecommenderConfigurationCommandInput
   | CreateSegmentCommandInput
   | CreateSmsTemplateCommandInput
   | CreateVoiceTemplateCommandInput
@@ -271,6 +294,7 @@ export type ServiceInputTypes =
   | DeleteGcmChannelCommandInput
   | DeleteJourneyCommandInput
   | DeletePushTemplateCommandInput
+  | DeleteRecommenderConfigurationCommandInput
   | DeleteSegmentCommandInput
   | DeleteSmsChannelCommandInput
   | DeleteSmsTemplateCommandInput
@@ -308,6 +332,8 @@ export type ServiceInputTypes =
   | GetJourneyExecutionActivityMetricsCommandInput
   | GetJourneyExecutionMetricsCommandInput
   | GetPushTemplateCommandInput
+  | GetRecommenderConfigurationCommandInput
+  | GetRecommenderConfigurationsCommandInput
   | GetSegmentCommandInput
   | GetSegmentExportJobsCommandInput
   | GetSegmentImportJobsCommandInput
@@ -347,6 +373,7 @@ export type ServiceInputTypes =
   | UpdateJourneyCommandInput
   | UpdateJourneyStateCommandInput
   | UpdatePushTemplateCommandInput
+  | UpdateRecommenderConfigurationCommandInput
   | UpdateSegmentCommandInput
   | UpdateSmsChannelCommandInput
   | UpdateSmsTemplateCommandInput
@@ -362,6 +389,7 @@ export type ServiceOutputTypes =
   | CreateImportJobCommandOutput
   | CreateJourneyCommandOutput
   | CreatePushTemplateCommandOutput
+  | CreateRecommenderConfigurationCommandOutput
   | CreateSegmentCommandOutput
   | CreateSmsTemplateCommandOutput
   | CreateVoiceTemplateCommandOutput
@@ -380,6 +408,7 @@ export type ServiceOutputTypes =
   | DeleteGcmChannelCommandOutput
   | DeleteJourneyCommandOutput
   | DeletePushTemplateCommandOutput
+  | DeleteRecommenderConfigurationCommandOutput
   | DeleteSegmentCommandOutput
   | DeleteSmsChannelCommandOutput
   | DeleteSmsTemplateCommandOutput
@@ -417,6 +446,8 @@ export type ServiceOutputTypes =
   | GetJourneyExecutionActivityMetricsCommandOutput
   | GetJourneyExecutionMetricsCommandOutput
   | GetPushTemplateCommandOutput
+  | GetRecommenderConfigurationCommandOutput
+  | GetRecommenderConfigurationsCommandOutput
   | GetSegmentCommandOutput
   | GetSegmentExportJobsCommandOutput
   | GetSegmentImportJobsCommandOutput
@@ -456,6 +487,7 @@ export type ServiceOutputTypes =
   | UpdateJourneyCommandOutput
   | UpdateJourneyStateCommandOutput
   | UpdatePushTemplateCommandOutput
+  | UpdateRecommenderConfigurationCommandOutput
   | UpdateSegmentCommandOutput
   | UpdateSmsChannelCommandOutput
   | UpdateSmsTemplateCommandOutput
@@ -537,14 +569,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -599,6 +636,7 @@ export class PinpointClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

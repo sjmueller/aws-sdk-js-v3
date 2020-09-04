@@ -1,7 +1,17 @@
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import { CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import { DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import { GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import { ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -18,6 +28,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -44,6 +55,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -51,15 +63,29 @@ import {
 
 export type ServiceInputTypes =
   | CreateConnectionCommandInput
+  | CreateHostCommandInput
   | DeleteConnectionCommandInput
+  | DeleteHostCommandInput
   | GetConnectionCommandInput
-  | ListConnectionsCommandInput;
+  | GetHostCommandInput
+  | ListConnectionsCommandInput
+  | ListHostsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CreateConnectionCommandOutput
+  | CreateHostCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteHostCommandOutput
   | GetConnectionCommandOutput
-  | ListConnectionsCommandOutput;
+  | GetHostCommandOutput
+  | ListConnectionsCommandOutput
+  | ListHostsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -135,14 +161,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -169,9 +200,13 @@ export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig;
 
 /**
- * <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of
+ * <fullname>AWS CodeStar Connections</fullname>
+ *          <important>
+ *             <p>The CodeStar Connections feature is in preview release and is subject to change.</p>
+ *          </important>
+ *          <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of
  *       the operations and data types for the AWS CodeStar Connections API. You can use the
- *       Connections API to work with connections and installations.</p>
+ *       connections API to work with connections and installations.</p>
  *          <p>
  *             <i>Connections</i> are configurations that you use to connect AWS
  *       resources to external code repositories. Each connection is a resource that can be given to
@@ -183,6 +218,8 @@ export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfigurat
  *         <i>Installations</i> are the apps that are used to conduct this handshake. For
  *       example, the installation for the Bitbucket provider type is the Bitbucket Cloud app. When you
  *       create a connection, you can choose an existing installation or create one.</p>
+ *          <p>When you want to create a connection to an installed provider type such as GitHub
+ *       Enterprise Server, you create a <i>host</i> for your connections.</p>
  *          <p>You can work with connections by calling:</p>
  *          <ul>
  *             <li>
@@ -205,7 +242,46 @@ export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfigurat
  *           account.</p>
  *             </li>
  *          </ul>
- *          <p>For information about how to use AWS CodeStar Connections, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS CodePipeline User
+ *          <p>You can work with hosts by calling:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateHost</a>, which creates a host that represents the infrastructure where your provider is installed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteHost</a>, which deletes the specified host.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetHost</a>, which returns information about the host, including
+ *           the setup status.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListHosts</a>, which lists the hosts associated with your
+ *           account.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can work with tags in AWS CodeStar Connections by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListTagsForResource</a>, which gets information about AWS tags for a
+ *           specified Amazon Resource Name (ARN) in AWS CodeStar Connections.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>TagResource</a>, which adds or updates tags for a resource in AWS CodeStar
+ *           Connections.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UntagResource</a>, which removes tags for a resource in AWS CodeStar
+ *           Connections.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For information about how to use AWS CodeStar Connections, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html">Developer Tools User
  *         Guide</a>.</p>
  */
 export class CodeStarConnectionsClient extends __Client<
@@ -234,6 +310,7 @@ export class CodeStarConnectionsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

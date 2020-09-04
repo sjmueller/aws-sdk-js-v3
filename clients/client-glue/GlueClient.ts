@@ -47,6 +47,14 @@ import {
 } from "./commands/CreateUserDefinedFunctionCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand";
+import {
+  DeleteColumnStatisticsForPartitionCommandInput,
+  DeleteColumnStatisticsForPartitionCommandOutput,
+} from "./commands/DeleteColumnStatisticsForPartitionCommand";
+import {
+  DeleteColumnStatisticsForTableCommandInput,
+  DeleteColumnStatisticsForTableCommandOutput,
+} from "./commands/DeleteColumnStatisticsForTableCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
@@ -76,6 +84,14 @@ import {
 } from "./commands/GetCatalogImportStatusCommand";
 import { GetClassifierCommandInput, GetClassifierCommandOutput } from "./commands/GetClassifierCommand";
 import { GetClassifiersCommandInput, GetClassifiersCommandOutput } from "./commands/GetClassifiersCommand";
+import {
+  GetColumnStatisticsForPartitionCommandInput,
+  GetColumnStatisticsForPartitionCommandOutput,
+} from "./commands/GetColumnStatisticsForPartitionCommand";
+import {
+  GetColumnStatisticsForTableCommandInput,
+  GetColumnStatisticsForTableCommandOutput,
+} from "./commands/GetColumnStatisticsForTableCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
@@ -103,6 +119,10 @@ import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetM
 import { GetPartitionCommandInput, GetPartitionCommandOutput } from "./commands/GetPartitionCommand";
 import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand";
 import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
+import {
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   GetSecurityConfigurationCommandInput,
@@ -141,6 +161,7 @@ import {
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -153,6 +174,7 @@ import {
   PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
+import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
 import {
@@ -184,9 +206,18 @@ import {
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
+import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
+import {
+  UpdateColumnStatisticsForPartitionCommandInput,
+  UpdateColumnStatisticsForPartitionCommandOutput,
+} from "./commands/UpdateColumnStatisticsForPartitionCommand";
+import {
+  UpdateColumnStatisticsForTableCommandInput,
+  UpdateColumnStatisticsForTableCommandOutput,
+} from "./commands/UpdateColumnStatisticsForTableCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import { UpdateCrawlerCommandInput, UpdateCrawlerCommandOutput } from "./commands/UpdateCrawlerCommand";
 import {
@@ -221,6 +252,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -247,6 +279,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -281,6 +314,8 @@ export type ServiceInputTypes =
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
   | DeleteClassifierCommandInput
+  | DeleteColumnStatisticsForPartitionCommandInput
+  | DeleteColumnStatisticsForTableCommandInput
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
   | DeleteDatabaseCommandInput
@@ -298,6 +333,8 @@ export type ServiceInputTypes =
   | GetCatalogImportStatusCommandInput
   | GetClassifierCommandInput
   | GetClassifiersCommandInput
+  | GetColumnStatisticsForPartitionCommandInput
+  | GetColumnStatisticsForTableCommandInput
   | GetConnectionCommandInput
   | GetConnectionsCommandInput
   | GetCrawlerCommandInput
@@ -322,6 +359,7 @@ export type ServiceInputTypes =
   | GetPartitionCommandInput
   | GetPartitionsCommandInput
   | GetPlanCommandInput
+  | GetResourcePoliciesCommandInput
   | GetResourcePolicyCommandInput
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
@@ -342,12 +380,14 @@ export type ServiceInputTypes =
   | ListCrawlersCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
+  | ListMLTransformsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutResourcePolicyCommandInput
   | PutWorkflowRunPropertiesCommandInput
   | ResetJobBookmarkCommandInput
+  | ResumeWorkflowRunCommandInput
   | SearchTablesCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
@@ -361,9 +401,12 @@ export type ServiceInputTypes =
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
   | StopTriggerCommandInput
+  | StopWorkflowRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateClassifierCommandInput
+  | UpdateColumnStatisticsForPartitionCommandInput
+  | UpdateColumnStatisticsForTableCommandInput
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
@@ -406,6 +449,8 @@ export type ServiceOutputTypes =
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteClassifierCommandOutput
+  | DeleteColumnStatisticsForPartitionCommandOutput
+  | DeleteColumnStatisticsForTableCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteDatabaseCommandOutput
@@ -423,6 +468,8 @@ export type ServiceOutputTypes =
   | GetCatalogImportStatusCommandOutput
   | GetClassifierCommandOutput
   | GetClassifiersCommandOutput
+  | GetColumnStatisticsForPartitionCommandOutput
+  | GetColumnStatisticsForTableCommandOutput
   | GetConnectionCommandOutput
   | GetConnectionsCommandOutput
   | GetCrawlerCommandOutput
@@ -447,6 +494,7 @@ export type ServiceOutputTypes =
   | GetPartitionCommandOutput
   | GetPartitionsCommandOutput
   | GetPlanCommandOutput
+  | GetResourcePoliciesCommandOutput
   | GetResourcePolicyCommandOutput
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
@@ -467,12 +515,14 @@ export type ServiceOutputTypes =
   | ListCrawlersCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
+  | ListMLTransformsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutResourcePolicyCommandOutput
   | PutWorkflowRunPropertiesCommandOutput
   | ResetJobBookmarkCommandOutput
+  | ResumeWorkflowRunCommandOutput
   | SearchTablesCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
@@ -486,9 +536,12 @@ export type ServiceOutputTypes =
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
   | StopTriggerCommandOutput
+  | StopWorkflowRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateClassifierCommandOutput
+  | UpdateColumnStatisticsForPartitionCommandOutput
+  | UpdateColumnStatisticsForTableCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput
@@ -576,14 +629,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -639,6 +697,7 @@ export class GlueClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

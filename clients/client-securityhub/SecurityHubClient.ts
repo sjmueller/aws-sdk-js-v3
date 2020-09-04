@@ -11,6 +11,10 @@ import {
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
+import {
+  BatchUpdateFindingsCommandInput,
+  BatchUpdateFindingsCommandOutput,
+} from "./commands/BatchUpdateFindingsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
@@ -25,6 +29,7 @@ import {
 } from "./commands/DescribeActionTargetsCommand";
 import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
 import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
+import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand";
 import {
   DescribeStandardsControlsCommandInput,
   DescribeStandardsControlsCommandOutput,
@@ -77,6 +82,10 @@ import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from 
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
 import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
 import {
+  UpdateSecurityHubConfigurationCommandInput,
+  UpdateSecurityHubConfigurationCommandOutput,
+} from "./commands/UpdateSecurityHubConfigurationCommand";
+import {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
@@ -96,6 +105,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -122,6 +132,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -132,6 +143,7 @@ export type ServiceInputTypes =
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
   | BatchImportFindingsCommandInput
+  | BatchUpdateFindingsCommandInput
   | CreateActionTargetCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
@@ -143,6 +155,7 @@ export type ServiceInputTypes =
   | DescribeActionTargetsCommandInput
   | DescribeHubCommandInput
   | DescribeProductsCommandInput
+  | DescribeStandardsCommandInput
   | DescribeStandardsControlsCommandInput
   | DisableImportFindingsForProductCommandInput
   | DisableSecurityHubCommandInput
@@ -167,6 +180,7 @@ export type ServiceInputTypes =
   | UpdateActionTargetCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
+  | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
 export type ServiceOutputTypes =
@@ -174,6 +188,7 @@ export type ServiceOutputTypes =
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
   | BatchImportFindingsCommandOutput
+  | BatchUpdateFindingsCommandOutput
   | CreateActionTargetCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
@@ -185,6 +200,7 @@ export type ServiceOutputTypes =
   | DescribeActionTargetsCommandOutput
   | DescribeHubCommandOutput
   | DescribeProductsCommandOutput
+  | DescribeStandardsCommandOutput
   | DescribeStandardsControlsCommandOutput
   | DisableImportFindingsForProductCommandOutput
   | DisableSecurityHubCommandOutput
@@ -209,6 +225,7 @@ export type ServiceOutputTypes =
   | UpdateActionTargetCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
+  | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -285,14 +302,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -320,34 +342,44 @@ export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
 
 /**
  * <p>Security Hub provides you with a comprehensive view of the security state of your AWS
- *          environment and resources. It also provides you with the compliance status of your
- *          environment based on CIS AWS Foundations compliance checks. Security Hub collects security data
- *          from AWS accounts, services, and integrated third-party products and helps you analyze
+ *          environment and resources. It also provides you with the readiness status of your
+ *          environment based on controls from supported security standards. Security Hub collects security
+ *          data from AWS accounts, services, and integrated third-party products and helps you analyze
  *          security trends in your environment to identify the highest priority security issues. For
  *          more information about Security Hub, see the <i>
- *                <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">AWS Security Hub User Guide</a>
+ *                <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">AWS Security Hub User
+ *                Guide</a>
  *             </i>.</p>
  *          <p>When you use operations in the Security Hub API, the requests are executed only in the AWS
  *          Region that is currently active or in the specific AWS Region that you specify in your
  *          request. Any configuration or settings change that results from the operation is applied
  *          only to that Region. To make the same change in other Regions, execute the same command for
- *          each Region to apply the change to. For example, if your Region is set to
- *             <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account
- *          to Security Hub, the association of the member account with the master account is created only in
- *          the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that
- *          the invite was sent from.</p>
- *          <p>The following throttling limits apply to using Security Hub API operations:</p>
+ *          each Region to apply the change to.</p>
+ *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>
+ *                <a>CreateMembers</a>
+ *             </code> to add a member account to Security Hub, the association of
+ *          the member account with the master account is created only in the <code>us-west-2</code>
+ *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
+ *          was sent from.</p>
+ *          <p>The following throttling limits apply to using Security Hub API operations.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>GetFindings</code> - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.</p>
+ *                   <code>
+ *                      <a>GetFindings</a>
+ *                   </code> - <code>RateLimit</code> of 3 requests per second.
+ *                   <code>BurstLimit</code> of 6 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateFindings</code> - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.</p>
+ *                   <code>
+ *                      <a>UpdateFindings</a>
+ *                   </code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 5 requests per second.</p>
  *             </li>
  *             <li>
- *                <p>All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>
+ *                <p>All other operations - <code>RateLimit</code> of 10 requests per second.
+ *                   <code>BurstLimit</code> of 30 requests per second.</p>
  *             </li>
  *          </ul>
  */
@@ -377,6 +409,7 @@ export class SecurityHubClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

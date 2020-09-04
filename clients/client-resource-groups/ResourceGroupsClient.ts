@@ -1,12 +1,18 @@
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import {
+  GetGroupConfigurationCommandInput,
+  GetGroupConfigurationCommandOutput,
+} from "./commands/GetGroupConfigurationCommand";
 import { GetGroupQueryCommandInput, GetGroupQueryCommandOutput } from "./commands/GetGroupQueryCommand";
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "./commands/GroupResourcesCommand";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "./commands/ListGroupResourcesCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
 import { TagCommandInput, TagCommandOutput } from "./commands/TagCommand";
+import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "./commands/UngroupResourcesCommand";
 import { UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput } from "./commands/UpdateGroupQueryCommand";
@@ -26,6 +32,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -52,6 +59,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -61,12 +69,15 @@ export type ServiceInputTypes =
   | CreateGroupCommandInput
   | DeleteGroupCommandInput
   | GetGroupCommandInput
+  | GetGroupConfigurationCommandInput
   | GetGroupQueryCommandInput
   | GetTagsCommandInput
+  | GroupResourcesCommandInput
   | ListGroupResourcesCommandInput
   | ListGroupsCommandInput
   | SearchResourcesCommandInput
   | TagCommandInput
+  | UngroupResourcesCommandInput
   | UntagCommandInput
   | UpdateGroupCommandInput
   | UpdateGroupQueryCommandInput;
@@ -75,12 +86,15 @@ export type ServiceOutputTypes =
   | CreateGroupCommandOutput
   | DeleteGroupCommandOutput
   | GetGroupCommandOutput
+  | GetGroupConfigurationCommandOutput
   | GetGroupQueryCommandOutput
   | GetTagsCommandOutput
+  | GroupResourcesCommandOutput
   | ListGroupResourcesCommandOutput
   | ListGroupsCommandOutput
   | SearchResourcesCommandOutput
   | TagCommandOutput
+  | UngroupResourcesCommandOutput
   | UntagCommandOutput
   | UpdateGroupCommandOutput
   | UpdateGroupQueryCommandOutput;
@@ -159,14 +173,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -194,36 +213,41 @@ export type ResourceGroupsClientResolvedConfig = __SmithyResolvedConfiguration<_
 
 /**
  * <fullname>AWS Resource Groups</fullname>
- *          <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,
- *       Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria
- *       that you define as tags. A resource group is a collection of resources that match the resource
- *       types specified in a query, and share one or more tags or portions of tags. You can create a
- *       group of resources based on their roles in your cloud infrastructure, lifecycle stages,
- *       regions, application layers, or virtually any criteria. Resource groups enable you to automate
- *       management tasks, such as those in AWS Systems Manager Automation documents, on tag-related
- *       resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a
- *       custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring
- *       data about member resources.</p>
- *          <p>To create a resource group, build a resource query, and specify tags that identify
- *       the criteria that members of the group have in common. Tags are key-value pairs.</p>
- *          <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User
- *         Guide</a>.</p>
- *          <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.</p>
- *          <ul>
+ *
+ *         <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,
+ *             Amazon Relational Database Service databases, and Amazon S3 buckets into groups using
+ *             criteria that you define as tags. A resource group is a collection of resources that
+ *             match the resource types specified in a query, and share one or more tags or portions of
+ *             tags. You can create a group of resources based on their roles in your cloud
+ *             infrastructure, lifecycle stages, regions, application layers, or virtually any
+ *             criteria. Resource groups enable you to automate management tasks, such as those in AWS
+ *             Systems Manager Automation documents, on tag-related resources in AWS Systems Manager.
+ *             Groups of tagged resources also let you quickly view a custom console in AWS Systems
+ *             Manager that shows AWS Config compliance and other monitoring data about member
+ *             resources.</p>
+ *         <p>To create a resource group, build a resource query, and specify tags that identify the
+ *             criteria that members of the group have in common. Tags are key-value pairs.</p>
+ *         <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User
+ *             Guide</a>.</p>
+ *         <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the
+ *             following types of operations.</p>
+ *         <ul>
  *             <li>
- *                <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities</p>
+ *                 <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and
+ *                     resource query entities</p>
  *             </li>
  *             <li>
- *                <p>Applying, editing, and removing tags from resource groups</p>
+ *                 <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                <p>Resolving resource group member ARNs so they can be returned as search results</p>
+ *                 <p>Resolving resource group member ARNs so they can be returned as search
+ *                     results</p>
  *             </li>
  *             <li>
- *                <p>Getting data about resources that are members of a group</p>
+ *                 <p>Getting data about resources that are members of a group</p>
  *             </li>
  *             <li>
- *                <p>Searching AWS resources based on a resource query</p>
+ *                 <p>Searching AWS resources based on a resource query</p>
  *             </li>
  *          </ul>
  */
@@ -253,6 +277,7 @@ export class ResourceGroupsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

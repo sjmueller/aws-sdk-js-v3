@@ -42,10 +42,10 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>signingName: Defines the service name that signs AWS requests.</li>
  *     <li>credentialDefaultProvider: Provides credentials if no credentials
  *     are explicitly provided.</li>
- *     <li>regionDefaultProvider: Provides a region if no region is
- *     explicitly provided</li>
- *     <li>maxAttemptsDefaultProvider: Provides value for maxAttempts if no region is
- *     explicitly provided</li>
+ *     <li>region: The AWS region to which this client will send requests</li>
+ *     <li>maxAttempts: Provides value for how many times a request will be
+ *     made at most in case of retry.</li>
+ *     <li>logger: Optional logger for logging debug/info/warn/error.</li>
  * </ul>
  *
  * <p>This plugin adds the following Node runtime specific values:
@@ -54,10 +54,11 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>signingName: Sets this to the signing name derived from the model.</li>
  *     <li>credentialDefaultProvider: Uses the default credential provider that
  *     checks things like environment variables and the AWS config file.</li>
- *     <li>regionDefaultProvider: Uses the default region provider that
- *     checks things like environment variables and the AWS config file.</li>
- *     <li>maxAttemptsDefaultProvider: Uses the default maxAttempts provider that
- *     checks things like environment variables and the AWS config file.</li>
+ *     <li>region: Uses the default region provider that checks things like
+ *      environment variables and the AWS config file.</li>
+ *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
+ *     like environment variables and the AWS config file.</li>
+ *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  *
  * <p>This plugin adds the following Browser runtime specific values:
@@ -67,10 +68,11 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>credentialDefaultProvider: Throws an exception since credentials must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
- *     <li>regionDefaultProvider: Throws an exception since a region must
+ *     <li>region: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
- *     <li>maxAttemptsDefaultProvider: Returns default value of "3".</li>
+ *     <li>maxAttempts: Returns default value of 3.</li>
+ *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  */
 public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
@@ -86,15 +88,18 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     ) {
         writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
         writer.writeDocs("The service name with which to sign requests.")
                 .write("signingName?: string;\n");
         writer.writeDocs("Default credentials provider; Not available in browser runtime")
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
-        writer.writeDocs("Provider function that return promise of a region string")
-                .write("regionDefaultProvider?: (input: any) => __Provider<string>;\n");
-        writer.writeDocs("Provider function that return promise of a maxAttempts string")
-                .write("maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;\n");
+        writer.writeDocs("The AWS region to which this client will send requests")
+                .write("region?: string | __Provider<string>;\n");
+        writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
+                .write("maxAttempts?: number | __Provider<number>;\n");
+        writer.writeDocs("Optional logger for logging debug/info/warn/error.")
+                .write("logger?: __Logger;\n");
     }
 
     @Override
@@ -119,56 +124,53 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
             }
         }
-        runtimeConfigs.putAll(getRuntimeConfig(service, target));
+        runtimeConfigs.putAll(getCredentialProviderConfig(service, target));
+        runtimeConfigs.putAll(getDefaultConfig(target));
         return runtimeConfigs;
-    }
-
-    private Map<String, Consumer<TypeScriptWriter>> getRuntimeConfig(ServiceShape service, LanguageTarget target) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        if (serviceId.equals("Cognito Identity")) {
-            return getCognitoIdentityConfig(target);
-        } else {
-            return getDefaultConfig(target);
-        }
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
         switch (target) {
+            case SHARED:
+                return MapUtils.of(
+                        "logger", writer -> {
+                            writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                            writer.write("logger: {} as __Logger,");
+                        }
+                );
             case BROWSER:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
+                        "region", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write(
-                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
+                            writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
-                        "regionDefaultProvider", writer -> {
-                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                        },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                        "maxAttempts", writer -> {
+                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
+                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                         }
                 );
             case NODE:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                            writer.write("credentialDefaultProvider,");
+                        "region", writer -> {
+                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write(
+                                "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
                         },
-                        "regionDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.REGION_PROVIDER);
-                            writer.addImport("defaultProvider", "regionDefaultProvider",
-                                    AwsDependency.REGION_PROVIDER.packageName);
-                            writer.write("regionDefaultProvider,");
-                        },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
-                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
-                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
-                            writer.write("maxAttemptsDefaultProvider,");
+                        "maxAttempts", writer -> {
+                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
                         }
                 );
             default:
@@ -180,48 +182,44 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
      * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
      * credential config resolver failure.
      */
-    private Map<String, Consumer<TypeScriptWriter>> getCognitoIdentityConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getCredentialProviderConfig(
+            ServiceShape service,
+            LanguageTarget target
+    ) {
+        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         switch (target) {
             case BROWSER:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
+                    "credentialDefaultProvider", writer -> {
+                        if (serviceId.equals("Cognito Identity")) {
                             writer.write("credentialDefaultProvider: (() => {}) as any,");
-                        },
-                        "regionDefaultProvider", writer -> {
+                        } else {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                        },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.write("maxAttemptsDefaultProvider: (() => '3') as any,");
+                            writer.write(
+                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
                         }
+                    }
                 );
             case NODE:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                    "credentialDefaultProvider", writer -> {
+                        writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                        writer.addImport("defaultProvider", "credentialDefaultProvider",
+                                AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+
+                        if (serviceId.equals("Cognito Identity")) {
                             writer.openBlock("credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
-                                        writer.write("try {").indent();
-                                        writer.write("return credentialDefaultProvider(options);");
-                                        writer.dedent().write("} catch(e){}");
-                                        writer.write("return {}");
-                                    });
-                        },
-                        "regionDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.REGION_PROVIDER);
-                            writer.addImport("defaultProvider", "regionDefaultProvider",
-                                    AwsDependency.REGION_PROVIDER.packageName);
-                            writer.write("regionDefaultProvider,");
-                        },
-                        "maxAttemptsDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.RETRY_CONFIG_PROVIDER);
-                            writer.addImport("maxAttemptsProvider", "maxAttemptsDefaultProvider",
-                                    AwsDependency.RETRY_CONFIG_PROVIDER.packageName);
-                            writer.write("maxAttemptsDefaultProvider,");
+                                writer.write("try {").indent();
+                                writer.write("return credentialDefaultProvider(options);");
+                                writer.dedent().write("} catch(e){}");
+                                writer.write("return {}");
+                            });
+                        } else {
+                            writer.write("credentialDefaultProvider,");
                         }
+                    }
                 );
             default:
                 return Collections.emptyMap();

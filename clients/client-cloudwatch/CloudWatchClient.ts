@@ -53,6 +53,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
+import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand";
 import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand";
 import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
@@ -76,6 +77,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -102,6 +104,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -130,6 +133,7 @@ export type ServiceInputTypes =
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
   | PutAnomalyDetectorCommandInput
+  | PutCompositeAlarmCommandInput
   | PutDashboardCommandInput
   | PutInsightRuleCommandInput
   | PutMetricAlarmCommandInput
@@ -161,6 +165,7 @@ export type ServiceOutputTypes =
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAnomalyDetectorCommandOutput
+  | PutCompositeAlarmCommandOutput
   | PutDashboardCommandOutput
   | PutInsightRuleCommandOutput
   | PutMetricAlarmCommandOutput
@@ -243,14 +248,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -282,12 +292,12 @@ export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  * 			metrics, which are the variables you want to measure for your resources and
  * 			applications.</p>
  *
- * 		       <p>CloudWatch alarms send notifications or automatically change the resources
- * 			you are monitoring based on rules that you define. For example, you can monitor the CPU
- * 			usage and disk reads and writes of your Amazon EC2
- * 			instances. Then, use this data to determine whether you should launch additional
- * 			instances to handle increased load. You can also use this data to stop under-used
- * 			instances to save money.</p>
+ * 		       <p>CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules
+ * 			that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2
+ * 			instances. Then, use this data to determine whether you should launch
+ * 			additional instances to handle increased load. You can also use this data to stop
+ * 			under-used instances to save
+ * 			money.</p>
  *
  * 		       <p>In addition to monitoring the built-in metrics that come with AWS, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
@@ -319,6 +329,7 @@ export class CloudWatchClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

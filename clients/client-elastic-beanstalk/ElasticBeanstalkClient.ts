@@ -7,6 +7,10 @@ import {
   ApplyEnvironmentManagedActionCommandOutput,
 } from "./commands/ApplyEnvironmentManagedActionCommand";
 import {
+  AssociateEnvironmentOperationsRoleCommandInput,
+  AssociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/AssociateEnvironmentOperationsRoleCommand";
+import {
   CheckDNSAvailabilityCommandInput,
   CheckDNSAvailabilityCommandOutput,
 } from "./commands/CheckDNSAvailabilityCommand";
@@ -99,9 +103,17 @@ import {
   DescribePlatformVersionCommandOutput,
 } from "./commands/DescribePlatformVersionCommand";
 import {
+  DisassociateEnvironmentOperationsRoleCommandInput,
+  DisassociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/DisassociateEnvironmentOperationsRoleCommand";
+import {
   ListAvailableSolutionStacksCommandInput,
   ListAvailableSolutionStacksCommandOutput,
 } from "./commands/ListAvailableSolutionStacksCommand";
+import {
+  ListPlatformBranchesCommandInput,
+  ListPlatformBranchesCommandOutput,
+} from "./commands/ListPlatformBranchesCommand";
 import {
   ListPlatformVersionsCommandInput,
   ListPlatformVersionsCommandOutput,
@@ -166,6 +178,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -192,6 +205,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -200,6 +214,7 @@ import {
 export type ServiceInputTypes =
   | AbortEnvironmentUpdateCommandInput
   | ApplyEnvironmentManagedActionCommandInput
+  | AssociateEnvironmentOperationsRoleCommandInput
   | CheckDNSAvailabilityCommandInput
   | ComposeEnvironmentsCommandInput
   | CreateApplicationCommandInput
@@ -226,7 +241,9 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeInstancesHealthCommandInput
   | DescribePlatformVersionCommandInput
+  | DisassociateEnvironmentOperationsRoleCommandInput
   | ListAvailableSolutionStacksCommandInput
+  | ListPlatformBranchesCommandInput
   | ListPlatformVersionsCommandInput
   | ListTagsForResourceCommandInput
   | RebuildEnvironmentCommandInput
@@ -246,6 +263,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AbortEnvironmentUpdateCommandOutput
   | ApplyEnvironmentManagedActionCommandOutput
+  | AssociateEnvironmentOperationsRoleCommandOutput
   | CheckDNSAvailabilityCommandOutput
   | ComposeEnvironmentsCommandOutput
   | CreateApplicationCommandOutput
@@ -272,7 +290,9 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeInstancesHealthCommandOutput
   | DescribePlatformVersionCommandOutput
+  | DisassociateEnvironmentOperationsRoleCommandOutput
   | ListAvailableSolutionStacksCommandOutput
+  | ListPlatformBranchesCommandOutput
   | ListPlatformVersionsCommandOutput
   | ListTagsForResourceCommandOutput
   | RebuildEnvironmentCommandOutput
@@ -363,14 +383,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -403,7 +428,7 @@ export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
  *          <p>For more information about this product, go to the <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the
- *       latest AWS Elastic Beanstalk WSDL is <a href="http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
+ *       latest AWS Elastic Beanstalk WSDL is <a href="https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
  *       To install the Software Development Kits (SDKs), Integrated Development Environment (IDE)
  *       Toolkits, and command line tools that enable you to access the API, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          <p>
@@ -439,6 +464,7 @@ export class ElasticBeanstalkClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

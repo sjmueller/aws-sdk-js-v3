@@ -15,6 +15,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -41,6 +42,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -124,14 +126,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -159,6 +166,26 @@ export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
 
 /**
  * <p>The transactional data APIs for Amazon QLDB</p>
+ *          <note>
+ *             <p>Instead of interacting directly with this API, we recommend that you use the
+ *             Amazon QLDB Driver or the QLDB Shell to execute data transactions on a ledger.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>If you are working with an AWS SDK, use the QLDB Driver. The driver provides
+ *                   a high-level abstraction layer above this <code>qldbsession</code> data plane and
+ *                   manages <code>SendCommand</code> API calls for you. For information and a list of
+ *                   supported programming languages, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html">Getting started
+ *                      with the driver</a> in the <i>Amazon QLDB Developer
+ *                   Guide</i>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>If you are working with the AWS Command Line Interface (AWS CLI), use the
+ *                   QLDB Shell. The shell is a command line interface that uses the QLDB Driver to
+ *                   interact with a ledger. For information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html">Accessing Amazon QLDB using the
+ *                      QLDB Shell</a>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  */
 export class QLDBSessionClient extends __Client<
   __HttpHandlerOptions,
@@ -186,6 +213,7 @@ export class QLDBSessionClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

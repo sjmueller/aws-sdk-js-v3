@@ -43,12 +43,28 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  ResumeContactRecordingCommandInput,
+  ResumeContactRecordingCommandOutput,
+} from "./commands/ResumeContactRecordingCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
+import {
+  StartContactRecordingCommandInput,
+  StartContactRecordingCommandOutput,
+} from "./commands/StartContactRecordingCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import {
+  StopContactRecordingCommandInput,
+  StopContactRecordingCommandOutput,
+} from "./commands/StopContactRecordingCommand";
+import {
+  SuspendContactRecordingCommandInput,
+  SuspendContactRecordingCommandOutput,
+} from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -91,6 +107,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -117,6 +134,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -141,9 +159,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | ResumeContactRecordingCommandInput
   | StartChatContactCommandInput
+  | StartContactRecordingCommandInput
   | StartOutboundVoiceContactCommandInput
   | StopContactCommandInput
+  | StopContactRecordingCommandInput
+  | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContactAttributesCommandInput
@@ -172,9 +194,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | ResumeContactRecordingCommandOutput
   | StartChatContactCommandOutput
+  | StartContactRecordingCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StopContactCommandOutput
+  | StopContactRecordingCommandOutput
+  | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContactAttributesCommandOutput
@@ -258,14 +284,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -327,6 +358,7 @@ export class ConnectClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

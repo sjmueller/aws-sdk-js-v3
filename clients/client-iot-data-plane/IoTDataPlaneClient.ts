@@ -1,5 +1,9 @@
 import { DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput } from "./commands/DeleteThingShadowCommand";
 import { GetThingShadowCommandInput, GetThingShadowCommandOutput } from "./commands/GetThingShadowCommand";
+import {
+  ListNamedShadowsForThingCommandInput,
+  ListNamedShadowsForThingCommandOutput,
+} from "./commands/ListNamedShadowsForThingCommand";
 import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import { UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput } from "./commands/UpdateThingShadowCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -18,6 +22,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -44,6 +49,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -52,12 +58,14 @@ import {
 export type ServiceInputTypes =
   | DeleteThingShadowCommandInput
   | GetThingShadowCommandInput
+  | ListNamedShadowsForThingCommandInput
   | PublishCommandInput
   | UpdateThingShadowCommandInput;
 
 export type ServiceOutputTypes =
   | DeleteThingShadowCommandOutput
   | GetThingShadowCommandOutput
+  | ListNamedShadowsForThingCommandOutput
   | PublishCommandOutput
   | UpdateThingShadowCommandOutput;
 
@@ -135,14 +143,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -170,11 +183,16 @@ export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__H
 
 /**
  * <fullname>AWS IoT</fullname>
- *     <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things
- *       (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud.
- *       It implements a broker for applications and things to publish messages
- *       over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a
+ *          <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors,
+ *       actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and
+ *       things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a
  *       persistent representation of your things and their state in the AWS cloud.</p>
+ *          <p>Find the endpoint address for actions in the AWS IoT data plane by running this CLI command:</p>
+ *          <p>
+ *             <code>aws iot describe-endpoint --endpoint-type iot:Data-ATS</code>
+ *          </p>
+ *          <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS Signature Version 4</a>
+ *       to sign requests is: <i>iotdevicegateway</i>.</p>
  */
 export class IoTDataPlaneClient extends __Client<
   __HttpHandlerOptions,
@@ -202,6 +220,7 @@ export class IoTDataPlaneClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

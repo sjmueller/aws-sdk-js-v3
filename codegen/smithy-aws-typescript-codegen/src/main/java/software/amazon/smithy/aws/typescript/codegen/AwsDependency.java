@@ -31,7 +31,6 @@ public enum AwsDependency implements SymbolDependencyContainer {
 
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^1.0.0-beta.1"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "^1.0.0-beta.1"),
-    REGION_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/region-provider", "^1.0.0-beta.1"),
     ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^1.0.0-beta.1"),
     VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^1.0.0-beta.1"),
     ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^1.0.0-beta.1"),
@@ -60,7 +59,9 @@ public enum AwsDependency implements SymbolDependencyContainer {
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "^1.0.0-beta.0"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
             "^1.0.0-gamma.0"),
-    RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-gamma.0");
+    RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-gamma.0"),
+    NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "^1.0.0-gamma.0"),
+    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "^1.0.0-gamma.0");
 
     public final String packageName;
     public final String version;

@@ -1,8 +1,20 @@
+import {
+  CreateMedicalVocabularyCommandInput,
+  CreateMedicalVocabularyCommandOutput,
+} from "./commands/CreateMedicalVocabularyCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
 import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
+import {
+  DeleteMedicalTranscriptionJobCommandInput,
+  DeleteMedicalTranscriptionJobCommandOutput,
+} from "./commands/DeleteMedicalTranscriptionJobCommand";
+import {
+  DeleteMedicalVocabularyCommandInput,
+  DeleteMedicalVocabularyCommandOutput,
+} from "./commands/DeleteMedicalVocabularyCommand";
 import {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput,
@@ -13,6 +25,14 @@ import {
   DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
 import {
+  GetMedicalTranscriptionJobCommandInput,
+  GetMedicalTranscriptionJobCommandOutput,
+} from "./commands/GetMedicalTranscriptionJobCommand";
+import {
+  GetMedicalVocabularyCommandInput,
+  GetMedicalVocabularyCommandOutput,
+} from "./commands/GetMedicalVocabularyCommand";
+import {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput,
 } from "./commands/GetTranscriptionJobCommand";
@@ -21,6 +41,14 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
+import {
+  ListMedicalTranscriptionJobsCommandInput,
+  ListMedicalTranscriptionJobsCommandOutput,
+} from "./commands/ListMedicalTranscriptionJobsCommand";
+import {
+  ListMedicalVocabulariesCommandInput,
+  ListMedicalVocabulariesCommandOutput,
+} from "./commands/ListMedicalVocabulariesCommand";
 import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
@@ -31,9 +59,17 @@ import {
   ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
 import {
+  StartMedicalTranscriptionJobCommandInput,
+  StartMedicalTranscriptionJobCommandOutput,
+} from "./commands/StartMedicalTranscriptionJobCommand";
+import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
+import {
+  UpdateMedicalVocabularyCommandInput,
+  UpdateMedicalVocabularyCommandOutput,
+} from "./commands/UpdateMedicalVocabularyCommand";
 import { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "./commands/UpdateVocabularyCommand";
 import {
   UpdateVocabularyFilterCommandInput,
@@ -55,6 +91,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -81,40 +118,59 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateMedicalVocabularyCommandInput
   | CreateVocabularyCommandInput
   | CreateVocabularyFilterCommandInput
+  | DeleteMedicalTranscriptionJobCommandInput
+  | DeleteMedicalVocabularyCommandInput
   | DeleteTranscriptionJobCommandInput
   | DeleteVocabularyCommandInput
   | DeleteVocabularyFilterCommandInput
+  | GetMedicalTranscriptionJobCommandInput
+  | GetMedicalVocabularyCommandInput
   | GetTranscriptionJobCommandInput
   | GetVocabularyCommandInput
   | GetVocabularyFilterCommandInput
+  | ListMedicalTranscriptionJobsCommandInput
+  | ListMedicalVocabulariesCommandInput
   | ListTranscriptionJobsCommandInput
   | ListVocabulariesCommandInput
   | ListVocabularyFiltersCommandInput
+  | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
+  | UpdateMedicalVocabularyCommandInput
   | UpdateVocabularyCommandInput
   | UpdateVocabularyFilterCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateMedicalVocabularyCommandOutput
   | CreateVocabularyCommandOutput
   | CreateVocabularyFilterCommandOutput
+  | DeleteMedicalTranscriptionJobCommandOutput
+  | DeleteMedicalVocabularyCommandOutput
   | DeleteTranscriptionJobCommandOutput
   | DeleteVocabularyCommandOutput
   | DeleteVocabularyFilterCommandOutput
+  | GetMedicalTranscriptionJobCommandOutput
+  | GetMedicalVocabularyCommandOutput
   | GetTranscriptionJobCommandOutput
   | GetVocabularyCommandOutput
   | GetVocabularyFilterCommandOutput
+  | ListMedicalTranscriptionJobsCommandOutput
+  | ListMedicalVocabulariesCommandOutput
   | ListTranscriptionJobsCommandOutput
   | ListVocabulariesCommandOutput
   | ListVocabularyFiltersCommandOutput
+  | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
+  | UpdateMedicalVocabularyCommandOutput
   | UpdateVocabularyCommandOutput
   | UpdateVocabularyFilterCommandOutput;
 
@@ -192,14 +248,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -254,6 +315,7 @@ export class TranscribeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

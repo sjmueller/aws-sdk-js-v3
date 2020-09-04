@@ -2,6 +2,11 @@ import {
   AssociateRepositoryCommandInput,
   AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
+import { DescribeCodeReviewCommandInput, DescribeCodeReviewCommandOutput } from "./commands/DescribeCodeReviewCommand";
+import {
+  DescribeRecommendationFeedbackCommandInput,
+  DescribeRecommendationFeedbackCommandOutput,
+} from "./commands/DescribeRecommendationFeedbackCommand";
 import {
   DescribeRepositoryAssociationCommandInput,
   DescribeRepositoryAssociationCommandOutput,
@@ -10,10 +15,23 @@ import {
   DisassociateRepositoryCommandInput,
   DisassociateRepositoryCommandOutput,
 } from "./commands/DisassociateRepositoryCommand";
+import { ListCodeReviewsCommandInput, ListCodeReviewsCommandOutput } from "./commands/ListCodeReviewsCommand";
+import {
+  ListRecommendationFeedbackCommandInput,
+  ListRecommendationFeedbackCommandOutput,
+} from "./commands/ListRecommendationFeedbackCommand";
+import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
 import {
   ListRepositoryAssociationsCommandInput,
   ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
+import {
+  PutRecommendationFeedbackCommandInput,
+  PutRecommendationFeedbackCommandOutput,
+} from "./commands/PutRecommendationFeedbackCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -30,6 +48,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -56,6 +75,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -63,15 +83,27 @@ import {
 
 export type ServiceInputTypes =
   | AssociateRepositoryCommandInput
+  | DescribeCodeReviewCommandInput
+  | DescribeRecommendationFeedbackCommandInput
   | DescribeRepositoryAssociationCommandInput
   | DisassociateRepositoryCommandInput
-  | ListRepositoryAssociationsCommandInput;
+  | ListCodeReviewsCommandInput
+  | ListRecommendationFeedbackCommandInput
+  | ListRecommendationsCommandInput
+  | ListRepositoryAssociationsCommandInput
+  | PutRecommendationFeedbackCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateRepositoryCommandOutput
+  | DescribeCodeReviewCommandOutput
+  | DescribeRecommendationFeedbackCommandOutput
   | DescribeRepositoryAssociationCommandOutput
   | DisassociateRepositoryCommandOutput
-  | ListRepositoryAssociationsCommandOutput;
+  | ListCodeReviewsCommandOutput
+  | ListRecommendationFeedbackCommandOutput
+  | ListRecommendationsCommandOutput
+  | ListRepositoryAssociationsCommandOutput
+  | PutRecommendationFeedbackCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -147,14 +179,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -181,7 +218,15 @@ export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
+ * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
+ *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
+ *          fixes in your Java code.</p>
+ *
+ *          <p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
+ *             improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
+ *             <i>
+ *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
+ *          </p>
  */
 export class CodeGuruReviewerClient extends __Client<
   __HttpHandlerOptions,
@@ -209,6 +254,7 @@ export class CodeGuruReviewerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

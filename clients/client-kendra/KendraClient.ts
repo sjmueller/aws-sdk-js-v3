@@ -6,6 +6,7 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./c
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
@@ -18,6 +19,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -28,6 +33,8 @@ import {
   StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
 import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -46,6 +53,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -72,6 +80,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -83,6 +92,7 @@ export type ServiceInputTypes =
   | CreateDataSourceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
+  | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
   | DescribeDataSourceCommandInput
@@ -92,10 +102,13 @@ export type ServiceInputTypes =
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
   | ListIndicesCommandInput
+  | ListTagsForResourceCommandInput
   | QueryCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
   | SubmitFeedbackCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput;
 
@@ -105,6 +118,7 @@ export type ServiceOutputTypes =
   | CreateDataSourceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
+  | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
   | DescribeDataSourceCommandOutput
@@ -114,10 +128,13 @@ export type ServiceOutputTypes =
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
   | ListIndicesCommandOutput
+  | ListTagsForResourceCommandOutput
   | QueryCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
   | SubmitFeedbackCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput;
 
@@ -195,14 +212,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -257,6 +279,7 @@ export class KendraClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

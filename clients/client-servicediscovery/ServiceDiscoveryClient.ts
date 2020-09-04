@@ -27,7 +27,13 @@ import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./command
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
@@ -49,6 +55,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -75,6 +82,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -98,7 +106,10 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListOperationsCommandInput
   | ListServicesCommandInput
+  | ListTagsForResourceCommandInput
   | RegisterInstanceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateInstanceCustomHealthStatusCommandInput
   | UpdateServiceCommandInput;
 
@@ -120,7 +131,10 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListOperationsCommandOutput
   | ListServicesCommandOutput
+  | ListTagsForResourceCommandOutput
   | RegisterInstanceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateInstanceCustomHealthStatusCommandOutput
   | UpdateServiceCommandOutput;
 
@@ -198,14 +212,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -232,11 +251,11 @@ export type ServiceDiscoveryClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in.
- * 			When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map.
- * 			For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check.
- * 			Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to
- * 			eight healthy records. </p>
+ * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications
+ *    run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance
+ *    with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional
+ *    health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer
+ *    that contains up to eight healthy records. </p>
  */
 export class ServiceDiscoveryClient extends __Client<
   __HttpHandlerOptions,
@@ -264,6 +283,7 @@ export class ServiceDiscoveryClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

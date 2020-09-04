@@ -7,11 +7,19 @@ import {
 } from "./commands/CreateRegexPatternSetCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
 import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand";
+import {
+  DeleteFirewallManagerRuleGroupsCommandInput,
+  DeleteFirewallManagerRuleGroupsCommandOutput,
+} from "./commands/DeleteFirewallManagerRuleGroupsCommand";
 import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeletePermissionPolicyCommandInput,
+  DeletePermissionPolicyCommandOutput,
+} from "./commands/DeletePermissionPolicyCommand";
 import {
   DeleteRegexPatternSetCommandInput,
   DeleteRegexPatternSetCommandOutput,
@@ -28,6 +36,10 @@ import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
+import {
+  GetPermissionPolicyCommandInput,
+  GetPermissionPolicyCommandOutput,
+} from "./commands/GetPermissionPolicyCommand";
 import {
   GetRateBasedStatementManagedKeysCommandInput,
   GetRateBasedStatementManagedKeysCommandOutput,
@@ -67,6 +79,10 @@ import {
   PutLoggingConfigurationCommandInput,
   PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand";
+import {
+  PutPermissionPolicyCommandInput,
+  PutPermissionPolicyCommandOutput,
+} from "./commands/PutPermissionPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
@@ -92,6 +108,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -118,6 +135,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -130,8 +148,10 @@ export type ServiceInputTypes =
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
   | CreateWebACLCommandInput
+  | DeleteFirewallManagerRuleGroupsCommandInput
   | DeleteIPSetCommandInput
   | DeleteLoggingConfigurationCommandInput
+  | DeletePermissionPolicyCommandInput
   | DeleteRegexPatternSetCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteWebACLCommandInput
@@ -139,6 +159,7 @@ export type ServiceInputTypes =
   | DisassociateWebACLCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
+  | GetPermissionPolicyCommandInput
   | GetRateBasedStatementManagedKeysCommandInput
   | GetRegexPatternSetCommandInput
   | GetRuleGroupCommandInput
@@ -154,6 +175,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListWebACLsCommandInput
   | PutLoggingConfigurationCommandInput
+  | PutPermissionPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateIPSetCommandInput
@@ -168,8 +190,10 @@ export type ServiceOutputTypes =
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
   | CreateWebACLCommandOutput
+  | DeleteFirewallManagerRuleGroupsCommandOutput
   | DeleteIPSetCommandOutput
   | DeleteLoggingConfigurationCommandOutput
+  | DeletePermissionPolicyCommandOutput
   | DeleteRegexPatternSetCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteWebACLCommandOutput
@@ -177,6 +201,7 @@ export type ServiceOutputTypes =
   | DisassociateWebACLCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
+  | GetPermissionPolicyCommandOutput
   | GetRateBasedStatementManagedKeysCommandOutput
   | GetRegexPatternSetCommandOutput
   | GetRuleGroupCommandOutput
@@ -192,6 +217,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListWebACLsCommandOutput
   | PutLoggingConfigurationCommandOutput
+  | PutPermissionPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateIPSetCommandOutput
@@ -273,14 +299,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -330,7 +361,7 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
  *          <p>This API guide is for developers who need detailed information about AWS WAF API
  *          actions, data types, and errors. For detailed information about AWS WAF features and an
  *          overview of how to use AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *          <p>You can make API calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
+ *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
@@ -353,9 +384,9 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
  *                   <code>CLOUDFRONT</code> or <code>REGIONAL</code>. </p>
  *             </li>
  *             <li>
- *                <p>You can define a Web ACL or rule group with a single API call, and update it with a
+ *                <p>You can define a Web ACL or rule group with a single call, and update it with a
  *                single call. You define all rule specifications in JSON format, and pass them to your
- *                rule group or Web ACL API calls.</p>
+ *                rule group or Web ACL calls.</p>
  *             </li>
  *             <li>
  *                <p>The limits AWS WAF places on the use of rules more closely reflects the cost of
@@ -390,6 +421,7 @@ export class WAFV2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

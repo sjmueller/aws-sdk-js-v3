@@ -74,6 +74,10 @@ import { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCom
 import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import {
+  GetCommentReactionsCommandInput,
+  GetCommentReactionsCommandOutput,
+} from "./commands/GetCommentReactionsCommand";
+import {
   GetCommentsForComparedCommitCommandInput,
   GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand";
@@ -158,6 +162,7 @@ import {
   PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand";
 import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "./commands/PostCommentReplyCommand";
+import { PutCommentReactionCommandInput, PutCommentReactionCommandOutput } from "./commands/PutCommentReactionCommand";
 import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommandInput,
@@ -230,6 +235,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -256,6 +262,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -289,6 +296,7 @@ export type ServiceInputTypes =
   | GetBlobCommandInput
   | GetBranchCommandInput
   | GetCommentCommandInput
+  | GetCommentReactionsCommandInput
   | GetCommentsForComparedCommitCommandInput
   | GetCommentsForPullRequestCommandInput
   | GetCommitCommandInput
@@ -320,6 +328,7 @@ export type ServiceInputTypes =
   | PostCommentForComparedCommitCommandInput
   | PostCommentForPullRequestCommandInput
   | PostCommentReplyCommandInput
+  | PutCommentReactionCommandInput
   | PutFileCommandInput
   | PutRepositoryTriggersCommandInput
   | TagResourceCommandInput
@@ -366,6 +375,7 @@ export type ServiceOutputTypes =
   | GetBlobCommandOutput
   | GetBranchCommandOutput
   | GetCommentCommandOutput
+  | GetCommentReactionsCommandOutput
   | GetCommentsForComparedCommitCommandOutput
   | GetCommentsForPullRequestCommandOutput
   | GetCommitCommandOutput
@@ -397,6 +407,7 @@ export type ServiceOutputTypes =
   | PostCommentForComparedCommitCommandOutput
   | PostCommentForPullRequestCommandOutput
   | PostCommentReplyCommandOutput
+  | PutCommentReactionCommandOutput
   | PutFileCommandOutput
   | PutRepositoryTriggersCommandOutput
   | TagResourceCommandOutput
@@ -489,14 +500,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -856,6 +872,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  *             </li>
  *             <li>
  *                 <p>
+ *                   <a>GetCommentReactions</a>, which returns information about emoji reactions to comments.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
  *                   <a>GetCommentsForComparedCommit</a>, which returns information about comments on the comparison between two commit specifiers
  *                     in a repository.</p>
  *             </li>
@@ -866,6 +886,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
  *             <li>
  *                 <p>
  *                   <a>PostCommentReply</a>, which creates a reply to a comment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutCommentReaction</a>, which creates or updates an emoji reaction to a comment.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -939,6 +963,7 @@ export class CodeCommitClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

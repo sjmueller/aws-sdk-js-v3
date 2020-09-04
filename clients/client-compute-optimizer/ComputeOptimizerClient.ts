@@ -1,4 +1,16 @@
 import {
+  DescribeRecommendationExportJobsCommandInput,
+  DescribeRecommendationExportJobsCommandOutput,
+} from "./commands/DescribeRecommendationExportJobsCommand";
+import {
+  ExportAutoScalingGroupRecommendationsCommandInput,
+  ExportAutoScalingGroupRecommendationsCommandOutput,
+} from "./commands/ExportAutoScalingGroupRecommendationsCommand";
+import {
+  ExportEC2InstanceRecommendationsCommandInput,
+  ExportEC2InstanceRecommendationsCommandOutput,
+} from "./commands/ExportEC2InstanceRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/GetAutoScalingGroupRecommendationsCommand";
@@ -38,6 +50,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -64,12 +77,16 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | DescribeRecommendationExportJobsCommandInput
+  | ExportAutoScalingGroupRecommendationsCommandInput
+  | ExportEC2InstanceRecommendationsCommandInput
   | GetAutoScalingGroupRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
   | GetEC2RecommendationProjectedMetricsCommandInput
@@ -78,6 +95,9 @@ export type ServiceInputTypes =
   | UpdateEnrollmentStatusCommandInput;
 
 export type ServiceOutputTypes =
+  | DescribeRecommendationExportJobsCommandOutput
+  | ExportAutoScalingGroupRecommendationsCommandOutput
+  | ExportEC2InstanceRecommendationsCommandOutput
   | GetAutoScalingGroupRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
   | GetEC2RecommendationProjectedMetricsCommandOutput
@@ -159,14 +179,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -193,15 +218,16 @@ export type ComputeOptimizerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of
- *             your AWS resources, such as EC2 instances and Auto Scaling groups. It reports whether your
+ * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your
+ *             AWS resources, such as EC2 instances and Auto Scaling groups. It reports whether your
  *             resources are optimal, and generates optimization recommendations to reduce the cost and
- *             improve the performance of your workloads. Compute Optimizer also provides recent utilization
- *             metric data, as well as projected utilization metric data for the recommendations, which
- *             you can use to evaluate which recommendation provides the best price-performance
- *             trade-off. The analysis of your usage patterns can help you decide when to move or
- *             resize your running resources, and still meet your performance and capacity
- *             requirements. For more information about Compute Optimizer, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User
+ *             improve the performance of your workloads. Compute Optimizer also provides recent utilization metric
+ *             data, as well as projected utilization metric data for the recommendations, which you
+ *             can use to evaluate which recommendation provides the best price-performance trade-off.
+ *             The analysis of your usage patterns can help you decide when to move or resize your
+ *             running resources, and still meet your performance and capacity requirements. For more
+ *             information about Compute Optimizer, including the required permissions to use the service, see the
+ *                 <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User
  *                 Guide</a>.</p>
  */
 export class ComputeOptimizerClient extends __Client<
@@ -230,6 +256,7 @@ export class ComputeOptimizerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

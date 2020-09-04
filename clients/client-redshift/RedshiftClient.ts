@@ -65,6 +65,7 @@ import {
   CreateSnapshotScheduleCommandOutput,
 } from "./commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommandInput,
@@ -107,6 +108,7 @@ import {
   DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
 import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -204,6 +206,10 @@ import {
   DescribeTableRestoreStatusCommandOutput,
 } from "./commands/DescribeTableRestoreStatusCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import {
+  DescribeUsageLimitsCommandInput,
+  DescribeUsageLimitsCommandOutput,
+} from "./commands/DescribeUsageLimitsCommand";
 import { DisableLoggingCommandInput, DisableLoggingCommandOutput } from "./commands/DisableLoggingCommand";
 import {
   DisableSnapshotCopyCommandInput,
@@ -264,6 +270,8 @@ import {
   ModifySnapshotScheduleCommandInput,
   ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand";
+import { ModifyUsageLimitCommandInput, ModifyUsageLimitCommandOutput } from "./commands/ModifyUsageLimitCommand";
+import { PauseClusterCommandInput, PauseClusterCommandOutput } from "./commands/PauseClusterCommand";
 import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
@@ -282,6 +290,7 @@ import {
   RestoreTableFromClusterSnapshotCommandInput,
   RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand";
+import { ResumeClusterCommandInput, ResumeClusterCommandOutput } from "./commands/ResumeClusterCommand";
 import {
   RevokeClusterSecurityGroupIngressCommandInput,
   RevokeClusterSecurityGroupIngressCommandOutput,
@@ -310,6 +319,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -336,6 +346,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -361,6 +372,7 @@ export type ServiceInputTypes =
   | CreateSnapshotCopyGrantCommandInput
   | CreateSnapshotScheduleCommandInput
   | CreateTagsCommandInput
+  | CreateUsageLimitCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterParameterGroupCommandInput
   | DeleteClusterSecurityGroupCommandInput
@@ -373,6 +385,7 @@ export type ServiceInputTypes =
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
   | DeleteTagsCommandInput
+  | DeleteUsageLimitCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeClusterDbRevisionsCommandInput
   | DescribeClusterParameterGroupsCommandInput
@@ -401,6 +414,7 @@ export type ServiceInputTypes =
   | DescribeStorageCommandInput
   | DescribeTableRestoreStatusCommandInput
   | DescribeTagsCommandInput
+  | DescribeUsageLimitsCommandInput
   | DisableLoggingCommandInput
   | DisableSnapshotCopyCommandInput
   | EnableLoggingCommandInput
@@ -419,12 +433,15 @@ export type ServiceInputTypes =
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
   | ModifySnapshotScheduleCommandInput
+  | ModifyUsageLimitCommandInput
+  | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
   | RebootClusterCommandInput
   | ResetClusterParameterGroupCommandInput
   | ResizeClusterCommandInput
   | RestoreFromClusterSnapshotCommandInput
   | RestoreTableFromClusterSnapshotCommandInput
+  | ResumeClusterCommandInput
   | RevokeClusterSecurityGroupIngressCommandInput
   | RevokeSnapshotAccessCommandInput
   | RotateEncryptionKeyCommandInput;
@@ -449,6 +466,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotCopyGrantCommandOutput
   | CreateSnapshotScheduleCommandOutput
   | CreateTagsCommandOutput
+  | CreateUsageLimitCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterParameterGroupCommandOutput
   | DeleteClusterSecurityGroupCommandOutput
@@ -461,6 +479,7 @@ export type ServiceOutputTypes =
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteUsageLimitCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeClusterDbRevisionsCommandOutput
   | DescribeClusterParameterGroupsCommandOutput
@@ -489,6 +508,7 @@ export type ServiceOutputTypes =
   | DescribeStorageCommandOutput
   | DescribeTableRestoreStatusCommandOutput
   | DescribeTagsCommandOutput
+  | DescribeUsageLimitsCommandOutput
   | DisableLoggingCommandOutput
   | DisableSnapshotCopyCommandOutput
   | EnableLoggingCommandOutput
@@ -507,12 +527,15 @@ export type ServiceOutputTypes =
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
   | ModifySnapshotScheduleCommandOutput
+  | ModifyUsageLimitCommandOutput
+  | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
   | RebootClusterCommandOutput
   | ResetClusterParameterGroupCommandOutput
   | ResizeClusterCommandOutput
   | RestoreFromClusterSnapshotCommandOutput
   | RestoreTableFromClusterSnapshotCommandOutput
+  | ResumeClusterCommandOutput
   | RevokeClusterSecurityGroupIngressCommandOutput
   | RevokeSnapshotAccessCommandOutput
   | RotateEncryptionKeyCommandOutput;
@@ -591,14 +614,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -674,6 +702,7 @@ export class RedshiftClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -31,9 +31,17 @@ import {
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
 import {
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "./commands/DescribeOrganizationConfigurationCommand";
+import {
   DescribePublishingDestinationCommandInput,
   DescribePublishingDestinationCommandOutput,
 } from "./commands/DescribePublishingDestinationCommand";
+import {
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableOrganizationAdminAccountCommand";
 import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -42,6 +50,10 @@ import {
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand";
+import {
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableOrganizationAdminAccountCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -55,8 +67,10 @@ import {
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
+import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
+import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
@@ -64,6 +78,10 @@ import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/
 import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import {
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "./commands/ListOrganizationAdminAccountsCommand";
 import {
   ListPublishingDestinationsCommandInput,
   ListPublishingDestinationsCommandOutput,
@@ -95,6 +113,14 @@ import {
 } from "./commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
+  UpdateMemberDetectorsCommandInput,
+  UpdateMemberDetectorsCommandOutput,
+} from "./commands/UpdateMemberDetectorsCommand";
+import {
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "./commands/UpdateOrganizationConfigurationCommand";
+import {
   UpdatePublishingDestinationCommandInput,
   UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand";
@@ -118,6 +144,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -144,6 +171,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -167,9 +195,12 @@ export type ServiceInputTypes =
   | DeleteMembersCommandInput
   | DeletePublishingDestinationCommandInput
   | DeleteThreatIntelSetCommandInput
+  | DescribeOrganizationConfigurationCommandInput
   | DescribePublishingDestinationCommandInput
+  | DisableOrganizationAdminAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
+  | EnableOrganizationAdminAccountCommandInput
   | GetDetectorCommandInput
   | GetFilterCommandInput
   | GetFindingsCommandInput
@@ -177,8 +208,10 @@ export type ServiceInputTypes =
   | GetIPSetCommandInput
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
+  | GetMemberDetectorsCommandInput
   | GetMembersCommandInput
   | GetThreatIntelSetCommandInput
+  | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
   | ListDetectorsCommandInput
   | ListFiltersCommandInput
@@ -186,6 +219,7 @@ export type ServiceInputTypes =
   | ListIPSetsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
+  | ListOrganizationAdminAccountsCommandInput
   | ListPublishingDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | ListThreatIntelSetsCommandInput
@@ -198,6 +232,8 @@ export type ServiceInputTypes =
   | UpdateFilterCommandInput
   | UpdateFindingsFeedbackCommandInput
   | UpdateIPSetCommandInput
+  | UpdateMemberDetectorsCommandInput
+  | UpdateOrganizationConfigurationCommandInput
   | UpdatePublishingDestinationCommandInput
   | UpdateThreatIntelSetCommandInput;
 
@@ -219,9 +255,12 @@ export type ServiceOutputTypes =
   | DeleteMembersCommandOutput
   | DeletePublishingDestinationCommandOutput
   | DeleteThreatIntelSetCommandOutput
+  | DescribeOrganizationConfigurationCommandOutput
   | DescribePublishingDestinationCommandOutput
+  | DisableOrganizationAdminAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
+  | EnableOrganizationAdminAccountCommandOutput
   | GetDetectorCommandOutput
   | GetFilterCommandOutput
   | GetFindingsCommandOutput
@@ -229,8 +268,10 @@ export type ServiceOutputTypes =
   | GetIPSetCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
+  | GetMemberDetectorsCommandOutput
   | GetMembersCommandOutput
   | GetThreatIntelSetCommandOutput
+  | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
   | ListDetectorsCommandOutput
   | ListFiltersCommandOutput
@@ -238,6 +279,7 @@ export type ServiceOutputTypes =
   | ListIPSetsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
+  | ListOrganizationAdminAccountsCommandOutput
   | ListPublishingDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThreatIntelSetsCommandOutput
@@ -250,6 +292,8 @@ export type ServiceOutputTypes =
   | UpdateFilterCommandOutput
   | UpdateFindingsFeedbackCommandOutput
   | UpdateIPSetCommandOutput
+  | UpdateMemberDetectorsCommandOutput
+  | UpdateOrganizationConfigurationCommandOutput
   | UpdatePublishingDestinationCommandOutput
   | UpdateThreatIntelSetCommandOutput;
 
@@ -327,14 +371,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -363,17 +412,21 @@ export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses
- *       threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to
- *       identify unexpected and potentially unauthorized and malicious activity within your AWS
+ *       threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
+ *       identify unexpected, potentially unauthorized, and malicious activity within your AWS
  *       environment. This can include issues like escalations of privileges, uses of exposed
  *       credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
- *       detect compromised EC2 instances serving malware or mining bitcoin. It also monitors AWS
- *       account access behavior for signs of compromise, such as unauthorized infrastructure
- *       deployments, like instances deployed in a region that has never been used, or unusual API
- *       calls, like a password policy change to reduce password strength. GuardDuty informs you of the
- *       status of your AWS environment by producing security findings that you can view in the
- *       GuardDuty console or through Amazon CloudWatch events. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
- *         GuardDuty User Guide</a>. </p>
+ *       detect compromised EC2 instances that serve malware or mine bitcoin. </p>
+ *          <p>GuardDuty also monitors AWS account access behavior for signs of compromise. Some examples
+ *       of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
+ *       that has never been used, or unusual API calls like a password policy change to reduce
+ *       password strength. </p>
+ *          <p>GuardDuty informs you of the status of your AWS environment by producing security findings
+ *       that you can view in the GuardDuty console or through Amazon CloudWatch events. For more
+ *       information, see the <i>
+ *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
+ *           GuardDuty User Guide</a>
+ *             </i>. </p>
  */
 export class GuardDutyClient extends __Client<
   __HttpHandlerOptions,
@@ -401,6 +454,7 @@ export class GuardDutyClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

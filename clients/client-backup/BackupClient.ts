@@ -36,6 +36,10 @@ import {
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
+import {
+  DescribeRegionSettingsCommandInput,
+  DescribeRegionSettingsCommandOutput,
+} from "./commands/DescribeRegionSettingsCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
 import {
   ExportBackupPlanTemplateCommandInput,
@@ -116,6 +120,10 @@ import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
+import {
+  UpdateRegionSettingsCommandInput,
+  UpdateRegionSettingsCommandOutput,
+} from "./commands/UpdateRegionSettingsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -132,6 +140,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -158,6 +167,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -178,6 +188,7 @@ export type ServiceInputTypes =
   | DescribeCopyJobCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
+  | DescribeRegionSettingsCommandInput
   | DescribeRestoreJobCommandInput
   | ExportBackupPlanTemplateCommandInput
   | GetBackupPlanCommandInput
@@ -209,7 +220,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
-  | UpdateRecoveryPointLifecycleCommandInput;
+  | UpdateRecoveryPointLifecycleCommandInput
+  | UpdateRegionSettingsCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBackupPlanCommandOutput
@@ -226,6 +238,7 @@ export type ServiceOutputTypes =
   | DescribeCopyJobCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
+  | DescribeRegionSettingsCommandOutput
   | DescribeRestoreJobCommandOutput
   | ExportBackupPlanTemplateCommandOutput
   | GetBackupPlanCommandOutput
@@ -257,7 +270,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
-  | UpdateRecoveryPointLifecycleCommandOutput;
+  | UpdateRecoveryPointLifecycleCommandOutput
+  | UpdateRegionSettingsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -333,14 +347,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -398,6 +417,7 @@ export class BackupClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -17,6 +17,7 @@ import {
   AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand";
 import { BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput } from "./commands/BacktrackDBClusterCommand";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import {
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
@@ -230,6 +231,10 @@ import {
 } from "./commands/DescribeEventSubscriptionsCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput,
+} from "./commands/DescribeExportTasksCommand";
+import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
@@ -404,6 +409,7 @@ import {
 } from "./commands/StartActivityStreamCommand";
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
 import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
 import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "./commands/StopActivityStreamCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
@@ -423,6 +429,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -449,6 +456,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -462,6 +470,7 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | AuthorizeDBSecurityGroupIngressCommandInput
   | BacktrackDBClusterCommandInput
+  | CancelExportTaskCommandInput
   | CopyDBClusterParameterGroupCommandInput
   | CopyDBClusterSnapshotCommandInput
   | CopyDBParameterGroupCommandInput
@@ -527,6 +536,7 @@ export type ServiceInputTypes =
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeExportTasksCommandInput
   | DescribeGlobalClustersCommandInput
   | DescribeInstallationMediaCommandInput
   | DescribeOptionGroupOptionsCommandInput
@@ -579,6 +589,7 @@ export type ServiceInputTypes =
   | StartActivityStreamCommandInput
   | StartDBClusterCommandInput
   | StartDBInstanceCommandInput
+  | StartExportTaskCommandInput
   | StopActivityStreamCommandInput
   | StopDBClusterCommandInput
   | StopDBInstanceCommandInput;
@@ -591,6 +602,7 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | AuthorizeDBSecurityGroupIngressCommandOutput
   | BacktrackDBClusterCommandOutput
+  | CancelExportTaskCommandOutput
   | CopyDBClusterParameterGroupCommandOutput
   | CopyDBClusterSnapshotCommandOutput
   | CopyDBParameterGroupCommandOutput
@@ -656,6 +668,7 @@ export type ServiceOutputTypes =
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeExportTasksCommandOutput
   | DescribeGlobalClustersCommandOutput
   | DescribeInstallationMediaCommandOutput
   | DescribeOptionGroupOptionsCommandOutput
@@ -708,6 +721,7 @@ export type ServiceOutputTypes =
   | StartActivityStreamCommandOutput
   | StartDBClusterCommandOutput
   | StartDBInstanceCommandOutput
+  | StartExportTaskCommandOutput
   | StopActivityStreamCommandOutput
   | StopDBClusterCommandOutput
   | StopDBInstanceCommandOutput;
@@ -786,14 +800,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -834,7 +853,7 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *           application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for
  *           the resources you use.</p>
  *          <p>This interface reference for Amazon RDS contains documentation for a programming or command line interface
- *           you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might
+ *           you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
  *           require techniques such as polling or callback functions to determine when a command has been applied. In this
  *           reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
  *           or during the maintenance window. The reference structure is as follows, and we list following some related topics
@@ -904,6 +923,7 @@ export class RDSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

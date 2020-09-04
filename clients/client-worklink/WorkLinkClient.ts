@@ -48,6 +48,10 @@ import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/Li
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput,
 } from "./commands/ListWebsiteAuthorizationProvidersCommand";
@@ -61,6 +65,8 @@ import {
 } from "./commands/RestoreDomainAccessCommand";
 import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "./commands/RevokeDomainAccessCommand";
 import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput,
@@ -101,6 +107,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -127,6 +134,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -152,11 +160,14 @@ export type ServiceInputTypes =
   | ListDevicesCommandInput
   | ListDomainsCommandInput
   | ListFleetsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWebsiteAuthorizationProvidersCommandInput
   | ListWebsiteCertificateAuthoritiesCommandInput
   | RestoreDomainAccessCommandInput
   | RevokeDomainAccessCommandInput
   | SignOutUserCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAuditStreamConfigurationCommandInput
   | UpdateCompanyNetworkConfigurationCommandInput
   | UpdateDevicePolicyConfigurationCommandInput
@@ -184,11 +195,14 @@ export type ServiceOutputTypes =
   | ListDevicesCommandOutput
   | ListDomainsCommandOutput
   | ListFleetsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWebsiteAuthorizationProvidersCommandOutput
   | ListWebsiteCertificateAuthoritiesCommandOutput
   | RestoreDomainAccessCommandOutput
   | RevokeDomainAccessCommandOutput
   | SignOutUserCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAuditStreamConfigurationCommandOutput
   | UpdateCompanyNetworkConfigurationCommandOutput
   | UpdateDevicePolicyConfigurationCommandOutput
@@ -270,14 +284,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -305,7 +324,7 @@ export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
- *             to internal websites and web apps from iOS phones. In a single step, your users, such as
+ *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
  *             They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink
  *             authenticates the user's access and securely renders authorized internal web content in a secure
@@ -338,6 +357,7 @@ export class WorkLinkClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

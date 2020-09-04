@@ -1,4 +1,9 @@
+import {
+  AcceptInboundCrossClusterSearchConnectionCommandInput,
+  AcceptInboundCrossClusterSearchConnectionCommandOutput,
+} from "./commands/AcceptInboundCrossClusterSearchConnectionCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
@@ -8,6 +13,11 @@ import {
   CreateElasticsearchDomainCommandOutput,
 } from "./commands/CreateElasticsearchDomainCommand";
 import {
+  CreateOutboundCrossClusterSearchConnectionCommandInput,
+  CreateOutboundCrossClusterSearchConnectionCommandOutput,
+} from "./commands/CreateOutboundCrossClusterSearchConnectionCommand";
+import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import {
   DeleteElasticsearchDomainCommandInput,
   DeleteElasticsearchDomainCommandOutput,
 } from "./commands/DeleteElasticsearchDomainCommand";
@@ -15,6 +25,15 @@ import {
   DeleteElasticsearchServiceRoleCommandInput,
   DeleteElasticsearchServiceRoleCommandOutput,
 } from "./commands/DeleteElasticsearchServiceRoleCommand";
+import {
+  DeleteInboundCrossClusterSearchConnectionCommandInput,
+  DeleteInboundCrossClusterSearchConnectionCommandOutput,
+} from "./commands/DeleteInboundCrossClusterSearchConnectionCommand";
+import {
+  DeleteOutboundCrossClusterSearchConnectionCommandInput,
+  DeleteOutboundCrossClusterSearchConnectionCommandOutput,
+} from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
 import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
@@ -32,6 +51,15 @@ import {
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
 } from "./commands/DescribeElasticsearchInstanceTypeLimitsCommand";
 import {
+  DescribeInboundCrossClusterSearchConnectionsCommandInput,
+  DescribeInboundCrossClusterSearchConnectionsCommandOutput,
+} from "./commands/DescribeInboundCrossClusterSearchConnectionsCommand";
+import {
+  DescribeOutboundCrossClusterSearchConnectionsCommandInput,
+  DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
+} from "./commands/DescribeOutboundCrossClusterSearchConnectionsCommand";
+import { DescribePackagesCommandInput, DescribePackagesCommandOutput } from "./commands/DescribePackagesCommand";
+import {
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
@@ -39,6 +67,7 @@ import {
   DescribeReservedElasticsearchInstancesCommandInput,
   DescribeReservedElasticsearchInstancesCommandOutput,
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
+import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
 import {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
@@ -47,6 +76,10 @@ import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from ".
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import {
+  ListDomainsForPackageCommandInput,
+  ListDomainsForPackageCommandOutput,
+} from "./commands/ListDomainsForPackageCommand";
+import {
   ListElasticsearchInstanceTypesCommandInput,
   ListElasticsearchInstanceTypesCommandOutput,
 } from "./commands/ListElasticsearchInstanceTypesCommand";
@@ -54,11 +87,19 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput,
 } from "./commands/ListElasticsearchVersionsCommand";
+import {
+  ListPackagesForDomainCommandInput,
+  ListPackagesForDomainCommandOutput,
+} from "./commands/ListPackagesForDomainCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
+import {
+  RejectInboundCrossClusterSearchConnectionCommandInput,
+  RejectInboundCrossClusterSearchConnectionCommandOutput,
+} from "./commands/RejectInboundCrossClusterSearchConnectionCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
@@ -88,6 +129,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -114,56 +156,85 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AcceptInboundCrossClusterSearchConnectionCommandInput
   | AddTagsCommandInput
+  | AssociatePackageCommandInput
   | CancelElasticsearchServiceSoftwareUpdateCommandInput
   | CreateElasticsearchDomainCommandInput
+  | CreateOutboundCrossClusterSearchConnectionCommandInput
+  | CreatePackageCommandInput
   | DeleteElasticsearchDomainCommandInput
   | DeleteElasticsearchServiceRoleCommandInput
+  | DeleteInboundCrossClusterSearchConnectionCommandInput
+  | DeleteOutboundCrossClusterSearchConnectionCommandInput
+  | DeletePackageCommandInput
   | DescribeElasticsearchDomainCommandInput
   | DescribeElasticsearchDomainConfigCommandInput
   | DescribeElasticsearchDomainsCommandInput
   | DescribeElasticsearchInstanceTypeLimitsCommandInput
+  | DescribeInboundCrossClusterSearchConnectionsCommandInput
+  | DescribeOutboundCrossClusterSearchConnectionsCommandInput
+  | DescribePackagesCommandInput
   | DescribeReservedElasticsearchInstanceOfferingsCommandInput
   | DescribeReservedElasticsearchInstancesCommandInput
+  | DissociatePackageCommandInput
   | GetCompatibleElasticsearchVersionsCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
   | ListDomainNamesCommandInput
+  | ListDomainsForPackageCommandInput
   | ListElasticsearchInstanceTypesCommandInput
   | ListElasticsearchVersionsCommandInput
+  | ListPackagesForDomainCommandInput
   | ListTagsCommandInput
   | PurchaseReservedElasticsearchInstanceOfferingCommandInput
+  | RejectInboundCrossClusterSearchConnectionCommandInput
   | RemoveTagsCommandInput
   | StartElasticsearchServiceSoftwareUpdateCommandInput
   | UpdateElasticsearchDomainConfigCommandInput
   | UpgradeElasticsearchDomainCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptInboundCrossClusterSearchConnectionCommandOutput
   | AddTagsCommandOutput
+  | AssociatePackageCommandOutput
   | CancelElasticsearchServiceSoftwareUpdateCommandOutput
   | CreateElasticsearchDomainCommandOutput
+  | CreateOutboundCrossClusterSearchConnectionCommandOutput
+  | CreatePackageCommandOutput
   | DeleteElasticsearchDomainCommandOutput
   | DeleteElasticsearchServiceRoleCommandOutput
+  | DeleteInboundCrossClusterSearchConnectionCommandOutput
+  | DeleteOutboundCrossClusterSearchConnectionCommandOutput
+  | DeletePackageCommandOutput
   | DescribeElasticsearchDomainCommandOutput
   | DescribeElasticsearchDomainConfigCommandOutput
   | DescribeElasticsearchDomainsCommandOutput
   | DescribeElasticsearchInstanceTypeLimitsCommandOutput
+  | DescribeInboundCrossClusterSearchConnectionsCommandOutput
+  | DescribeOutboundCrossClusterSearchConnectionsCommandOutput
+  | DescribePackagesCommandOutput
   | DescribeReservedElasticsearchInstanceOfferingsCommandOutput
   | DescribeReservedElasticsearchInstancesCommandOutput
+  | DissociatePackageCommandOutput
   | GetCompatibleElasticsearchVersionsCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
   | ListDomainNamesCommandOutput
+  | ListDomainsForPackageCommandOutput
   | ListElasticsearchInstanceTypesCommandOutput
   | ListElasticsearchVersionsCommandOutput
+  | ListPackagesForDomainCommandOutput
   | ListTagsCommandOutput
   | PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  | RejectInboundCrossClusterSearchConnectionCommandOutput
   | RemoveTagsCommandOutput
   | StartElasticsearchServiceSoftwareUpdateCommandOutput
   | UpdateElasticsearchDomainConfigCommandOutput
@@ -243,14 +314,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -311,6 +387,7 @@ export class ElasticsearchServiceClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

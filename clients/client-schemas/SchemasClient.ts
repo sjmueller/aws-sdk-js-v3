@@ -3,6 +3,10 @@ import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./comma
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { DeleteDiscovererCommandInput, DeleteDiscovererCommandOutput } from "./commands/DeleteDiscovererCommand";
 import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import {
   DeleteSchemaVersionCommandInput,
@@ -23,6 +27,7 @@ import {
   GetDiscoveredSchemaCommandInput,
   GetDiscoveredSchemaCommandOutput,
 } from "./commands/GetDiscoveredSchemaCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ListDiscoverersCommandInput, ListDiscoverersCommandOutput } from "./commands/ListDiscoverersCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
@@ -31,19 +36,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  LockServiceLinkedRoleCommandInput,
-  LockServiceLinkedRoleCommandOutput,
-} from "./commands/LockServiceLinkedRoleCommand";
 import { PutCodeBindingCommandInput, PutCodeBindingCommandOutput } from "./commands/PutCodeBindingCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { SearchSchemasCommandInput, SearchSchemasCommandOutput } from "./commands/SearchSchemasCommand";
 import { StartDiscovererCommandInput, StartDiscovererCommandOutput } from "./commands/StartDiscovererCommand";
 import { StopDiscovererCommandInput, StopDiscovererCommandOutput } from "./commands/StopDiscovererCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import {
-  UnlockServiceLinkedRoleCommandInput,
-  UnlockServiceLinkedRoleCommandOutput,
-} from "./commands/UnlockServiceLinkedRoleCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput } from "./commands/UpdateDiscovererCommand";
 import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
@@ -64,6 +62,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -90,6 +89,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -101,6 +101,7 @@ export type ServiceInputTypes =
   | CreateSchemaCommandInput
   | DeleteDiscovererCommandInput
   | DeleteRegistryCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteSchemaCommandInput
   | DeleteSchemaVersionCommandInput
   | DescribeCodeBindingCommandInput
@@ -109,18 +110,18 @@ export type ServiceInputTypes =
   | DescribeSchemaCommandInput
   | GetCodeBindingSourceCommandInput
   | GetDiscoveredSchemaCommandInput
+  | GetResourcePolicyCommandInput
   | ListDiscoverersCommandInput
   | ListRegistriesCommandInput
   | ListSchemaVersionsCommandInput
   | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
-  | LockServiceLinkedRoleCommandInput
   | PutCodeBindingCommandInput
+  | PutResourcePolicyCommandInput
   | SearchSchemasCommandInput
   | StartDiscovererCommandInput
   | StopDiscovererCommandInput
   | TagResourceCommandInput
-  | UnlockServiceLinkedRoleCommandInput
   | UntagResourceCommandInput
   | UpdateDiscovererCommandInput
   | UpdateRegistryCommandInput
@@ -132,6 +133,7 @@ export type ServiceOutputTypes =
   | CreateSchemaCommandOutput
   | DeleteDiscovererCommandOutput
   | DeleteRegistryCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteSchemaCommandOutput
   | DeleteSchemaVersionCommandOutput
   | DescribeCodeBindingCommandOutput
@@ -140,18 +142,18 @@ export type ServiceOutputTypes =
   | DescribeSchemaCommandOutput
   | GetCodeBindingSourceCommandOutput
   | GetDiscoveredSchemaCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListDiscoverersCommandOutput
   | ListRegistriesCommandOutput
   | ListSchemaVersionsCommandOutput
   | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
-  | LockServiceLinkedRoleCommandOutput
   | PutCodeBindingCommandOutput
+  | PutResourcePolicyCommandOutput
   | SearchSchemasCommandOutput
   | StartDiscovererCommandOutput
   | StopDiscovererCommandOutput
   | TagResourceCommandOutput
-  | UnlockServiceLinkedRoleCommandOutput
   | UntagResourceCommandOutput
   | UpdateDiscovererCommandOutput
   | UpdateRegistryCommandOutput
@@ -231,14 +233,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -265,7 +272,7 @@ export type SchemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS EventBridge Schemas</p>
+ * <p>Amazon EventBridge Schema Registry</p>
  */
 export class SchemasClient extends __Client<
   __HttpHandlerOptions,
@@ -293,6 +300,7 @@ export class SchemasClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

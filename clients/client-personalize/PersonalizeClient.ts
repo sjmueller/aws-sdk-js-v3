@@ -10,6 +10,7 @@ import {
   CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "./commands/CreateEventTrackerCommand";
+import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
 import {
@@ -20,6 +21,7 @@ import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./comma
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "./commands/DeleteEventTrackerCommand";
+import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
@@ -45,6 +47,7 @@ import {
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand";
+import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
 import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand";
@@ -65,6 +68,7 @@ import {
 } from "./commands/ListDatasetImportJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand";
+import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
@@ -89,6 +93,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -115,6 +120,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -127,6 +133,7 @@ export type ServiceInputTypes =
   | CreateDatasetGroupCommandInput
   | CreateDatasetImportJobCommandInput
   | CreateEventTrackerCommandInput
+  | CreateFilterCommandInput
   | CreateSchemaCommandInput
   | CreateSolutionCommandInput
   | CreateSolutionVersionCommandInput
@@ -134,6 +141,7 @@ export type ServiceInputTypes =
   | DeleteDatasetCommandInput
   | DeleteDatasetGroupCommandInput
   | DeleteEventTrackerCommandInput
+  | DeleteFilterCommandInput
   | DeleteSchemaCommandInput
   | DeleteSolutionCommandInput
   | DescribeAlgorithmCommandInput
@@ -144,6 +152,7 @@ export type ServiceInputTypes =
   | DescribeDatasetImportJobCommandInput
   | DescribeEventTrackerCommandInput
   | DescribeFeatureTransformationCommandInput
+  | DescribeFilterCommandInput
   | DescribeRecipeCommandInput
   | DescribeSchemaCommandInput
   | DescribeSolutionCommandInput
@@ -155,6 +164,7 @@ export type ServiceInputTypes =
   | ListDatasetImportJobsCommandInput
   | ListDatasetsCommandInput
   | ListEventTrackersCommandInput
+  | ListFiltersCommandInput
   | ListRecipesCommandInput
   | ListSchemasCommandInput
   | ListSolutionVersionsCommandInput
@@ -168,6 +178,7 @@ export type ServiceOutputTypes =
   | CreateDatasetGroupCommandOutput
   | CreateDatasetImportJobCommandOutput
   | CreateEventTrackerCommandOutput
+  | CreateFilterCommandOutput
   | CreateSchemaCommandOutput
   | CreateSolutionCommandOutput
   | CreateSolutionVersionCommandOutput
@@ -175,6 +186,7 @@ export type ServiceOutputTypes =
   | DeleteDatasetCommandOutput
   | DeleteDatasetGroupCommandOutput
   | DeleteEventTrackerCommandOutput
+  | DeleteFilterCommandOutput
   | DeleteSchemaCommandOutput
   | DeleteSolutionCommandOutput
   | DescribeAlgorithmCommandOutput
@@ -185,6 +197,7 @@ export type ServiceOutputTypes =
   | DescribeDatasetImportJobCommandOutput
   | DescribeEventTrackerCommandOutput
   | DescribeFeatureTransformationCommandOutput
+  | DescribeFilterCommandOutput
   | DescribeRecipeCommandOutput
   | DescribeSchemaCommandOutput
   | DescribeSolutionCommandOutput
@@ -196,6 +209,7 @@ export type ServiceOutputTypes =
   | ListDatasetImportJobsCommandOutput
   | ListDatasetsCommandOutput
   | ListEventTrackersCommandOutput
+  | ListFiltersCommandOutput
   | ListRecipesCommandOutput
   | ListSchemasCommandOutput
   | ListSolutionVersionsCommandOutput
@@ -276,14 +290,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -339,6 +358,7 @@ export class PersonalizeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

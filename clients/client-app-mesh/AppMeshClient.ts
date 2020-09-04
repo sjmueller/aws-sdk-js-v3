@@ -1,5 +1,10 @@
+import { CreateGatewayRouteCommandInput, CreateGatewayRouteCommandOutput } from "./commands/CreateGatewayRouteCommand";
 import { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import {
+  CreateVirtualGatewayCommandInput,
+  CreateVirtualGatewayCommandOutput,
+} from "./commands/CreateVirtualGatewayCommand";
 import { CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput } from "./commands/CreateVirtualNodeCommand";
 import {
   CreateVirtualRouterCommandInput,
@@ -9,9 +14,13 @@ import {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand";
+import { DeleteGatewayRouteCommandInput, DeleteGatewayRouteCommandOutput } from "./commands/DeleteGatewayRouteCommand";
 import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
-import { DeleteMeshPolicyCommandInput, DeleteMeshPolicyCommandOutput } from "./commands/DeleteMeshPolicyCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import {
+  DeleteVirtualGatewayCommandInput,
+  DeleteVirtualGatewayCommandOutput,
+} from "./commands/DeleteVirtualGatewayCommand";
 import { DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput } from "./commands/DeleteVirtualNodeCommand";
 import {
   DeleteVirtualRouterCommandInput,
@@ -21,8 +30,16 @@ import {
   DeleteVirtualServiceCommandInput,
   DeleteVirtualServiceCommandOutput,
 } from "./commands/DeleteVirtualServiceCommand";
+import {
+  DescribeGatewayRouteCommandInput,
+  DescribeGatewayRouteCommandOutput,
+} from "./commands/DescribeGatewayRouteCommand";
 import { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "./commands/DescribeMeshCommand";
 import { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "./commands/DescribeRouteCommand";
+import {
+  DescribeVirtualGatewayCommandInput,
+  DescribeVirtualGatewayCommandOutput,
+} from "./commands/DescribeVirtualGatewayCommand";
 import {
   DescribeVirtualNodeCommandInput,
   DescribeVirtualNodeCommandOutput,
@@ -35,24 +52,32 @@ import {
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput,
 } from "./commands/DescribeVirtualServiceCommand";
-import { GetMeshPolicyCommandInput, GetMeshPolicyCommandOutput } from "./commands/GetMeshPolicyCommand";
+import { ListGatewayRoutesCommandInput, ListGatewayRoutesCommandOutput } from "./commands/ListGatewayRoutesCommand";
 import { ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
 import { ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVirtualGatewaysCommandInput,
+  ListVirtualGatewaysCommandOutput,
+} from "./commands/ListVirtualGatewaysCommand";
 import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand";
 import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "./commands/ListVirtualRoutersCommand";
 import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand";
-import { PutMeshPolicyCommandInput, PutMeshPolicyCommandOutput } from "./commands/PutMeshPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateGatewayRouteCommandInput, UpdateGatewayRouteCommandOutput } from "./commands/UpdateGatewayRouteCommand";
 import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
 import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import {
+  UpdateVirtualGatewayCommandInput,
+  UpdateVirtualGatewayCommandOutput,
+} from "./commands/UpdateVirtualGatewayCommand";
 import { UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput } from "./commands/UpdateVirtualNodeCommand";
 import {
   UpdateVirtualRouterCommandInput,
@@ -78,6 +103,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -104,73 +130,88 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateGatewayRouteCommandInput
   | CreateMeshCommandInput
   | CreateRouteCommandInput
+  | CreateVirtualGatewayCommandInput
   | CreateVirtualNodeCommandInput
   | CreateVirtualRouterCommandInput
   | CreateVirtualServiceCommandInput
+  | DeleteGatewayRouteCommandInput
   | DeleteMeshCommandInput
-  | DeleteMeshPolicyCommandInput
   | DeleteRouteCommandInput
+  | DeleteVirtualGatewayCommandInput
   | DeleteVirtualNodeCommandInput
   | DeleteVirtualRouterCommandInput
   | DeleteVirtualServiceCommandInput
+  | DescribeGatewayRouteCommandInput
   | DescribeMeshCommandInput
   | DescribeRouteCommandInput
+  | DescribeVirtualGatewayCommandInput
   | DescribeVirtualNodeCommandInput
   | DescribeVirtualRouterCommandInput
   | DescribeVirtualServiceCommandInput
-  | GetMeshPolicyCommandInput
+  | ListGatewayRoutesCommandInput
   | ListMeshesCommandInput
   | ListRoutesCommandInput
   | ListTagsForResourceCommandInput
+  | ListVirtualGatewaysCommandInput
   | ListVirtualNodesCommandInput
   | ListVirtualRoutersCommandInput
   | ListVirtualServicesCommandInput
-  | PutMeshPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateGatewayRouteCommandInput
   | UpdateMeshCommandInput
   | UpdateRouteCommandInput
+  | UpdateVirtualGatewayCommandInput
   | UpdateVirtualNodeCommandInput
   | UpdateVirtualRouterCommandInput
   | UpdateVirtualServiceCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateGatewayRouteCommandOutput
   | CreateMeshCommandOutput
   | CreateRouteCommandOutput
+  | CreateVirtualGatewayCommandOutput
   | CreateVirtualNodeCommandOutput
   | CreateVirtualRouterCommandOutput
   | CreateVirtualServiceCommandOutput
+  | DeleteGatewayRouteCommandOutput
   | DeleteMeshCommandOutput
-  | DeleteMeshPolicyCommandOutput
   | DeleteRouteCommandOutput
+  | DeleteVirtualGatewayCommandOutput
   | DeleteVirtualNodeCommandOutput
   | DeleteVirtualRouterCommandOutput
   | DeleteVirtualServiceCommandOutput
+  | DescribeGatewayRouteCommandOutput
   | DescribeMeshCommandOutput
   | DescribeRouteCommandOutput
+  | DescribeVirtualGatewayCommandOutput
   | DescribeVirtualNodeCommandOutput
   | DescribeVirtualRouterCommandOutput
   | DescribeVirtualServiceCommandOutput
-  | GetMeshPolicyCommandOutput
+  | ListGatewayRoutesCommandOutput
   | ListMeshesCommandOutput
   | ListRoutesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVirtualGatewaysCommandOutput
   | ListVirtualNodesCommandOutput
   | ListVirtualRoutersCommandOutput
   | ListVirtualServicesCommandOutput
-  | PutMeshPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateGatewayRouteCommandOutput
   | UpdateMeshCommandOutput
   | UpdateRouteCommandOutput
+  | UpdateVirtualGatewayCommandOutput
   | UpdateVirtualNodeCommandOutput
   | UpdateVirtualRouterCommandOutput
   | UpdateVirtualServiceCommandOutput;
@@ -249,14 +290,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -323,6 +369,7 @@ export class AppMeshClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -8,6 +8,10 @@ import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./comma
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "./commands/DeleteMetricFilterCommand";
 import {
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "./commands/DeleteQueryDefinitionCommand";
+import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
@@ -35,6 +39,10 @@ import {
 } from "./commands/DescribeMetricFiltersCommand";
 import { DescribeQueriesCommandInput, DescribeQueriesCommandOutput } from "./commands/DescribeQueriesCommand";
 import {
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "./commands/DescribeQueryDefinitionsCommand";
+import {
   DescribeResourcePoliciesCommandInput,
   DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand";
@@ -56,6 +64,7 @@ import {
 } from "./commands/PutDestinationPolicyCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
+import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "./commands/PutQueryDefinitionCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
 import {
@@ -83,6 +92,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -109,6 +119,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -124,6 +135,7 @@ export type ServiceInputTypes =
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
   | DeleteMetricFilterCommandInput
+  | DeleteQueryDefinitionCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
@@ -133,6 +145,7 @@ export type ServiceInputTypes =
   | DescribeLogStreamsCommandInput
   | DescribeMetricFiltersCommandInput
   | DescribeQueriesCommandInput
+  | DescribeQueryDefinitionsCommandInput
   | DescribeResourcePoliciesCommandInput
   | DescribeSubscriptionFiltersCommandInput
   | DisassociateKmsKeyCommandInput
@@ -146,6 +159,7 @@ export type ServiceInputTypes =
   | PutDestinationPolicyCommandInput
   | PutLogEventsCommandInput
   | PutMetricFilterCommandInput
+  | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
@@ -165,6 +179,7 @@ export type ServiceOutputTypes =
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
   | DeleteMetricFilterCommandOutput
+  | DeleteQueryDefinitionCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
@@ -174,6 +189,7 @@ export type ServiceOutputTypes =
   | DescribeLogStreamsCommandOutput
   | DescribeMetricFiltersCommandOutput
   | DescribeQueriesCommandOutput
+  | DescribeQueryDefinitionsCommandOutput
   | DescribeResourcePoliciesCommandOutput
   | DescribeSubscriptionFiltersCommandOutput
   | DisassociateKmsKeyCommandOutput
@@ -187,6 +203,7 @@ export type ServiceOutputTypes =
   | PutDestinationPolicyCommandOutput
   | PutLogEventsCommandOutput
   | PutMetricFilterCommandOutput
+  | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
@@ -270,14 +287,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -365,6 +387,7 @@ export class CloudWatchLogsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

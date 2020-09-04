@@ -24,6 +24,12 @@ import {
   DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommandInput,
@@ -45,6 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -71,6 +78,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -85,6 +93,9 @@ export type ServiceInputTypes =
   | DescribeEnvironmentStatusCommandInput
   | DescribeEnvironmentsCommandInput
   | ListEnvironmentsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentMembershipCommandInput;
 
@@ -97,6 +108,9 @@ export type ServiceOutputTypes =
   | DescribeEnvironmentStatusCommandOutput
   | DescribeEnvironmentsCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
@@ -174,14 +188,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -247,6 +266,18 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListTagsForResource</code>: Gets the tags for an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TagResource</code>: Adds tags to an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UntagResource</code>: Removes tags from an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p>
  *             </li>
  *             <li>
@@ -281,6 +312,7 @@ export class Cloud9Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

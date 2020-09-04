@@ -1,4 +1,9 @@
 import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "./commands/AddFlowOutputsCommand";
+import { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "./commands/AddFlowSourcesCommand";
+import {
+  AddFlowVpcInterfacesCommandInput,
+  AddFlowVpcInterfacesCommandOutput,
+} from "./commands/AddFlowVpcInterfacesCommand";
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
@@ -13,6 +18,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand";
+import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "./commands/RemoveFlowSourceCommand";
+import {
+  RemoveFlowVpcInterfaceCommandInput,
+  RemoveFlowVpcInterfaceCommandOutput,
+} from "./commands/RemoveFlowVpcInterfaceCommand";
 import {
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
@@ -21,6 +31,7 @@ import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartF
 import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
@@ -43,6 +54,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -69,6 +81,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -76,6 +89,8 @@ import {
 
 export type ServiceInputTypes =
   | AddFlowOutputsCommandInput
+  | AddFlowSourcesCommandInput
+  | AddFlowVpcInterfacesCommandInput
   | CreateFlowCommandInput
   | DeleteFlowCommandInput
   | DescribeFlowCommandInput
@@ -84,17 +99,22 @@ export type ServiceInputTypes =
   | ListFlowsCommandInput
   | ListTagsForResourceCommandInput
   | RemoveFlowOutputCommandInput
+  | RemoveFlowSourceCommandInput
+  | RemoveFlowVpcInterfaceCommandInput
   | RevokeFlowEntitlementCommandInput
   | StartFlowCommandInput
   | StopFlowCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateFlowCommandInput
   | UpdateFlowEntitlementCommandInput
   | UpdateFlowOutputCommandInput
   | UpdateFlowSourceCommandInput;
 
 export type ServiceOutputTypes =
   | AddFlowOutputsCommandOutput
+  | AddFlowSourcesCommandOutput
+  | AddFlowVpcInterfacesCommandOutput
   | CreateFlowCommandOutput
   | DeleteFlowCommandOutput
   | DescribeFlowCommandOutput
@@ -103,11 +123,14 @@ export type ServiceOutputTypes =
   | ListFlowsCommandOutput
   | ListTagsForResourceCommandOutput
   | RemoveFlowOutputCommandOutput
+  | RemoveFlowSourceCommandOutput
+  | RemoveFlowVpcInterfaceCommandOutput
   | RevokeFlowEntitlementCommandOutput
   | StartFlowCommandOutput
   | StopFlowCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateFlowCommandOutput
   | UpdateFlowEntitlementCommandOutput
   | UpdateFlowOutputCommandOutput
   | UpdateFlowSourceCommandOutput;
@@ -186,14 +209,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -248,6 +276,7 @@ export class MediaConnectClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

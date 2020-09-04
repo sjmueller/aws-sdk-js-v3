@@ -38,6 +38,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -64,6 +65,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -183,14 +185,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -217,15 +224,15 @@ export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files
- *       directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known
- *       as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file
- *       transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication
- *       systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers
- *       and partners, or their applications. With your data in S3, you can use it with AWS services
- *       for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer
- *       for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set
- *       up. </p>
+ * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
+ *       the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
+ *       (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
+ *       (Amazon S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
+ *       Family by integrating with existing authentication systems, and providing DNS routing with
+ *       Amazon Route 53 so nothing changes for your customers and partners, or their applications.
+ *       With your data in Amazon S3, you can use it with AWS services for processing, analytics,
+ *       machine learning, and archiving. Getting started with AWS Transfer Family is easy since there
+ *       is no infrastructure to buy and set up.</p>
  */
 export class TransferClient extends __Client<
   __HttpHandlerOptions,
@@ -253,6 +260,7 @@ export class TransferClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

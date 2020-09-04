@@ -7,6 +7,10 @@ import {
   CancelDeploymentJobCommandOutput,
 } from "./commands/CancelDeploymentJobCommand";
 import {
+  CancelSimulationJobBatchCommandInput,
+  CancelSimulationJobBatchCommandOutput,
+} from "./commands/CancelSimulationJobBatchCommand";
+import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand";
@@ -62,6 +66,10 @@ import {
   DescribeSimulationApplicationCommandOutput,
 } from "./commands/DescribeSimulationApplicationCommand";
 import {
+  DescribeSimulationJobBatchCommandInput,
+  DescribeSimulationJobBatchCommandOutput,
+} from "./commands/DescribeSimulationJobBatchCommand";
+import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand";
@@ -76,6 +84,10 @@ import {
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput,
 } from "./commands/ListSimulationApplicationsCommand";
+import {
+  ListSimulationJobBatchesCommandInput,
+  ListSimulationJobBatchesCommandOutput,
+} from "./commands/ListSimulationJobBatchesCommand";
 import { ListSimulationJobsCommandInput, ListSimulationJobsCommandOutput } from "./commands/ListSimulationJobsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -86,6 +98,10 @@ import {
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput,
 } from "./commands/RestartSimulationJobCommand";
+import {
+  StartSimulationJobBatchCommandInput,
+  StartSimulationJobBatchCommandOutput,
+} from "./commands/StartSimulationJobBatchCommand";
 import { SyncDeploymentJobCommandInput, SyncDeploymentJobCommandOutput } from "./commands/SyncDeploymentJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -113,6 +129,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -139,6 +156,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -147,6 +165,7 @@ import {
 export type ServiceInputTypes =
   | BatchDescribeSimulationJobCommandInput
   | CancelDeploymentJobCommandInput
+  | CancelSimulationJobBatchCommandInput
   | CancelSimulationJobCommandInput
   | CreateDeploymentJobCommandInput
   | CreateFleetCommandInput
@@ -166,16 +185,19 @@ export type ServiceInputTypes =
   | DescribeRobotApplicationCommandInput
   | DescribeRobotCommandInput
   | DescribeSimulationApplicationCommandInput
+  | DescribeSimulationJobBatchCommandInput
   | DescribeSimulationJobCommandInput
   | ListDeploymentJobsCommandInput
   | ListFleetsCommandInput
   | ListRobotApplicationsCommandInput
   | ListRobotsCommandInput
   | ListSimulationApplicationsCommandInput
+  | ListSimulationJobBatchesCommandInput
   | ListSimulationJobsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterRobotCommandInput
   | RestartSimulationJobCommandInput
+  | StartSimulationJobBatchCommandInput
   | SyncDeploymentJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -185,6 +207,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchDescribeSimulationJobCommandOutput
   | CancelDeploymentJobCommandOutput
+  | CancelSimulationJobBatchCommandOutput
   | CancelSimulationJobCommandOutput
   | CreateDeploymentJobCommandOutput
   | CreateFleetCommandOutput
@@ -204,16 +227,19 @@ export type ServiceOutputTypes =
   | DescribeRobotApplicationCommandOutput
   | DescribeRobotCommandOutput
   | DescribeSimulationApplicationCommandOutput
+  | DescribeSimulationJobBatchCommandOutput
   | DescribeSimulationJobCommandOutput
   | ListDeploymentJobsCommandOutput
   | ListFleetsCommandOutput
   | ListRobotApplicationsCommandOutput
   | ListRobotsCommandOutput
   | ListSimulationApplicationsCommandOutput
+  | ListSimulationJobBatchesCommandOutput
   | ListSimulationJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterRobotCommandOutput
   | RestartSimulationJobCommandOutput
+  | StartSimulationJobBatchCommandOutput
   | SyncDeploymentJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -294,14 +320,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -356,6 +387,7 @@ export class RoboMakerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

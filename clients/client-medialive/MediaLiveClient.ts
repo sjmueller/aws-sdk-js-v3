@@ -31,6 +31,14 @@ import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/Dele
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
 import {
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "./commands/DescribeInputDeviceCommand";
+import {
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "./commands/DescribeInputDeviceThumbnailCommand";
+import {
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand";
@@ -46,6 +54,7 @@ import {
 } from "./commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand";
 import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
@@ -70,6 +79,7 @@ import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./command
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
+import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "./commands/UpdateInputDeviceCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput,
@@ -96,6 +106,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -122,6 +133,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -145,6 +157,8 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DescribeChannelCommandInput
   | DescribeInputCommandInput
+  | DescribeInputDeviceCommandInput
+  | DescribeInputDeviceThumbnailCommandInput
   | DescribeInputSecurityGroupCommandInput
   | DescribeMultiplexCommandInput
   | DescribeMultiplexProgramCommandInput
@@ -152,6 +166,7 @@ export type ServiceInputTypes =
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
   | ListChannelsCommandInput
+  | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
   | ListInputsCommandInput
   | ListMultiplexProgramsCommandInput
@@ -167,6 +182,7 @@ export type ServiceInputTypes =
   | UpdateChannelClassCommandInput
   | UpdateChannelCommandInput
   | UpdateInputCommandInput
+  | UpdateInputDeviceCommandInput
   | UpdateInputSecurityGroupCommandInput
   | UpdateMultiplexCommandInput
   | UpdateMultiplexProgramCommandInput
@@ -190,6 +206,8 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DescribeChannelCommandOutput
   | DescribeInputCommandOutput
+  | DescribeInputDeviceCommandOutput
+  | DescribeInputDeviceThumbnailCommandOutput
   | DescribeInputSecurityGroupCommandOutput
   | DescribeMultiplexCommandOutput
   | DescribeMultiplexProgramCommandOutput
@@ -197,6 +215,7 @@ export type ServiceOutputTypes =
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
   | ListChannelsCommandOutput
+  | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
   | ListInputsCommandOutput
   | ListMultiplexProgramsCommandOutput
@@ -212,6 +231,7 @@ export type ServiceOutputTypes =
   | UpdateChannelClassCommandOutput
   | UpdateChannelCommandOutput
   | UpdateInputCommandOutput
+  | UpdateInputDeviceCommandOutput
   | UpdateInputSecurityGroupCommandOutput
   | UpdateMultiplexCommandOutput
   | UpdateMultiplexProgramCommandOutput
@@ -291,14 +311,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -353,6 +378,7 @@ export class MediaLiveClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

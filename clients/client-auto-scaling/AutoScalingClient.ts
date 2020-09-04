@@ -16,6 +16,10 @@ import {
   BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
+  CancelInstanceRefreshCommandInput,
+  CancelInstanceRefreshCommandOutput,
+} from "./commands/CancelInstanceRefreshCommand";
+import {
   CompleteLifecycleActionCommandInput,
   CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
@@ -70,6 +74,10 @@ import {
   DescribeAutoScalingNotificationTypesCommandInput,
   DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
+import {
+  DescribeInstanceRefreshesCommandInput,
+  DescribeInstanceRefreshesCommandOutput,
+} from "./commands/DescribeInstanceRefreshesCommand";
 import {
   DescribeLaunchConfigurationsCommandInput,
   DescribeLaunchConfigurationsCommandOutput,
@@ -157,6 +165,10 @@ import {
   SetInstanceProtectionCommandInput,
   SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
+import {
+  StartInstanceRefreshCommandInput,
+  StartInstanceRefreshCommandOutput,
+} from "./commands/StartInstanceRefreshCommand";
 import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand";
 import {
   TerminateInstanceInAutoScalingGroupCommandInput,
@@ -182,6 +194,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -208,6 +221,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -219,6 +233,7 @@ export type ServiceInputTypes =
   | AttachLoadBalancersCommandInput
   | BatchDeleteScheduledActionCommandInput
   | BatchPutScheduledUpdateGroupActionCommandInput
+  | CancelInstanceRefreshCommandInput
   | CompleteLifecycleActionCommandInput
   | CreateAutoScalingGroupCommandInput
   | CreateLaunchConfigurationCommandInput
@@ -235,6 +250,7 @@ export type ServiceInputTypes =
   | DescribeAutoScalingGroupsCommandInput
   | DescribeAutoScalingInstancesCommandInput
   | DescribeAutoScalingNotificationTypesCommandInput
+  | DescribeInstanceRefreshesCommandInput
   | DescribeLaunchConfigurationsCommandInput
   | DescribeLifecycleHookTypesCommandInput
   | DescribeLifecycleHooksCommandInput
@@ -265,6 +281,7 @@ export type ServiceInputTypes =
   | SetDesiredCapacityCommandInput
   | SetInstanceHealthCommandInput
   | SetInstanceProtectionCommandInput
+  | StartInstanceRefreshCommandInput
   | SuspendProcessesCommandInput
   | TerminateInstanceInAutoScalingGroupCommandInput
   | UpdateAutoScalingGroupCommandInput;
@@ -275,6 +292,7 @@ export type ServiceOutputTypes =
   | AttachLoadBalancersCommandOutput
   | BatchDeleteScheduledActionCommandOutput
   | BatchPutScheduledUpdateGroupActionCommandOutput
+  | CancelInstanceRefreshCommandOutput
   | CompleteLifecycleActionCommandOutput
   | CreateAutoScalingGroupCommandOutput
   | CreateLaunchConfigurationCommandOutput
@@ -291,6 +309,7 @@ export type ServiceOutputTypes =
   | DescribeAutoScalingGroupsCommandOutput
   | DescribeAutoScalingInstancesCommandOutput
   | DescribeAutoScalingNotificationTypesCommandOutput
+  | DescribeInstanceRefreshesCommandOutput
   | DescribeLaunchConfigurationsCommandOutput
   | DescribeLifecycleHookTypesCommandOutput
   | DescribeLifecycleHooksCommandOutput
@@ -321,6 +340,7 @@ export type ServiceOutputTypes =
   | SetDesiredCapacityCommandOutput
   | SetInstanceHealthCommandOutput
   | SetInstanceProtectionCommandOutput
+  | StartInstanceRefreshCommandOutput
   | SuspendProcessesCommandOutput
   | TerminateInstanceInAutoScalingGroupCommandOutput
   | UpdateAutoScalingGroupCommandOutput;
@@ -399,14 +419,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -467,6 +492,7 @@ export class AutoScalingClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,5 +1,13 @@
+import {
+  CancelJournalKinesisStreamCommandInput,
+  CancelJournalKinesisStreamCommandOutput,
+} from "./commands/CancelJournalKinesisStreamCommand";
 import { CreateLedgerCommandInput, CreateLedgerCommandOutput } from "./commands/CreateLedgerCommand";
 import { DeleteLedgerCommandInput, DeleteLedgerCommandOutput } from "./commands/DeleteLedgerCommand";
+import {
+  DescribeJournalKinesisStreamCommandInput,
+  DescribeJournalKinesisStreamCommandOutput,
+} from "./commands/DescribeJournalKinesisStreamCommand";
 import {
   DescribeJournalS3ExportCommandInput,
   DescribeJournalS3ExportCommandOutput,
@@ -9,6 +17,10 @@ import { ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput } from ".
 import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand";
 import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
+import {
+  ListJournalKinesisStreamsForLedgerCommandInput,
+  ListJournalKinesisStreamsForLedgerCommandOutput,
+} from "./commands/ListJournalKinesisStreamsForLedgerCommand";
 import {
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput,
@@ -22,6 +34,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StreamJournalToKinesisCommandInput,
+  StreamJournalToKinesisCommandOutput,
+} from "./commands/StreamJournalToKinesisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
@@ -41,6 +57,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -67,41 +84,50 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CancelJournalKinesisStreamCommandInput
   | CreateLedgerCommandInput
   | DeleteLedgerCommandInput
+  | DescribeJournalKinesisStreamCommandInput
   | DescribeJournalS3ExportCommandInput
   | DescribeLedgerCommandInput
   | ExportJournalToS3CommandInput
   | GetBlockCommandInput
   | GetDigestCommandInput
   | GetRevisionCommandInput
+  | ListJournalKinesisStreamsForLedgerCommandInput
   | ListJournalS3ExportsCommandInput
   | ListJournalS3ExportsForLedgerCommandInput
   | ListLedgersCommandInput
   | ListTagsForResourceCommandInput
+  | StreamJournalToKinesisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLedgerCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelJournalKinesisStreamCommandOutput
   | CreateLedgerCommandOutput
   | DeleteLedgerCommandOutput
+  | DescribeJournalKinesisStreamCommandOutput
   | DescribeJournalS3ExportCommandOutput
   | DescribeLedgerCommandOutput
   | ExportJournalToS3CommandOutput
   | GetBlockCommandOutput
   | GetDigestCommandOutput
   | GetRevisionCommandOutput
+  | ListJournalKinesisStreamsForLedgerCommandOutput
   | ListJournalS3ExportsCommandOutput
   | ListJournalS3ExportsForLedgerCommandOutput
   | ListLedgersCommandOutput
   | ListTagsForResourceCommandOutput
+  | StreamJournalToKinesisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLedgerCommandOutput;
@@ -180,14 +206,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -242,6 +273,7 @@ export class QLDBClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

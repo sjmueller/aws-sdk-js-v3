@@ -65,6 +65,7 @@ import {
   CreateTrialComponentCommandOutput,
 } from "./commands/CreateTrialComponentCommand";
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
+import { CreateWorkforceCommandInput, CreateWorkforceCommandOutput } from "./commands/CreateWorkforceCommand";
 import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./commands/CreateWorkteamCommand";
 import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
@@ -83,6 +84,7 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand";
+import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "./commands/DeleteModelPackageCommand";
 import {
@@ -104,6 +106,7 @@ import {
   DeleteTrialComponentCommandOutput,
 } from "./commands/DeleteTrialComponentCommand";
 import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
+import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "./commands/DeleteWorkforceCommand";
 import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
@@ -263,6 +266,7 @@ import {
 } from "./commands/ListTrialComponentsCommand";
 import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand";
 import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
+import { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand";
 import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
@@ -339,6 +343,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -365,6 +370,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -399,6 +405,7 @@ export type ServiceInputTypes =
   | CreateTrialCommandInput
   | CreateTrialComponentCommandInput
   | CreateUserProfileCommandInput
+  | CreateWorkforceCommandInput
   | CreateWorkteamCommandInput
   | DeleteAlgorithmCommandInput
   | DeleteAppCommandInput
@@ -408,6 +415,7 @@ export type ServiceInputTypes =
   | DeleteEndpointConfigCommandInput
   | DeleteExperimentCommandInput
   | DeleteFlowDefinitionCommandInput
+  | DeleteHumanTaskUiCommandInput
   | DeleteModelCommandInput
   | DeleteModelPackageCommandInput
   | DeleteMonitoringScheduleCommandInput
@@ -417,6 +425,7 @@ export type ServiceInputTypes =
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
   | DeleteUserProfileCommandInput
+  | DeleteWorkforceCommandInput
   | DeleteWorkteamCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
@@ -477,6 +486,7 @@ export type ServiceInputTypes =
   | ListTrialComponentsCommandInput
   | ListTrialsCommandInput
   | ListUserProfilesCommandInput
+  | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
   | RenderUiTemplateCommandInput
   | SearchCommandInput
@@ -534,6 +544,7 @@ export type ServiceOutputTypes =
   | CreateTrialCommandOutput
   | CreateTrialComponentCommandOutput
   | CreateUserProfileCommandOutput
+  | CreateWorkforceCommandOutput
   | CreateWorkteamCommandOutput
   | DeleteAlgorithmCommandOutput
   | DeleteAppCommandOutput
@@ -543,6 +554,7 @@ export type ServiceOutputTypes =
   | DeleteEndpointConfigCommandOutput
   | DeleteExperimentCommandOutput
   | DeleteFlowDefinitionCommandOutput
+  | DeleteHumanTaskUiCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelPackageCommandOutput
   | DeleteMonitoringScheduleCommandOutput
@@ -552,6 +564,7 @@ export type ServiceOutputTypes =
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
   | DeleteUserProfileCommandOutput
+  | DeleteWorkforceCommandOutput
   | DeleteWorkteamCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
@@ -612,6 +625,7 @@ export type ServiceOutputTypes =
   | ListTrialComponentsCommandOutput
   | ListTrialsCommandOutput
   | ListUserProfilesCommandOutput
+  | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
   | RenderUiTemplateCommandOutput
   | SearchCommandOutput
@@ -714,14 +728,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -748,7 +767,22 @@ export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig;
 
 /**
- * <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
+ * <p>Provides APIs for creating and managing Amazon SageMaker resources. </p>
+ *         <p>Other Resources:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">Amazon SageMaker Developer
+ *                         Guide</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI
+ *                         Runtime API Reference</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class SageMakerClient extends __Client<
   __HttpHandlerOptions,
@@ -776,6 +810,7 @@ export class SageMakerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

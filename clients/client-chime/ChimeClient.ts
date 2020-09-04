@@ -38,9 +38,14 @@ import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./comma
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
+  CreateMeetingWithAttendeesCommandInput,
+  CreateMeetingWithAttendeesCommandOutput,
+} from "./commands/CreateMeetingWithAttendeesCommand";
+import {
   CreatePhoneNumberOrderCommandInput,
   CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand";
+import { CreateProxySessionCommandInput, CreateProxySessionCommandOutput } from "./commands/CreateProxySessionCommand";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand";
 import {
   CreateRoomMembershipCommandInput,
@@ -63,6 +68,7 @@ import {
 } from "./commands/DeleteEventsConfigurationCommand";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand";
+import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand";
 import {
   DeleteRoomMembershipCommandInput,
@@ -73,6 +79,10 @@ import {
   DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand";
 import {
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand";
@@ -80,6 +90,10 @@ import {
   DeleteVoiceConnectorOriginationCommandInput,
   DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand";
+import {
+  DeleteVoiceConnectorProxyCommandInput,
+  DeleteVoiceConnectorProxyCommandOutput,
+} from "./commands/DeleteVoiceConnectorProxyCommand";
 import {
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
   DeleteVoiceConnectorStreamingConfigurationCommandOutput,
@@ -127,10 +141,19 @@ import {
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand";
+import { GetProxySessionCommandInput, GetProxySessionCommandOutput } from "./commands/GetProxySessionCommand";
+import {
+  GetRetentionSettingsCommandInput,
+  GetRetentionSettingsCommandOutput,
+} from "./commands/GetRetentionSettingsCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand";
 import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand";
+import {
+  GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
@@ -143,6 +166,10 @@ import {
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand";
+import {
+  GetVoiceConnectorProxyCommandInput,
+  GetVoiceConnectorProxyCommandOutput,
+} from "./commands/GetVoiceConnectorProxyCommand";
 import {
   GetVoiceConnectorStreamingConfigurationCommandInput,
   GetVoiceConnectorStreamingConfigurationCommandOutput,
@@ -157,19 +184,26 @@ import {
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
 import { InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
+import { ListAttendeeTagsCommandInput, ListAttendeeTagsCommandOutput } from "./commands/ListAttendeeTagsCommand";
 import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "./commands/ListAttendeesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "./commands/ListMeetingTagsCommand";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand";
 import {
   ListPhoneNumberOrdersCommandInput,
   ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import { ListProxySessionsCommandInput, ListProxySessionsCommandOutput } from "./commands/ListProxySessionsCommand";
 import {
   ListRoomMembershipsCommandInput,
   ListRoomMembershipsCommandOutput,
 } from "./commands/ListRoomMembershipsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVoiceConnectorGroupsCommandInput,
@@ -189,6 +223,14 @@ import {
   PutEventsConfigurationCommandOutput,
 } from "./commands/PutEventsConfigurationCommand";
 import {
+  PutRetentionSettingsCommandInput,
+  PutRetentionSettingsCommandOutput,
+} from "./commands/PutRetentionSettingsCommand";
+import {
+  PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorLoggingConfigurationCommand";
@@ -196,6 +238,10 @@ import {
   PutVoiceConnectorOriginationCommandInput,
   PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand";
+import {
+  PutVoiceConnectorProxyCommandInput,
+  PutVoiceConnectorProxyCommandOutput,
+} from "./commands/PutVoiceConnectorProxyCommand";
 import {
   PutVoiceConnectorStreamingConfigurationCommandInput,
   PutVoiceConnectorStreamingConfigurationCommandOutput,
@@ -209,6 +255,11 @@ import {
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
+  RedactConversationMessageCommandInput,
+  RedactConversationMessageCommandOutput,
+} from "./commands/RedactConversationMessageCommand";
+import { RedactRoomMessageCommandInput, RedactRoomMessageCommandOutput } from "./commands/RedactRoomMessageCommand";
+import {
   RegenerateSecurityTokenCommandInput,
   RegenerateSecurityTokenCommandOutput,
 } from "./commands/RegenerateSecurityTokenCommand";
@@ -218,6 +269,12 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
+import { TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagAttendeeCommandInput, UntagAttendeeCommandOutput } from "./commands/UntagAttendeeCommand";
+import { UntagMeetingCommandInput, UntagMeetingCommandOutput } from "./commands/UntagMeetingCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAccountCommandInput, UpdateAccountCommandOutput } from "./commands/UpdateAccountCommand";
 import {
   UpdateAccountSettingsCommandInput,
@@ -233,6 +290,7 @@ import {
   UpdatePhoneNumberSettingsCommandInput,
   UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand";
+import { UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput } from "./commands/UpdateProxySessionCommand";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import {
   UpdateRoomMembershipCommandInput,
@@ -264,6 +322,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -290,6 +349,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -311,7 +371,9 @@ export type ServiceInputTypes =
   | CreateAttendeeCommandInput
   | CreateBotCommandInput
   | CreateMeetingCommandInput
+  | CreateMeetingWithAttendeesCommandInput
   | CreatePhoneNumberOrderCommandInput
+  | CreateProxySessionCommandInput
   | CreateRoomCommandInput
   | CreateRoomMembershipCommandInput
   | CreateUserCommandInput
@@ -322,11 +384,14 @@ export type ServiceInputTypes =
   | DeleteEventsConfigurationCommandInput
   | DeleteMeetingCommandInput
   | DeletePhoneNumberCommandInput
+  | DeleteProxySessionCommandInput
   | DeleteRoomCommandInput
   | DeleteRoomMembershipCommandInput
   | DeleteVoiceConnectorCommandInput
+  | DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   | DeleteVoiceConnectorGroupCommandInput
   | DeleteVoiceConnectorOriginationCommandInput
+  | DeleteVoiceConnectorProxyCommandInput
   | DeleteVoiceConnectorStreamingConfigurationCommandInput
   | DeleteVoiceConnectorTerminationCommandInput
   | DeleteVoiceConnectorTerminationCredentialsCommandInput
@@ -344,46 +409,66 @@ export type ServiceInputTypes =
   | GetPhoneNumberCommandInput
   | GetPhoneNumberOrderCommandInput
   | GetPhoneNumberSettingsCommandInput
+  | GetProxySessionCommandInput
+  | GetRetentionSettingsCommandInput
   | GetRoomCommandInput
   | GetUserCommandInput
   | GetUserSettingsCommandInput
   | GetVoiceConnectorCommandInput
+  | GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   | GetVoiceConnectorGroupCommandInput
   | GetVoiceConnectorLoggingConfigurationCommandInput
   | GetVoiceConnectorOriginationCommandInput
+  | GetVoiceConnectorProxyCommandInput
   | GetVoiceConnectorStreamingConfigurationCommandInput
   | GetVoiceConnectorTerminationCommandInput
   | GetVoiceConnectorTerminationHealthCommandInput
   | InviteUsersCommandInput
   | ListAccountsCommandInput
+  | ListAttendeeTagsCommandInput
   | ListAttendeesCommandInput
   | ListBotsCommandInput
+  | ListMeetingTagsCommandInput
   | ListMeetingsCommandInput
   | ListPhoneNumberOrdersCommandInput
   | ListPhoneNumbersCommandInput
+  | ListProxySessionsCommandInput
   | ListRoomMembershipsCommandInput
   | ListRoomsCommandInput
+  | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | ListVoiceConnectorGroupsCommandInput
   | ListVoiceConnectorTerminationCredentialsCommandInput
   | ListVoiceConnectorsCommandInput
   | LogoutUserCommandInput
   | PutEventsConfigurationCommandInput
+  | PutRetentionSettingsCommandInput
+  | PutVoiceConnectorEmergencyCallingConfigurationCommandInput
   | PutVoiceConnectorLoggingConfigurationCommandInput
   | PutVoiceConnectorOriginationCommandInput
+  | PutVoiceConnectorProxyCommandInput
   | PutVoiceConnectorStreamingConfigurationCommandInput
   | PutVoiceConnectorTerminationCommandInput
   | PutVoiceConnectorTerminationCredentialsCommandInput
+  | RedactConversationMessageCommandInput
+  | RedactRoomMessageCommandInput
   | RegenerateSecurityTokenCommandInput
   | ResetPersonalPINCommandInput
   | RestorePhoneNumberCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | TagAttendeeCommandInput
+  | TagMeetingCommandInput
+  | TagResourceCommandInput
+  | UntagAttendeeCommandInput
+  | UntagMeetingCommandInput
+  | UntagResourceCommandInput
   | UpdateAccountCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateBotCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberSettingsCommandInput
+  | UpdateProxySessionCommandInput
   | UpdateRoomCommandInput
   | UpdateRoomMembershipCommandInput
   | UpdateUserCommandInput
@@ -407,7 +492,9 @@ export type ServiceOutputTypes =
   | CreateAttendeeCommandOutput
   | CreateBotCommandOutput
   | CreateMeetingCommandOutput
+  | CreateMeetingWithAttendeesCommandOutput
   | CreatePhoneNumberOrderCommandOutput
+  | CreateProxySessionCommandOutput
   | CreateRoomCommandOutput
   | CreateRoomMembershipCommandOutput
   | CreateUserCommandOutput
@@ -418,11 +505,14 @@ export type ServiceOutputTypes =
   | DeleteEventsConfigurationCommandOutput
   | DeleteMeetingCommandOutput
   | DeletePhoneNumberCommandOutput
+  | DeleteProxySessionCommandOutput
   | DeleteRoomCommandOutput
   | DeleteRoomMembershipCommandOutput
   | DeleteVoiceConnectorCommandOutput
+  | DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | DeleteVoiceConnectorGroupCommandOutput
   | DeleteVoiceConnectorOriginationCommandOutput
+  | DeleteVoiceConnectorProxyCommandOutput
   | DeleteVoiceConnectorStreamingConfigurationCommandOutput
   | DeleteVoiceConnectorTerminationCommandOutput
   | DeleteVoiceConnectorTerminationCredentialsCommandOutput
@@ -440,46 +530,66 @@ export type ServiceOutputTypes =
   | GetPhoneNumberCommandOutput
   | GetPhoneNumberOrderCommandOutput
   | GetPhoneNumberSettingsCommandOutput
+  | GetProxySessionCommandOutput
+  | GetRetentionSettingsCommandOutput
   | GetRoomCommandOutput
   | GetUserCommandOutput
   | GetUserSettingsCommandOutput
   | GetVoiceConnectorCommandOutput
+  | GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | GetVoiceConnectorGroupCommandOutput
   | GetVoiceConnectorLoggingConfigurationCommandOutput
   | GetVoiceConnectorOriginationCommandOutput
+  | GetVoiceConnectorProxyCommandOutput
   | GetVoiceConnectorStreamingConfigurationCommandOutput
   | GetVoiceConnectorTerminationCommandOutput
   | GetVoiceConnectorTerminationHealthCommandOutput
   | InviteUsersCommandOutput
   | ListAccountsCommandOutput
+  | ListAttendeeTagsCommandOutput
   | ListAttendeesCommandOutput
   | ListBotsCommandOutput
+  | ListMeetingTagsCommandOutput
   | ListMeetingsCommandOutput
   | ListPhoneNumberOrdersCommandOutput
   | ListPhoneNumbersCommandOutput
+  | ListProxySessionsCommandOutput
   | ListRoomMembershipsCommandOutput
   | ListRoomsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | ListVoiceConnectorGroupsCommandOutput
   | ListVoiceConnectorTerminationCredentialsCommandOutput
   | ListVoiceConnectorsCommandOutput
   | LogoutUserCommandOutput
   | PutEventsConfigurationCommandOutput
+  | PutRetentionSettingsCommandOutput
+  | PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | PutVoiceConnectorLoggingConfigurationCommandOutput
   | PutVoiceConnectorOriginationCommandOutput
+  | PutVoiceConnectorProxyCommandOutput
   | PutVoiceConnectorStreamingConfigurationCommandOutput
   | PutVoiceConnectorTerminationCommandOutput
   | PutVoiceConnectorTerminationCredentialsCommandOutput
+  | RedactConversationMessageCommandOutput
+  | RedactRoomMessageCommandOutput
   | RegenerateSecurityTokenCommandOutput
   | ResetPersonalPINCommandOutput
   | RestorePhoneNumberCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | TagAttendeeCommandOutput
+  | TagMeetingCommandOutput
+  | TagResourceCommandOutput
+  | UntagAttendeeCommandOutput
+  | UntagMeetingCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAccountCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateBotCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberSettingsCommandOutput
+  | UpdateProxySessionCommandOutput
   | UpdateRoomCommandOutput
   | UpdateRoomMembershipCommandOutput
   | UpdateUserCommandOutput
@@ -561,14 +671,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -659,6 +774,7 @@ export class ChimeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

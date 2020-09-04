@@ -55,6 +55,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -81,6 +82,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -192,14 +194,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -227,11 +234,25 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
 
 /**
  * <fullname>AWS Support</fullname>
- *         <p>The AWS Support API reference is intended for programmers who need detailed
- *             information about the AWS Support operations and data types. This service enables you to
- *             manage your AWS Support cases programmatically. It uses HTTP methods that return results
- *             in JSON format.</p>
- *         <p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a> features. You can
+ *         <p>The AWS Support API reference is intended for programmers who need detailed information
+ *             about the AWS Support operations and data types. This service enables you to manage your AWS
+ *             Support cases programmatically. It uses HTTP methods that return results in JSON
+ *             format.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ *         <p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">AWS Trusted Advisor</a> features. You can
  *             retrieve a list of checks and their descriptions, get check results, specify checks to
  *             refresh, and get the refresh status of checks.</p>
  *         <p>The following list describes the AWS Support case management operations:</p>
@@ -246,8 +267,8 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *             <li>
  *                 <p>
  *                     <b>Case creation, case details, and case
- *                         resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve
- *                     information about cases, and resolve cases.</p>
+ *                         resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve information
+ *                     about cases, and resolve cases.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -255,8 +276,8 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *                     communications and attachments to AWS Support cases.</p>
  *             </li>
  *          </ul>
- *         <p>The following list describes the operations available from the AWS Support service
- *             for Trusted Advisor:</p>
+ *         <p>The following list describes the operations available from the AWS Support service for
+ *             Trusted Advisor:</p>
  *         <ul>
  *             <li>
  *                 <p>
@@ -265,7 +286,7 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *             </li>
  *             <li>
  *                 <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the
- *                     check you specified.</p>
+ *                     check that you specified.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -274,8 +295,8 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *             </li>
  *             <li>
  *                 <p>
- *                     <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun
- *                     a specified check.</p>
+ *                     <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a
+ *                     specified check.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -316,6 +337,7 @@ export class SupportClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

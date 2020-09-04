@@ -4,7 +4,15 @@ import {
 } from "./commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
+import {
+  CreateLocationFsxWindowsCommandInput,
+  CreateLocationFsxWindowsCommandOutput,
+} from "./commands/CreateLocationFsxWindowsCommand";
 import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand";
+import {
+  CreateLocationObjectStorageCommandInput,
+  CreateLocationObjectStorageCommandOutput,
+} from "./commands/CreateLocationObjectStorageCommand";
 import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command";
 import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "./commands/CreateLocationSmbCommand";
 import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
@@ -17,9 +25,17 @@ import {
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
 import {
+  DescribeLocationFsxWindowsCommandInput,
+  DescribeLocationFsxWindowsCommandOutput,
+} from "./commands/DescribeLocationFsxWindowsCommand";
+import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
+import {
+  DescribeLocationObjectStorageCommandInput,
+  DescribeLocationObjectStorageCommandOutput,
+} from "./commands/DescribeLocationObjectStorageCommand";
 import { DescribeLocationS3CommandInput, DescribeLocationS3CommandOutput } from "./commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommandInput,
@@ -59,6 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -85,6 +102,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -94,7 +112,9 @@ export type ServiceInputTypes =
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
+  | CreateLocationFsxWindowsCommandInput
   | CreateLocationNfsCommandInput
+  | CreateLocationObjectStorageCommandInput
   | CreateLocationS3CommandInput
   | CreateLocationSmbCommandInput
   | CreateTaskCommandInput
@@ -103,7 +123,9 @@ export type ServiceInputTypes =
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
+  | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationNfsCommandInput
+  | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
   | DescribeTaskCommandInput
@@ -123,7 +145,9 @@ export type ServiceOutputTypes =
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
+  | CreateLocationFsxWindowsCommandOutput
   | CreateLocationNfsCommandOutput
+  | CreateLocationObjectStorageCommandOutput
   | CreateLocationS3CommandOutput
   | CreateLocationSmbCommandOutput
   | CreateTaskCommandOutput
@@ -132,7 +156,9 @@ export type ServiceOutputTypes =
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
+  | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationNfsCommandOutput
+  | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
   | DescribeTaskCommandOutput
@@ -222,14 +248,19 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -290,6 +321,7 @@ export class DataSyncClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {
