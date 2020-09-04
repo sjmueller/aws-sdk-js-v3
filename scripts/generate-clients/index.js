@@ -12,18 +12,10 @@ const {
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 
-const SDK_CLIENTS_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "clients")
-);
-const SDK_DENO_CLIENTS_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "deno")
-);
-const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "protocol_tests")
-);
-const PACKAGES_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "packages")
-);
+const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
+const SDK_DENO_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "deno"));
+const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "protocol_tests"));
+const PACKAGES_DIR = path.normalize(path.join(__dirname, "..", "..", "packages"));
 
 const { models, globs, output: clientsDir } = yargs
   .alias("m", "models")
@@ -48,15 +40,8 @@ const { models, globs, output: clientsDir } = yargs
     await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-<<<<<<< HEAD
-    await copyToClients(
-      CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
-      PROTOCOL_TESTS_CLIENTS_DIR
-    );
-    await copyToDeno([clientsDir, PACKAGES_DIR], SDK_DENO_CLIENTS_DIR);
-=======
     await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
->>>>>>> master
+    await copyToDeno([clientsDir, PACKAGES_DIR], SDK_DENO_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
